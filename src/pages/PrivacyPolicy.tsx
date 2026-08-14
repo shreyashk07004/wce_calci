@@ -3,7 +3,7 @@ import { ShieldCheck, Lock, Database, EyeOff, Mail, Calendar } from 'lucide-reac
 
 export const PrivacyPolicy: React.FC = () => {
   const lastUpdatedDate = 'August 15, 2026';
-  const contactEmail = 'contact@wcecgpacalculator.com';
+  const contactEmail = 'kshreyash004@gmail.com';
 
   return (
     <div className="space-y-8 max-w-4xl mx-auto py-4">

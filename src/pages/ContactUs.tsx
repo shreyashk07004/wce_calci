@@ -2,7 +2,7 @@ import React from 'react';
 import { Mail, MessageSquare, ShieldCheck } from 'lucide-react';
 
 export const ContactUs: React.FC = () => {
-  const contactEmail = 'contact@wcecgpacalculator.com';
+  const contactEmail = 'kshreyash004@gmail.com';
 
   return (
     <div className="space-y-8 max-w-3xl mx-auto py-4">
