@@ -1,5 +1,10 @@
 # WCE CGPA to Percent Calculator
 
+## Live Site
+🔗 [WCE CGPA to Percent Calculator](https://wce-calci.vercel.app/)
+
+This is the deployed, publicly accessible version of the application hosted on Vercel.
+
 Official Grade Conversion & Academic Utility for **Walchand College of Engineering, Sangli (Maharashtra, India)** students.
 
 This web application is built strictly according to the authoritative formulas and grade point scales defined in WCE's **"Academic and Examination Rules and Regulations 2023-24"** (Sections 04.04, 12, and 16).
