@@ -2,7 +2,7 @@
 
 > **Official Grade Conversion & Academic Utility for Walchand College of Engineering, Sangli (Maharashtra, India) Students.**
 
-[![Typing SVG](https://readme-typing-svg.demolab.com?font=Fira+Code&size=22&pause=1000&color=6366F1&center=true&vCenter=true&width=600&lines=WCE+CGPA+to+Percentage+Converter;Based+on+Official+WCE+Rules+%26+Regulations+2023-24;100%25+Free+%7C+No+Login+%7C+No+Backend)](https://git.io/typing-svg)
+[![Typing SVG](https://readme-typing-svg.demolab.com?font=Fira+Code&size=22&pause=1000&color=6366F1&center=true&vCenter=true&width=600&lines=WCE+CGPA+to+Percentage+Converter)](https://git.io/typing-svg)
 
 [![Live Demo](https://img.shields.io/badge/Demo-Live%20Site-emerald?style=for-the-badge&logo=vercel)](https://wce-cgpa-to-percentage.vercel.app/)
 [![React](https://img.shields.io/badge/React-18.3-61DAFB?style=for-the-badge&logo=react&logoColor=black)](https://react.dev/)
