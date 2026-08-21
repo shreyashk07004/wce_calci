@@ -1,94 +1,156 @@
-# WCE CGPA to Percent Calculator
+# 🎓 WCE CGPA to Percent Calculator
 
-## Live Site
-🔗 [WCE CGPA to Percent Calculator](https://wce-cgpa-to-percentage.vercel.app/)
+> **Official Grade Conversion & Academic Utility for Walchand College of Engineering, Sangli (Maharashtra, India) Students.**
 
-This is the deployed, publicly accessible version of the application hosted on Vercel.
+[![Typing SVG](https://readme-typing-svg.demolab.com?font=Fira+Code&size=22&pause=1000&color=6366F1&center=true&vCenter=true&width=600&lines=WCE+CGPA+to+Percentage+Converter;Based+on+Official+WCE+Rules+%26+Regulations+2023-24;100%25+Free+%7C+No+Login+%7C+No+Backend)](https://git.io/typing-svg)
 
-It is an Unofficial Grade Conversion & Academic Utility for **Walchand College of Engineering, Sangli (Maharashtra, India)** students.
-
-This web application is built strictly according to the authoritative formulas and grade point scales defined in WCE's **"Academic and Examination Rules and Regulations 2023-24"** (Sections 04.04, 12, and 16).
+[![Live Demo](https://img.shields.io/badge/Demo-Live%20Site-emerald?style=for-the-badge&logo=vercel)](https://wce-cgpa-to-percentage.vercel.app/)
+[![React](https://img.shields.io/badge/React-18.3-61DAFB?style=for-the-badge&logo=react&logoColor=black)](https://react.dev/)
+[![TypeScript](https://img.shields.io/badge/TypeScript-5.6-3178C6?style=for-the-badge&logo=typescript&logoColor=white)](https://www.typescriptlang.org/)
+[![Vite](https://img.shields.io/badge/Vite-6.0-646CFF?style=for-the-badge&logo=vite&logoColor=white)](https://vitejs.dev/)
+[![Tailwind CSS](https://img.shields.io/badge/Tailwind_CSS-3.4-38B2AC?style=for-the-badge&logo=tailwind-css&logoColor=white)](https://tailwindcss.com/)
 
 ---
 
-## 🌟 Key Features
+## 📌 Table of Contents
 
-1. **CGPA to Percentage Converter (Core Feature - Route `/`)**:
-   - Official conversion formula: $\text{Percentage} = (10.00 \times \text{CGPA}) - 7.50$
-   - Live input validation ($0.00$ to $10.00$) with friendly error messaging.
-   - Shows formula substitution with actual user inputs.
-   - Automatic warning note for CGPA $< 5.00$ as per official policy.
-2. **Attendance Grade-Penalty Checker (Route `/attendance-checker`)**:
-   - Evaluates attendance percentage against official theory course penalty thresholds (Grade caps: BB, BC, CC, XX).
-3. **PDF & PNG Report Export**:
-   - Client-side export of calculation report cards using `html2canvas` and `jsPDF`.
-4. **Local History (Route `/history`)**:
-   - Safe browser `localStorage` integration with fallback for private browsing.
-5. **Dark / Light Theme Toggle**:
-   - Supports system preferences and dark mode with persistent user choice.
-6. **Educational Section (Route `/how-its-calculated`)**:
-   - Step-by-step worked example ($7.80 \rightarrow 70.50\%$), grade tables, relative grading note, and official rule citations.
-7. **Google AdSense Eligibility Pages**:
-   - Privacy Policy (`/privacy-policy`)
-   - Terms of Use & Disclaimer (`/terms`)
-   - About Us (`/about`)
-   - Contact Us (`/contact`)
+- [🌐 Live Site](#-live-site)
+- [✨ Key Features](#-key-features)
+- [📸 Demo Preview](#-demo-preview)
+- [🛠️ Tech Stack](#️-tech-stack)
+- [🔒 Security & Privacy](#-security--privacy)
+- [🚀 Getting Started](#-getting-started)
+- [🧪 Testing](#-testing)
+- [📁 Project Structure](#-project-structure)
+- [⚖️ Legal Disclaimer](#️-legal-disclaimer)
+
+---
+
+## 🌐 Live Site
+
+🔗 **[WCE CGPA to Percent Calculator](https://wce-cgpa-to-percentage.vercel.app/)**
+
+This is the deployed, publicly accessible version of the application hosted on Vercel.
+
+It is an independent, unofficial Grade Conversion & Academic Utility built strictly according to the authoritative formulas and grade point scales defined in WCE's **"Academic and Examination Rules and Regulations 2023-24"** (Sections 04.04, 12, and 16).
+
+---
+
+## ✨ Key Features
+
+- **⚡ Core CGPA to Percentage Converter (Route `/`)**:
+  - Official WCE conversion formula: $\text{Percentage} = (10.00 \times \text{CGPA}) - 7.50$
+  - Live input validation ($0.00$ to $10.00$) with real-time error guidance.
+  - Substituted formula breakdown showing step-by-step math with actual user inputs.
+  - Automatic official warning note for CGPA $< 5.00$ as per WCE policy.
+  - **Quick Test Value** preset buttons ($6.25$, $6.75$, $7.25$, $7.75$, $8.25$, $8.50$, $9.00$) matching WCE's official verification table.
+- **📄 Client-Side PDF & PNG Report Card Export**:
+  - Download high-resolution PNG or print-ready PDF grade conversion reports using `html2canvas` and `jsPDF`.
+- **📖 Educational "How It's Calculated" Section (Route `/how-its-calculated`)**:
+  - Complete reference guide with the official WCE Grade Point Table (AA=10, AB=9, BB=8, etc.), Section 04.04 attendance penalty threshold matrix, relative grading explanation, and a step-by-step worked example ($7.80 \rightarrow 70.50\%$).
+- **💾 Local History Panel (Route `/history`)**:
+  - Safe browser `localStorage` integration storing past CGPA conversions with timestamping and 1-click fallback for private window browsing.
+- **🌙 Dark & Light Theme Modes**:
+  - Persistent user preference toggle with automatic system theme detection.
+- **📋 Google AdSense & Publisher Eligibility Pages**:
+  - Dedicated pages for [Privacy Policy (`/privacy-policy`)](https://wce-cgpa-to-percentage.vercel.app/privacy-policy), [Terms of Use (`/terms`)](https://wce-cgpa-to-percentage.vercel.app/terms), [About Us (`/about`)](https://wce-cgpa-to-percentage.vercel.app/about), and [Contact Us (`/contact`)](https://wce-cgpa-to-percentage.vercel.app/contact).
+
+---
+
+## 📸 Demo Preview
+
+<!-- TODO: Add a screenshot or short GIF demo of the CGPA calculator here -->
 
 ---
 
 ## 🛠️ Tech Stack
 
-- **Framework**: React 18+ with TypeScript (Strict mode)
-- **Routing**: React Router (`react-router-dom` v6.28)
-- **Build Tool**: Vite
-- **Styling**: Tailwind CSS
-- **Icons**: Lucide React
-- **Client-Side Export**: `html2canvas` (1.4.1) + `jsPDF` (2.5.2)
-- **Analytics**: Vercel Analytics (`@vercel/analytics`)
-- **Testing**: Vitest (3.0.5)
+| Technology | Purpose |
+| :--- | :--- |
+| **[React 18](https://react.dev/)** | Core UI component framework |
+| **[TypeScript](https://www.typescriptlang.org/)** | Type-safe strict component logic & calculation models |
+| **[Vite 6](https://vitejs.dev/)** | Lightning-fast build tool and dev server |
+| **[React Router 6](https://reactrouter.com/)** | Client-side routing with clean SEO URLs |
+| **[Tailwind CSS 3](https://tailwindcss.com/)** | Modern responsive design system & dark mode styling |
+| **[Lucide React](https://lucide.dev/)** | Clean UI icons |
+| **[Vercel Analytics](https://vercel.com/analytics)** | Privacy-friendly visitor insights |
+| **[Vitest 3](https://vitest.dev/)** | Unit testing framework for math engine correctness |
+| **[html2canvas](https://html2canvas.hertzen.com/) & [jsPDF](https://github.com/parallax/jsPDF)** | Client-side PNG/PDF report export |
 
 ---
 
 ## 🔒 Security & Privacy
 
-- **100% Client-Side**: No backend, no server, no database.
-- **Strict Input Validation**: Sanitize and check numeric ranges client-side.
-- **Content Security Policy (CSP)**: Hardened meta tag in `index.html`.
-- **Zero Secrets**: No API keys or credentials.
-- **HTTPS Enforcement**: **Important Note for Deployment**: Enforce HTTPS at the static hosting platform layer (e.g., Vercel, Netlify, Cloudflare Pages, GitHub Pages).
+- **100% Client-Side**: No backend server, no database, no external data tracking. All calculations happen entirely within the user's browser.
+- **Strict Input Validation**: Client-side boundary checks ($0.00$ to $10.00$).
+- **Content Security Policy (CSP)**: Hardened meta headers in `index.html`.
+- **Zero Secrets**: No API keys, credentials, or backend endpoints required.
+- **HTTPS Enforcement**: Deployed on Vercel with automatic TLS encryption.
 
 ---
 
-## 🚀 Getting Started Locally
+## 🚀 Getting Started
 
 ### Prerequisites
-- Node.js `v18+`
-- npm `v9+`
+- **Node.js**: `v18.0.0` or higher
+- **npm**: `v9.0.0` or higher
 
-### Installation
+### Installation & Local Setup
+
 ```bash
-# Install dependencies
+# 1. Clone the repository
+git clone https://github.com/shreyashk07004/wce_calci.git
+
+# 2. Navigate to project directory
+cd "wce cpga to per new"
+
+# 3. Install dependencies
 npm install
-```
 
-### Running Dev Server
-```bash
+# 4. Start local development server
 npm run dev
 ```
 
-### Running Unit Tests
+Open [http://localhost:5173](http://localhost:5173) in your browser to view the app.
+
+---
+
+## 🧪 Testing
+
+The formula engine is strictly validated using unit tests covering standard decimal rounding, out-of-range boundaries, and WCE's official verification table values.
+
 ```bash
+# Run unit tests
 npx vitest run
 ```
 
-### Building for Production
-```bash
-npm run build
+---
+
+## 📁 Project Structure
+
 ```
-The production bundle will be generated in the `dist/` directory, ready to be deployed to any static host.
+wce-cgpa-to-percent-calculator/
+├── public/
+│   ├── favicon.svg               # Web app favicon
+│   ├── sitemap.xml               # SEO XML Sitemap
+│   ├── robots.txt                # Crawler directives
+│   └── googled64e8bd0af712256.html # Google Search Console verification
+├── src/
+│   ├── components/               # UI components (Navbar, Footer, Calculator, etc.)
+│   ├── pages/                    # Legal & Info pages (Privacy, Terms, About, Contact)
+│   ├── types/                    # TypeScript interfaces & types
+│   ├── utils/                    # Formula engine, pdf export, & localStorage wrapper
+│   ├── App.tsx                   # React Router entry point
+│   ├── main.tsx                  # Vite React DOM root
+│   └── index.css                 # Tailwind CSS styles & custom rules
+├── index.html                    # Root HTML document with Open Graph & CSP tags
+├── vercel.json                   # Vercel SPA rewrite fallback configuration
+├── vite.config.ts                # Vite configuration
+└── package.json                  # Project dependencies & scripts
+```
 
 ---
 
 ## ⚖️ Legal Disclaimer
 
-This tool is independently built by a student for the convenience of WCE Sangli students based on the published Academic and Examination Rules and Regulations. Always verify your official grade card and results with the WCE Examination Section for any official or legal purpose.
+This tool is independently built by a student for the convenience of Walchand College of Engineering (WCE), Sangli students based on the published Academic and Examination Rules and Regulations 2023-24. Always verify your official grade card and results with the WCE Examination Section for any official or legal purpose.
