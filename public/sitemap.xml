@@ -2,7 +2,7 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <!-- Homepage -->
   <url>
-    <loc>https://wce-calci.vercel.app/</loc>
+    <loc>https://wce-cgpa-to-percentage.vercel.app/</loc>
     <lastmod>2026-08-21</lastmod>
     <changefreq>monthly</changefreq>
     <priority>1.0</priority>
@@ -10,7 +10,7 @@
 
   <!-- Educational Section -->
   <url>
-    <loc>https://wce-calci.vercel.app/how-its-calculated</loc>
+    <loc>https://wce-cgpa-to-percentage.vercel.app/how-its-calculated</loc>
     <lastmod>2026-08-21</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
@@ -18,25 +18,25 @@
 
   <!-- Legal & Info Pages -->
   <url>
-    <loc>https://wce-calci.vercel.app/about</loc>
+    <loc>https://wce-cgpa-to-percentage.vercel.app/about</loc>
     <lastmod>2026-08-21</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.3</priority>
   </url>
   <url>
-    <loc>https://wce-calci.vercel.app/privacy-policy</loc>
+    <loc>https://wce-cgpa-to-percentage.vercel.app/privacy-policy</loc>
     <lastmod>2026-08-21</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.3</priority>
   </url>
   <url>
-    <loc>https://wce-calci.vercel.app/terms</loc>
+    <loc>https://wce-cgpa-to-percentage.vercel.app/terms</loc>
     <lastmod>2026-08-21</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.3</priority>
   </url>
   <url>
-    <loc>https://wce-calci.vercel.app/contact</loc>
+    <loc>https://wce-cgpa-to-percentage.vercel.app/contact</loc>
     <lastmod>2026-08-21</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.3</priority>

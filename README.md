@@ -1,7 +1,7 @@
 # WCE CGPA to Percent Calculator
 
 ## Live Site
-🔗 [WCE CGPA to Percent Calculator](https://wce-calci.vercel.app/)
+🔗 [WCE CGPA to Percent Calculator](https://wce-cgpa-to-percentage.vercel.app/)
 
 This is the deployed, publicly accessible version of the application hosted on Vercel.
 
