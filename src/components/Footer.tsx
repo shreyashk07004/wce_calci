@@ -14,7 +14,7 @@ export const Footer: React.FC = () => {
             <span>Disclaimer & Legal Notice</span>
           </div>
           <p className="text-slate-300 text-[11px] sm:text-xs leading-relaxed">
-            This is an independent, unofficial tool built by a student for the convenience of WCE Sangli students. It is not affiliated with, endorsed by, or an official product of Walchand College of Engineering. Calculations are based on the published WCE Academic and Examination Rules and Regulations 2023-24. Always verify your official CGPA, SGPA, and grades with the WCE Examination Section or your official grade card.
+            This is an independent, unofficial tool built by a student for the convenience of WCE Sangli students. It is not affiliated with, endorsed by, or an official product of Walchand College of Engineering. Calculations are based on the published WCE Academic and Examination Rules and Regulations 2023-24. Always verify your official CGPA and percentage with the WCE Examination Section or your official grade card.
           </p>
         </div>
 
@@ -31,7 +31,7 @@ export const Footer: React.FC = () => {
               </span>
             </div>
             <p className="text-xs text-slate-400 leading-relaxed max-w-sm">
-              Free CGPA to percentage converter and academic grade tools for Walchand College of Engineering, Sangli.
+              Free CGPA to percentage converter tool for Walchand College of Engineering, Sangli.
             </p>
             <div className="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full text-[11px] font-semibold bg-slate-800 text-slate-300 border border-slate-700">
               <ShieldCheck className="w-3.5 h-3.5 text-emerald-400" />
@@ -42,7 +42,7 @@ export const Footer: React.FC = () => {
           {/* Tools Quick Links */}
           <div className="md:col-span-4 space-y-2">
             <h4 className="text-xs font-bold text-white uppercase tracking-wider">
-              Calculators & Tools
+              Quick Links
             </h4>
             <ul className="space-y-1.5 text-xs">
               <li>
@@ -51,23 +51,13 @@ export const Footer: React.FC = () => {
                 </Link>
               </li>
               <li>
-                <Link to="/sgpa-calculator" className="hover:text-white transition-colors">
-                  SGPA Calculator
-                </Link>
-              </li>
-              <li>
-                <Link to="/multi-semester-cgpa-calculator" className="hover:text-white transition-colors">
-                  Multi-Semester CGPA Calculator
-                </Link>
-              </li>
-              <li>
-                <Link to="/attendance-checker" className="hover:text-white transition-colors">
-                  Attendance Grade Penalty Checker
-                </Link>
-              </li>
-              <li>
                 <Link to="/how-its-calculated" className="hover:text-white transition-colors">
                   Official WCE Formula Breakdown
+                </Link>
+              </li>
+              <li>
+                <Link to="/history" className="hover:text-white transition-colors">
+                  Saved Calculation History
                 </Link>
               </li>
             </ul>

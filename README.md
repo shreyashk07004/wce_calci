@@ -18,23 +18,17 @@ This web application is built strictly according to the authoritative formulas a
    - Live input validation ($0.00$ to $10.00$) with friendly error messaging.
    - Shows formula substitution with actual user inputs.
    - Automatic warning note for CGPA $< 5.00$ as per official policy.
-2. **SGPA Calculator (Route `/sgpa-calculator`)**:
-   - Live semester SGPA calculation based on course credits and grade point values.
-   - Interactive add/remove/edit course table.
-   - Collapsible WCE Grade Point scale reference table.
-3. **Multi-Semester CGPA Calculator (Route `/multi-semester-cgpa-calculator`)**:
-   - Calculates overall cumulative CGPA across completed semesters weighted by credits.
-4. **Attendance Grade-Penalty Checker (Route `/attendance-checker`)**:
+2. **Attendance Grade-Penalty Checker (Route `/attendance-checker`)**:
    - Evaluates attendance percentage against official theory course penalty thresholds (Grade caps: BB, BC, CC, XX).
-5. **PDF & PNG Report Export**:
+3. **PDF & PNG Report Export**:
    - Client-side export of calculation report cards using `html2canvas` and `jsPDF`.
-6. **Local History (Route `/history`)**:
+4. **Local History (Route `/history`)**:
    - Safe browser `localStorage` integration with fallback for private browsing.
-7. **Dark / Light Theme Toggle**:
+5. **Dark / Light Theme Toggle**:
    - Supports system preferences and dark mode with persistent user choice.
-8. **Educational Section (Route `/how-its-calculated`)**:
+6. **Educational Section (Route `/how-its-calculated`)**:
    - Step-by-step worked example ($7.80 \rightarrow 70.50\%$), grade tables, relative grading note, and official rule citations.
-9. **Google AdSense Eligibility Pages**:
+7. **Google AdSense Eligibility Pages**:
    - Privacy Policy (`/privacy-policy`)
    - Terms of Use & Disclaimer (`/terms`)
    - About Us (`/about`)
@@ -50,13 +44,14 @@ This web application is built strictly according to the authoritative formulas a
 - **Styling**: Tailwind CSS
 - **Icons**: Lucide React
 - **Client-Side Export**: `html2canvas` (1.4.1) + `jsPDF` (2.5.2)
+- **Analytics**: Vercel Analytics (`@vercel/analytics`)
 - **Testing**: Vitest (3.0.5)
 
 ---
 
 ## 🔒 Security & Privacy
 
-- **100% Client-Side**: No backend, no server, no database, no external tracking or analytics scripts.
+- **100% Client-Side**: No backend, no server, no database.
 - **Strict Input Validation**: Sanitize and check numeric ranges client-side.
 - **Content Security Policy (CSP)**: Hardened meta tag in `index.html`.
 - **Zero Secrets**: No API keys or credentials.

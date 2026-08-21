@@ -12,7 +12,7 @@ export const AboutUs: React.FC = () => {
         </div>
         <h1 className="text-2xl sm:text-3xl font-black tracking-tight">About WCE CGPA to Percent Calculator</h1>
         <p className="text-slate-300 text-xs sm:text-sm mt-1 max-w-2xl">
-          An independent academic tool designed to help Walchand College of Engineering, Sangli students calculate CGPA, SGPA, percentage, and attendance penalties quickly and accurately.
+          An independent academic tool designed to help Walchand College of Engineering, Sangli students convert CGPA to percentage quickly and accurately.
         </p>
       </div>
 
@@ -26,47 +26,24 @@ export const AboutUs: React.FC = () => {
             Why This Tool Was Built
           </h2>
           <p>
-            <strong>WCE CGPA to Percent Calculator</strong> was created by a student to provide Walchand College of Engineering (WCE), Sangli students with a clean, fast, and 100% accurate online tool for grade conversions and academic calculations.
+            <strong>WCE CGPA to Percent Calculator</strong> was created by a student to provide Walchand College of Engineering (WCE), Sangli students with a clean, fast, and 100% accurate online tool for grade conversions.
           </p>
           <p>
-            Students frequently need to convert their CGPA to percentage for higher education applications, job interviews, campus placements, and scholarship forms. This utility eliminates guesswork by applying WCE's exact published mathematical formulas.
+            Students frequently need to convert their CGPA to percentage for higher education applications, job interviews, campus placements, and scholarship forms. This utility eliminates guesswork by applying WCE's exact published mathematical formula.
           </p>
         </section>
 
-        {/* Section 2: Core Tools Provided */}
+        {/* Section 2: Core Tool Provided */}
         <section className="space-y-3 pt-4 border-t border-slate-200 dark:border-slate-800">
           <h2 className="text-base font-bold text-slate-900 dark:text-white flex items-center gap-2">
             <Calculator className="w-5 h-5 text-indigo-600 dark:text-indigo-400 shrink-0" />
             What This Tool Provides
           </h2>
-          <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 text-xs">
-            <div className="p-3.5 rounded-xl bg-slate-50 dark:bg-slate-800/80 border border-slate-200 dark:border-slate-700 space-y-1">
-              <span className="font-bold text-slate-900 dark:text-white block">1. CGPA to Percentage Converter</span>
-              <p className="text-slate-600 dark:text-slate-300">
-                Instant percentage calculation using WCE's official formula: <code className="font-mono text-blue-600 dark:text-blue-400 font-bold">(10.00 × CGPA) − 7.50</code>.
-              </p>
-            </div>
-
-            <div className="p-3.5 rounded-xl bg-slate-50 dark:bg-slate-800/80 border border-slate-200 dark:border-slate-700 space-y-1">
-              <span className="font-bold text-slate-900 dark:text-white block">2. SGPA Calculator</span>
-              <p className="text-slate-600 dark:text-slate-300">
-                Compute single-semester SGPA dynamically using course credits and official letter grade point values.
-              </p>
-            </div>
-
-            <div className="p-3.5 rounded-xl bg-slate-50 dark:bg-slate-800/80 border border-slate-200 dark:border-slate-700 space-y-1">
-              <span className="font-bold text-slate-900 dark:text-white block">3. Multi-Semester CGPA</span>
-              <p className="text-slate-600 dark:text-slate-300">
-                Calculate cumulative CGPA across all completed semesters weighted by credits per semester.
-              </p>
-            </div>
-
-            <div className="p-3.5 rounded-xl bg-slate-50 dark:bg-slate-800/80 border border-slate-200 dark:border-slate-700 space-y-1">
-              <span className="font-bold text-slate-900 dark:text-white block">4. Attendance Penalty Checker</span>
-              <p className="text-slate-600 dark:text-slate-300">
-                Check theory course attendance percentage against official grade caps (BB, BC, CC, XX).
-              </p>
-            </div>
+          <div className="p-4 rounded-xl bg-slate-50 dark:bg-slate-800/80 border border-slate-200 dark:border-slate-700 space-y-1 text-xs">
+            <span className="font-bold text-slate-900 dark:text-white block text-sm">CGPA to Percentage Converter</span>
+            <p className="text-slate-600 dark:text-slate-300 text-xs">
+              Instant percentage calculation using WCE's official formula: <code className="font-mono text-blue-600 dark:text-blue-400 font-bold">(10.00 × CGPA) − 7.50</code>. Valid officially for CGPA ≥ 5.00.
+            </p>
           </div>
         </section>
 
@@ -77,7 +54,7 @@ export const AboutUs: React.FC = () => {
             Official Source Citation
           </h2>
           <p>
-            All mathematical formulas, grade point values (AA=10, AB=9, BB=8, etc.), and attendance penalty rules used in this application are directly derived from Section 04.04, Section 12, and Section 16 of the official document:
+            All mathematical formulas, grade point values (AA=10, AB=9, BB=8, etc.), and academic rules referenced in this application are directly derived from Section 12 and Section 16 of the official document:
           </p>
           <div className="p-3 rounded-xl bg-blue-50 dark:bg-slate-800 border border-blue-100 dark:border-slate-700 font-semibold text-blue-900 dark:text-blue-300 text-xs">
             Walchand College of Engineering, Sangli — "Academic and Examination Rules and Regulations 2023-24"

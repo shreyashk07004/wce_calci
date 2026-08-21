@@ -3,9 +3,6 @@ import { BrowserRouter, Routes, Route, useLocation } from 'react-router-dom';
 import { Analytics } from '@vercel/analytics/react';
 import { Navbar } from './components/Navbar';
 import { CgpaToPercentageCalculator } from './components/CgpaToPercentageCalculator';
-import { SgpaCalculator } from './components/SgpaCalculator';
-import { MultiSemesterCgpaCalculator } from './components/MultiSemesterCgpaCalculator';
-import { AttendanceChecker } from './components/AttendanceChecker';
 import { HowItsCalculated } from './components/HowItsCalculated';
 import { HistoryPanel } from './components/HistoryPanel';
 import { PrivacyPolicy } from './pages/PrivacyPolicy';
@@ -45,28 +42,17 @@ const AppContent: React.FC = () => {
       {/* Main Content Area with React Router Routes */}
       <main className="flex-1 max-w-7xl w-full mx-auto px-4 sm:px-6 lg:px-8 py-8">
         <Routes>
-          {/* Home Route — CGPA to Percentage Calculator */}
+          {/* Home Route — CGPA to Percentage Converter */}
           <Route
             path="/"
             element={<CgpaToPercentageCalculator onHistoryUpdate={refreshHistoryCount} />}
           />
-          {/* Dedicated Calculator Routes for SEO */}
-          <Route
-            path="/sgpa-calculator"
-            element={<SgpaCalculator onHistoryUpdate={refreshHistoryCount} />}
-          />
-          <Route
-            path="/multi-semester-cgpa-calculator"
-            element={<MultiSemesterCgpaCalculator onHistoryUpdate={refreshHistoryCount} />}
-          />
-          <Route
-            path="/attendance-checker"
-            element={<AttendanceChecker onHistoryUpdate={refreshHistoryCount} />}
-          />
+          {/* How It's Calculated Educational Page */}
           <Route
             path="/how-its-calculated"
             element={<HowItsCalculated />}
           />
+          {/* Calculation History */}
           <Route
             path="/history"
             element={<HistoryPanel onHistoryChanged={refreshHistoryCount} />}

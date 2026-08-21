@@ -1,7 +1,7 @@
 import React from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import { ThemeToggle } from './ThemeToggle';
-import { Calculator, Award, GraduationCap, ShieldCheck, History, BookOpen, Clock } from 'lucide-react';
+import { Calculator, ShieldCheck, History, BookOpen } from 'lucide-react';
 
 interface NavbarProps {
   historyCount: number;
@@ -13,9 +13,6 @@ export const Navbar: React.FC<NavbarProps> = ({ historyCount }) => {
 
   const navItems = [
     { path: '/', label: 'CGPA → %', icon: <Calculator className="w-4 h-4" /> },
-    { path: '/sgpa-calculator', label: 'SGPA Calc', icon: <GraduationCap className="w-4 h-4" /> },
-    { path: '/multi-semester-cgpa-calculator', label: 'Multi-Sem CGPA', icon: <Award className="w-4 h-4" /> },
-    { path: '/attendance-checker', label: 'Attendance Penalty', icon: <Clock className="w-4 h-4" /> },
     { path: '/how-its-calculated', label: "How It's Calculated", icon: <BookOpen className="w-4 h-4" /> },
     { path: '/history', label: `History (${historyCount})`, icon: <History className="w-4 h-4" /> },
   ];
@@ -52,14 +49,14 @@ export const Navbar: React.FC<NavbarProps> = ({ historyCount }) => {
         </div>
 
         {/* Navigation Bar Menu */}
-        <nav className="flex space-x-1 overflow-x-auto no-scrollbar py-2 -mx-4 px-4 sm:mx-0 sm:px-0 border-t border-slate-100 dark:border-slate-800/60" aria-label="Main Navigation">
+        <nav className="flex items-center space-x-3 overflow-x-auto no-scrollbar py-2 -mx-4 px-4 sm:mx-0 sm:px-0 border-t border-slate-100 dark:border-slate-800/60" aria-label="Main Navigation">
           {navItems.map((item) => {
             const isActive = currentPath === item.path;
             return (
               <Link
                 key={item.path}
                 to={item.path}
-                className={`flex items-center gap-2 px-3.5 py-2 rounded-lg text-xs font-semibold whitespace-nowrap transition-all ${
+                className={`flex items-center gap-2 px-4 py-2 rounded-lg text-xs font-semibold whitespace-nowrap transition-all ${
                   isActive
                     ? 'bg-blue-600 text-white shadow-sm shadow-blue-500/30'
                     : 'text-slate-600 dark:text-slate-300 hover:text-slate-900 dark:hover:text-white hover:bg-slate-100 dark:hover:bg-slate-800/70'

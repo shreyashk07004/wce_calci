@@ -8,38 +8,15 @@ export interface GradeDefinition {
   description: string;
 }
 
-export interface Course {
-  id: string;
-  name: string;
-  credits: number;
-  grade: GradeLetter;
-}
-
-export interface Semester {
-  id: string;
-  name: string; // e.g. "Semester 1", "FY Sem 1"
-  sgpa: number;
-  credits: number;
-}
-
 export interface CalculationHistoryItem {
   id: string;
   timestamp: string; // ISO string
-  type: 'cgpa_to_percentage' | 'sgpa' | 'multisem_cgpa' | 'attendance';
+  type: 'cgpa_to_percentage';
   title: string;
   summary: string;
   cgpa?: number;
   percentage?: number;
   details?: string;
-}
-
-export interface AttendancePenaltyResult {
-  attendancePercentage: number;
-  maxAchievableGrade: GradeLetter;
-  maxPoints: number;
-  hasPenalty: boolean;
-  explanation: string;
-  badgeColor: string;
 }
 
 export interface PercentageResult {
