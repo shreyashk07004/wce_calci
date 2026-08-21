@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { BrowserRouter, Routes, Route, useLocation } from 'react-router-dom';
+import { Analytics } from '@vercel/analytics/react';
 import { Navbar } from './components/Navbar';
 import { CgpaToPercentageCalculator } from './components/CgpaToPercentageCalculator';
 import { SgpaCalculator } from './components/SgpaCalculator';
@@ -37,6 +38,7 @@ const AppContent: React.FC = () => {
   return (
     <div className="min-h-screen flex flex-col bg-slate-50 dark:bg-[#0b0f19] text-slate-900 dark:text-slate-100 font-sans transition-colors">
       <ScrollToTop />
+      <Analytics />
       {/* Persistent Navigation Header */}
       <Navbar historyCount={historyCount} />
 
