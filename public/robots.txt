@@ -1,0 +1,5 @@
+User-agent: *
+Allow: /
+Disallow: /history
+
+Sitemap: https://wce-calci.vercel.app/sitemap.xml
