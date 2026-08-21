@@ -9,14 +9,14 @@ interface Props {
 }
 
 export const AttendanceChecker: React.FC<Props> = ({ onHistoryUpdate }) => {
-  const [attendanceInput, setAttendanceInput] = useState<string>('68');
+  const [attendanceInput, setAttendanceInput] = useState<string>('');
   const [copied, setCopied] = useState<boolean>(false);
   const [savedSuccess, setSavedSuccess] = useState<boolean>(false);
 
   const validationState = useMemo(() => {
     const trimmed = attendanceInput.trim();
     if (trimmed === '') {
-      return { isValid: false, errorMessage: 'Please enter an attendance percentage.' };
+      return { isValid: false, errorMessage: '' };
     }
     const num = Number(trimmed);
     if (isNaN(num)) {
@@ -108,7 +108,7 @@ export const AttendanceChecker: React.FC<Props> = ({ onHistoryUpdate }) => {
               </span>
             </div>
 
-            {!validationState.isValid && (
+            {!validationState.isValid && validationState.errorMessage !== '' && (
               <div className="mt-3 text-xs font-medium text-rose-600 dark:text-rose-400 bg-rose-50 dark:bg-rose-950/40 p-3 rounded-lg border border-rose-200 dark:border-rose-900">
                 {validationState.errorMessage}
               </div>

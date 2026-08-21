@@ -3,34 +3,54 @@ import type { Course, GradeLetter } from '../types/grade';
 import { calculateSgpa, GRADE_DEFINITIONS } from '../utils/gradeCalculations';
 import { saveHistoryItem } from '../utils/storage';
 import { exportElementAsPdf, exportElementAsPng } from '../utils/pdfExport';
-import { Plus, Trash2, GraduationCap, ChevronDown, ChevronUp, Save, Copy, Download, FileSpreadsheet, RotateCcw, CheckCircle2 } from 'lucide-react';
+import { Plus, Trash2, GraduationCap, ChevronDown, ChevronUp, Save, Copy, Download, FileSpreadsheet, RotateCcw, CheckCircle2, Info } from 'lucide-react';
 
 interface Props {
   onHistoryUpdate: () => void;
 }
 
-const DEFAULT_COURSES: Course[] = [
-  { id: '1', name: 'Course 1 (Theory)', credits: 4, grade: 'AA' },
-  { id: '2', name: 'Course 2 (Theory)', credits: 3, grade: 'AB' },
-  { id: '3', name: 'Course 3 (Theory)', credits: 3, grade: 'BB' },
-  { id: '4', name: 'Course 4 (Lab)', credits: 2, grade: 'AA' },
+interface SgpaCourseRow {
+  id: string;
+  name: string;
+  credits: number | '';
+  grade: GradeLetter | '';
+}
+
+const DEFAULT_COURSES: SgpaCourseRow[] = [
+  { id: '1', name: '', credits: '', grade: '' },
+  { id: '2', name: '', credits: '', grade: '' },
+  { id: '3', name: '', credits: '', grade: '' },
+  { id: '4', name: '', credits: '', grade: '' },
 ];
 
 export const SgpaCalculator: React.FC<Props> = ({ onHistoryUpdate }) => {
-  const [courses, setCourses] = useState<Course[]>(DEFAULT_COURSES);
+  const [courses, setCourses] = useState<SgpaCourseRow[]>(DEFAULT_COURSES);
   const [showGradeTable, setShowGradeTable] = useState<boolean>(false);
   const [savedSuccess, setSavedSuccess] = useState<boolean>(false);
   const [copied, setCopied] = useState<boolean>(false);
   const [isExporting, setIsExporting] = useState<boolean>(false);
 
-  const { sgpa, totalCredits, totalPoints } = useMemo(() => calculateSgpa(courses), [courses]);
+  const validCourses: Course[] = useMemo(() => {
+    return courses
+      .filter((c) => typeof c.credits === 'number' && c.credits > 0 && c.grade !== '')
+      .map((c) => ({
+        id: c.id,
+        name: c.name,
+        credits: c.credits as number,
+        grade: c.grade as GradeLetter,
+      }));
+  }, [courses]);
+
+  const { sgpa, totalCredits, totalPoints } = useMemo(() => calculateSgpa(validCourses), [validCourses]);
+
+  const hasCalculatedResult = validCourses.length > 0 && totalCredits > 0;
 
   const handleAddCourse = () => {
-    const newCourse: Course = {
+    const newCourse: SgpaCourseRow = {
       id: Date.now().toString(),
-      name: `Course ${courses.length + 1}`,
-      credits: 3,
-      grade: 'AA',
+      name: '',
+      credits: '',
+      grade: '',
     };
     setCourses([...courses, newCourse]);
   };
@@ -43,7 +63,7 @@ export const SgpaCalculator: React.FC<Props> = ({ onHistoryUpdate }) => {
     setCourses(courses.filter((c) => c.id !== id));
   };
 
-  const handleCourseChange = (id: string, field: keyof Course, value: string | number) => {
+  const handleCourseChange = (id: string, field: keyof SgpaCourseRow, value: string | number) => {
     setCourses(
       courses.map((c) => {
         if (c.id === id) {
@@ -55,16 +75,22 @@ export const SgpaCalculator: React.FC<Props> = ({ onHistoryUpdate }) => {
   };
 
   const handleReset = () => {
-    setCourses(DEFAULT_COURSES);
+    setCourses([
+      { id: Date.now().toString() + '-1', name: '', credits: '', grade: '' },
+      { id: Date.now().toString() + '-2', name: '', credits: '', grade: '' },
+      { id: Date.now().toString() + '-3', name: '', credits: '', grade: '' },
+      { id: Date.now().toString() + '-4', name: '', credits: '', grade: '' },
+    ]);
   };
 
   const handleSaveToHistory = () => {
+    if (!hasCalculatedResult) return;
     saveHistoryItem({
       type: 'sgpa',
       title: 'SGPA Calculation',
       summary: `SGPA ${sgpa.toFixed(2)} (${totalCredits} credits)`,
       cgpa: sgpa,
-      details: `${courses.length} courses, Total Points: ${totalPoints}/${totalCredits * 10}`,
+      details: `${validCourses.length} courses, Total Points: ${totalPoints}/${totalCredits * 10}`,
     });
     onHistoryUpdate();
     setSavedSuccess(true);
@@ -72,7 +98,8 @@ export const SgpaCalculator: React.FC<Props> = ({ onHistoryUpdate }) => {
   };
 
   const handleCopy = () => {
-    const summaryStr = courses
+    if (!hasCalculatedResult) return;
+    const summaryStr = validCourses
       .map((c) => `${c.name || 'Course'}: ${c.credits} credits [${c.grade}]`)
       .join('\n');
     const fullText = `WCE Semester Grade Point Average (SGPA):\nSGPA: ${sgpa.toFixed(2)}\nTotal Credits: ${totalCredits}\nTotal Points: ${totalPoints}\n\nCourses:\n${summaryStr}`;
@@ -82,12 +109,14 @@ export const SgpaCalculator: React.FC<Props> = ({ onHistoryUpdate }) => {
   };
 
   const handleExportPng = async () => {
+    if (!hasCalculatedResult) return;
     setIsExporting(true);
     await exportElementAsPng('sgpa-report-card', `WCE_SGPA_Report_${sgpa.toFixed(2)}`);
     setIsExporting(false);
   };
 
   const handleExportPdf = async () => {
+    if (!hasCalculatedResult) return;
     setIsExporting(true);
     await exportElementAsPdf('sgpa-report-card', `WCE_SGPA_Report_${sgpa.toFixed(2)}`);
     setIsExporting(false);
@@ -138,6 +167,14 @@ export const SgpaCalculator: React.FC<Props> = ({ onHistoryUpdate }) => {
         </div>
       )}
 
+      {/* Grade Entry Reminder Callout */}
+      <div className="flex items-start gap-2.5 p-3.5 rounded-xl bg-blue-50 dark:bg-blue-950/40 border border-blue-200 dark:border-blue-900/60 text-xs text-blue-800 dark:text-blue-300">
+        <Info className="w-4 h-4 shrink-0 mt-0.5 text-blue-600 dark:text-blue-400" />
+        <span className="font-semibold">
+          Enter your official grade/SGPA as shown on your WCE grade card — not an estimate.
+        </span>
+      </div>
+
       {/* Main SGPA Section */}
       <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
         {/* Course Inputs List */}
@@ -154,7 +191,7 @@ export const SgpaCalculator: React.FC<Props> = ({ onHistoryUpdate }) => {
                   className="text-xs font-semibold text-slate-500 hover:text-slate-700 dark:text-slate-400 dark:hover:text-slate-200 flex items-center gap-1 px-2 py-1 rounded-md hover:bg-slate-100 dark:hover:bg-slate-800"
                 >
                   <RotateCcw className="w-3.5 h-3.5" />
-                  Reset
+                  Clear All
                 </button>
               </div>
             </div>
@@ -175,8 +212,8 @@ export const SgpaCalculator: React.FC<Props> = ({ onHistoryUpdate }) => {
                     type="text"
                     value={course.name}
                     onChange={(e) => handleCourseChange(course.id, 'name', e.target.value)}
-                    placeholder="Course name (optional)"
-                    className="flex-1 px-3 py-2 text-xs font-medium rounded-lg border border-slate-300 dark:border-slate-600 bg-white dark:bg-slate-800 text-slate-900 dark:text-white focus:outline-none focus:ring-2 focus:ring-blue-500"
+                    placeholder={`Course ${index + 1} (optional)`}
+                    className="flex-1 px-3 py-2 text-xs font-medium rounded-lg border border-slate-300 dark:border-slate-600 bg-white dark:bg-slate-800 text-slate-900 dark:text-white focus:outline-none focus:ring-2 focus:ring-blue-500 placeholder-slate-400"
                   />
 
                   <div className="flex items-center gap-2">
@@ -190,22 +227,35 @@ export const SgpaCalculator: React.FC<Props> = ({ onHistoryUpdate }) => {
                           max="10"
                           step="0.5"
                           value={course.credits}
-                          onChange={(e) => handleCourseChange(course.id, 'credits', parseFloat(e.target.value) || 0)}
-                          className="w-full px-2.5 py-2 text-xs font-bold rounded-lg border border-slate-300 dark:border-slate-600 bg-white dark:bg-slate-800 text-slate-900 dark:text-white focus:outline-none focus:ring-2 focus:ring-blue-500 text-center"
+                          onChange={(e) => {
+                            const val = e.target.value;
+                            handleCourseChange(course.id, 'credits', val === '' ? '' : parseFloat(val) || '');
+                          }}
+                          placeholder="Credits"
+                          className="w-full px-2.5 py-2 text-xs font-bold rounded-lg border border-slate-300 dark:border-slate-600 bg-white dark:bg-slate-800 text-slate-900 dark:text-white focus:outline-none focus:ring-2 focus:ring-blue-500 text-center placeholder-slate-400"
                         />
-                        <span className="absolute right-2 top-1/2 -translate-y-1/2 text-[10px] text-slate-400 font-semibold pointer-events-none">
-                          cr
-                        </span>
+                        {course.credits !== '' && (
+                          <span className="absolute right-2 top-1/2 -translate-y-1/2 text-[10px] text-slate-400 font-semibold pointer-events-none">
+                            cr
+                          </span>
+                        )}
                       </div>
                     </div>
 
                     {/* Grade Selector */}
-                    <div className="w-28 shrink-0">
+                    <div className="w-32 shrink-0">
                       <select
                         value={course.grade}
                         onChange={(e) => handleCourseChange(course.id, 'grade', e.target.value as GradeLetter)}
-                        className="w-full px-2.5 py-2 text-xs font-extrabold rounded-lg border border-blue-200 dark:border-blue-900 bg-blue-50 dark:bg-slate-800 text-blue-800 dark:text-blue-300 focus:outline-none focus:ring-2 focus:ring-blue-500 cursor-pointer"
+                        className={`w-full px-2.5 py-2 text-xs font-extrabold rounded-lg border focus:outline-none focus:ring-2 focus:ring-blue-500 cursor-pointer ${
+                          course.grade === ''
+                            ? 'border-slate-300 dark:border-slate-600 bg-white dark:bg-slate-800 text-slate-400 dark:text-slate-500'
+                            : 'border-blue-200 dark:border-blue-900 bg-blue-50 dark:bg-slate-800 text-blue-800 dark:text-blue-300'
+                        }`}
                       >
+                        <option value="" disabled>
+                          Select Grade
+                        </option>
                         {GRADE_DEFINITIONS.map((def) => (
                           <option key={def.grade} value={def.grade}>
                             {def.grade} ({def.points} pts)
@@ -242,98 +292,110 @@ export const SgpaCalculator: React.FC<Props> = ({ onHistoryUpdate }) => {
 
         {/* Live SGPA Calculation Card */}
         <div className="lg:col-span-5">
-          <div
-            id="sgpa-report-card"
-            className="bg-white dark:bg-slate-900 rounded-2xl p-6 border border-slate-200 dark:border-slate-800 shadow-md space-y-6"
-          >
-            <div className="flex items-center justify-between border-b border-slate-200 dark:border-slate-800 pb-4">
-              <div>
-                <h3 className="text-xs font-bold text-slate-500 dark:text-slate-400 uppercase tracking-wider">
-                  Semester Result
-                </h3>
-                <p className="text-xs font-semibold text-slate-700 dark:text-slate-300">
-                  WCE Section 16 Formula
+          {hasCalculatedResult ? (
+            <div
+              id="sgpa-report-card"
+              className="bg-white dark:bg-slate-900 rounded-2xl p-6 border border-slate-200 dark:border-slate-800 shadow-md space-y-6"
+            >
+              <div className="flex items-center justify-between border-b border-slate-200 dark:border-slate-800 pb-4">
+                <div>
+                  <h3 className="text-xs font-bold text-slate-500 dark:text-slate-400 uppercase tracking-wider">
+                    Semester Result
+                  </h3>
+                  <p className="text-xs font-semibold text-slate-700 dark:text-slate-300">
+                    WCE Section 16 Formula
+                  </p>
+                </div>
+                <span className="px-2.5 py-1 text-[11px] font-bold bg-blue-100 dark:bg-blue-950 text-blue-800 dark:text-blue-300 rounded-md">
+                  Live SGPA
+                </span>
+              </div>
+
+              {/* Big SGPA Display */}
+              <div className="text-center py-4 bg-gradient-to-b from-blue-50 to-indigo-50/50 dark:from-slate-800/80 dark:to-slate-800/40 rounded-2xl border border-blue-100 dark:border-slate-700">
+                <div className="text-6xl font-black text-blue-600 dark:text-blue-400 tracking-tight">
+                  {sgpa.toFixed(2)}
+                </div>
+                <div className="text-xs font-bold text-slate-600 dark:text-slate-300 mt-2">
+                  Semester Grade Point Average
+                </div>
+              </div>
+
+              {/* Stats Summary */}
+              <div className="grid grid-cols-2 gap-3 text-center">
+                <div className="p-3 rounded-xl bg-slate-50 dark:bg-slate-800 border border-slate-200 dark:border-slate-700">
+                  <span className="text-[10px] font-bold uppercase text-slate-400 block">Total Credits</span>
+                  <span className="text-lg font-black text-slate-900 dark:text-white">{totalCredits}</span>
+                </div>
+                <div className="p-3 rounded-xl bg-slate-50 dark:bg-slate-800 border border-slate-200 dark:border-slate-700">
+                  <span className="text-[10px] font-bold uppercase text-slate-400 block">Grade Points</span>
+                  <span className="text-lg font-black text-slate-900 dark:text-white">{totalPoints}</span>
+                </div>
+              </div>
+
+              {/* Formula Explanation */}
+              <div className="p-3.5 rounded-xl bg-slate-50 dark:bg-slate-800/60 border border-slate-200 dark:border-slate-700 text-xs space-y-1">
+                <span className="font-bold text-slate-900 dark:text-white">Math Breakdown:</span>
+                <p className="font-mono text-slate-600 dark:text-slate-300 text-[11px]">
+                  SGPA = Σ(Credits × Grade Points) / Σ(Credits)
+                </p>
+                <p className="font-mono text-blue-600 dark:text-blue-400 font-semibold text-[11px]">
+                  = {totalPoints} / {totalCredits} = {sgpa.toFixed(2)}
                 </p>
               </div>
-              <span className="px-2.5 py-1 text-[11px] font-bold bg-blue-100 dark:bg-blue-950 text-blue-800 dark:text-blue-300 rounded-md">
-                Live SGPA
-              </span>
-            </div>
 
-            {/* Big SGPA Display */}
-            <div className="text-center py-4 bg-gradient-to-b from-blue-50 to-indigo-50/50 dark:from-slate-800/80 dark:to-slate-800/40 rounded-2xl border border-blue-100 dark:border-slate-700">
-              <div className="text-6xl font-black text-blue-600 dark:text-blue-400 tracking-tight">
-                {sgpa.toFixed(2)}
-              </div>
-              <div className="text-xs font-bold text-slate-600 dark:text-slate-300 mt-2">
-                Semester Grade Point Average
+              {/* Action Buttons */}
+              <div className="grid grid-cols-2 sm:grid-cols-4 gap-2 pt-2 border-t border-slate-200 dark:border-slate-800">
+                <button
+                  onClick={handleCopy}
+                  type="button"
+                  className="flex items-center justify-center gap-1.5 px-3 py-2 rounded-xl text-xs font-semibold bg-slate-100 dark:bg-slate-800 hover:bg-slate-200 dark:hover:bg-slate-700 text-slate-700 dark:text-slate-200 transition-all"
+                >
+                  {copied ? <CheckCircle2 className="w-3.5 h-3.5 text-emerald-500" /> : <Copy className="w-3.5 h-3.5" />}
+                  <span>{copied ? 'Copied' : 'Copy'}</span>
+                </button>
+
+                <button
+                  onClick={handleSaveToHistory}
+                  type="button"
+                  className="flex items-center justify-center gap-1.5 px-3 py-2 rounded-xl text-xs font-semibold bg-slate-100 dark:bg-slate-800 hover:bg-slate-200 dark:hover:bg-slate-700 text-slate-700 dark:text-slate-200 transition-all"
+                >
+                  {savedSuccess ? <CheckCircle2 className="w-3.5 h-3.5 text-emerald-500" /> : <Save className="w-3.5 h-3.5" />}
+                  <span>{savedSuccess ? 'Saved' : 'Save'}</span>
+                </button>
+
+                <button
+                  onClick={handleExportPng}
+                  disabled={isExporting}
+                  type="button"
+                  className="flex items-center justify-center gap-1.5 px-3 py-2 rounded-xl text-xs font-semibold bg-slate-100 dark:bg-slate-800 hover:bg-slate-200 dark:hover:bg-slate-700 text-slate-700 dark:text-slate-200 transition-all"
+                >
+                  <FileSpreadsheet className="w-3.5 h-3.5 text-blue-500" />
+                  <span>PNG</span>
+                </button>
+
+                <button
+                  onClick={handleExportPdf}
+                  disabled={isExporting}
+                  type="button"
+                  className="flex items-center justify-center gap-1.5 px-3 py-2 rounded-xl text-xs font-semibold bg-blue-600 hover:bg-blue-700 text-white transition-all"
+                >
+                  <Download className="w-3.5 h-3.5" />
+                  <span>PDF</span>
+                </button>
               </div>
             </div>
-
-            {/* Stats Summary */}
-            <div className="grid grid-cols-2 gap-3 text-center">
-              <div className="p-3 rounded-xl bg-slate-50 dark:bg-slate-800 border border-slate-200 dark:border-slate-700">
-                <span className="text-[10px] font-bold uppercase text-slate-400 block">Total Credits</span>
-                <span className="text-lg font-black text-slate-900 dark:text-white">{totalCredits}</span>
-              </div>
-              <div className="p-3 rounded-xl bg-slate-50 dark:bg-slate-800 border border-slate-200 dark:border-slate-700">
-                <span className="text-[10px] font-bold uppercase text-slate-400 block">Grade Points</span>
-                <span className="text-lg font-black text-slate-900 dark:text-white">{totalPoints}</span>
-              </div>
-            </div>
-
-            {/* Formula Explanation */}
-            <div className="p-3.5 rounded-xl bg-slate-50 dark:bg-slate-800/60 border border-slate-200 dark:border-slate-700 text-xs space-y-1">
-              <span className="font-bold text-slate-900 dark:text-white">Math Breakdown:</span>
-              <p className="font-mono text-slate-600 dark:text-slate-300 text-[11px]">
-                SGPA = Σ(Credits × Grade Points) / Σ(Credits)
+          ) : (
+            <div className="h-full min-h-[300px] flex flex-col items-center justify-center rounded-2xl border-2 border-dashed border-slate-200 dark:border-slate-800 p-8 text-center bg-slate-50/50 dark:bg-slate-800/20">
+              <GraduationCap className="w-12 h-12 text-slate-300 dark:text-slate-700 mb-3" />
+              <h3 className="text-sm font-bold text-slate-700 dark:text-slate-300">
+                Ready to Calculate
+              </h3>
+              <p className="text-xs text-slate-500 dark:text-slate-400 max-w-xs mt-1">
+                Enter course credits and select grade points on the left to calculate your semester SGPA.
               </p>
-              <p className="font-mono text-blue-600 dark:text-blue-400 font-semibold text-[11px]">
-                = {totalPoints} / {totalCredits} = {sgpa.toFixed(2)}
-              </p>
             </div>
-
-            {/* Action Buttons */}
-            <div className="grid grid-cols-2 sm:grid-cols-4 gap-2 pt-2 border-t border-slate-200 dark:border-slate-800">
-              <button
-                onClick={handleCopy}
-                type="button"
-                className="flex items-center justify-center gap-1.5 px-3 py-2 rounded-xl text-xs font-semibold bg-slate-100 dark:bg-slate-800 hover:bg-slate-200 dark:hover:bg-slate-700 text-slate-700 dark:text-slate-200 transition-all"
-              >
-                {copied ? <CheckCircle2 className="w-3.5 h-3.5 text-emerald-500" /> : <Copy className="w-3.5 h-3.5" />}
-                <span>{copied ? 'Copied' : 'Copy'}</span>
-              </button>
-
-              <button
-                onClick={handleSaveToHistory}
-                type="button"
-                className="flex items-center justify-center gap-1.5 px-3 py-2 rounded-xl text-xs font-semibold bg-slate-100 dark:bg-slate-800 hover:bg-slate-200 dark:hover:bg-slate-700 text-slate-700 dark:text-slate-200 transition-all"
-              >
-                {savedSuccess ? <CheckCircle2 className="w-3.5 h-3.5 text-emerald-500" /> : <Save className="w-3.5 h-3.5" />}
-                <span>{savedSuccess ? 'Saved' : 'Save'}</span>
-              </button>
-
-              <button
-                onClick={handleExportPng}
-                disabled={isExporting}
-                type="button"
-                className="flex items-center justify-center gap-1.5 px-3 py-2 rounded-xl text-xs font-semibold bg-slate-100 dark:bg-slate-800 hover:bg-slate-200 dark:hover:bg-slate-700 text-slate-700 dark:text-slate-200 transition-all"
-              >
-                <FileSpreadsheet className="w-3.5 h-3.5 text-blue-500" />
-                <span>PNG</span>
-              </button>
-
-              <button
-                onClick={handleExportPdf}
-                disabled={isExporting}
-                type="button"
-                className="flex items-center justify-center gap-1.5 px-3 py-2 rounded-xl text-xs font-semibold bg-blue-600 hover:bg-blue-700 text-white transition-all"
-              >
-                <Download className="w-3.5 h-3.5" />
-                <span>PDF</span>
-              </button>
-            </div>
-          </div>
+          )}
         </div>
       </div>
     </div>

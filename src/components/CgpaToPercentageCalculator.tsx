@@ -11,7 +11,7 @@ interface Props {
 }
 
 export const CgpaToPercentageCalculator: React.FC<Props> = ({ onHistoryUpdate }) => {
-  const [cgpaInput, setCgpaInput] = useState<string>('8.36');
+  const [cgpaInput, setCgpaInput] = useState<string>('');
   const [copied, setCopied] = useState<boolean>(false);
   const [savedSuccess, setSavedSuccess] = useState<boolean>(false);
   const [isExporting, setIsExporting] = useState<boolean>(false);
@@ -20,7 +20,7 @@ export const CgpaToPercentageCalculator: React.FC<Props> = ({ onHistoryUpdate })
   const validationState = useMemo(() => {
     const trimmed = cgpaInput.trim();
     if (trimmed === '') {
-      return { isValid: false, errorMessage: 'Please enter your CGPA.' };
+      return { isValid: false, errorMessage: '' };
     }
     const num = Number(trimmed);
     if (isNaN(num)) {
@@ -149,7 +149,7 @@ export const CgpaToPercentageCalculator: React.FC<Props> = ({ onHistoryUpdate })
               </div>
 
               {/* Error Message */}
-              {!validationState.isValid && (
+              {!validationState.isValid && validationState.errorMessage !== '' && (
                 <div className="mt-3 flex items-start gap-2 text-xs font-medium text-rose-600 dark:text-rose-400 bg-rose-50 dark:bg-rose-950/40 p-3 rounded-lg border border-rose-200 dark:border-rose-900">
                   <AlertTriangle className="w-4 h-4 shrink-0 mt-0.5" />
                   <span>{validationState.errorMessage}</span>
