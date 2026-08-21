@@ -59,7 +59,7 @@ It is an independent, unofficial Grade Conversion & Academic Utility built stric
 
 ## 📸 Demo Preview
 
-<!-- TODO: Add a screenshot or short GIF demo of the CGPA calculator here -->
+![WCE CGPA to Percentage Converter Screenshot](./public/screenshot.png)
 
 ---
 
