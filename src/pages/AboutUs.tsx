@@ -10,7 +10,7 @@ export const AboutUs: React.FC = () => {
           <Info className="w-3.5 h-3.5" />
           About This Tool
         </div>
-        <h1 className="text-2xl sm:text-3xl font-black tracking-tight">About WCE CGPA to Percent Calculator</h1>
+        <h1 className="text-2xl sm:text-3xl font-black tracking-tight">About WCE CGPA to Percentage Converter</h1>
         <p className="text-slate-300 text-xs sm:text-sm mt-1 max-w-2xl">
           An independent academic tool designed to help Walchand College of Engineering, Sangli students convert CGPA to percentage quickly and accurately.
         </p>
@@ -26,7 +26,7 @@ export const AboutUs: React.FC = () => {
             Why This Tool Was Built
           </h2>
           <p>
-            <strong>WCE CGPA to Percent Calculator</strong> was created by a student to provide Walchand College of Engineering (WCE), Sangli students with a clean, fast, and 100% accurate online tool for grade conversions.
+            <strong>WCE CGPA to Percentage Converter</strong> was created by a student to provide Walchand College of Engineering (WCE), Sangli students with a clean, fast, and 100% accurate online tool for grade conversions.
           </p>
           <p>
             Students frequently need to convert their CGPA to percentage for higher education applications, job interviews, campus placements, and scholarship forms. This utility eliminates guesswork by applying WCE's exact published mathematical formula.

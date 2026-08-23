@@ -67,10 +67,10 @@ export const HowItsCalculated: React.FC = () => {
             <span>Note on Relative Grading vs. Fixed Formulas</span>
           </div>
           <p>
-            WCE converts your raw exam marks into a letter grade (like AB or BB) using a <b>relative grading</b> system, which compares your marks to your classmates' average and spread of marks for that specific course. This step is done internally by the college and isn't something this calculator can replicate.
+            WCE converts your raw exam marks into a letter grade (like AB or BB) using a <b>relative grading</b> system, which compares your marks to your classmates' average and spread of marks for that specific course. This step is done internally by the college and isn't something this converter can replicate.
           </p>
           <p>
-            This calculator starts <b>AFTER</b> that step — once your official letter grades or CGPA are already on your grade card, the SGPA/CGPA/percentage formulas below are fixed and apply the same way to every student, so your results here are fully accurate as long as you enter your official grades correctly.
+            This converter starts <b>AFTER</b> that step — once your official letter grades or CGPA are already on your grade card, the SGPA/CGPA/percentage formulas below are fixed and apply the same way to every student, so your results here are fully accurate as long as you enter your official grades correctly.
           </p>
         </div>
       </div>

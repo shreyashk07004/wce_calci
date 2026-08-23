@@ -14,7 +14,7 @@ export const ContactUs: React.FC = () => {
         </div>
         <h1 className="text-2xl sm:text-3xl font-black tracking-tight">Contact Us</h1>
         <p className="text-slate-300 text-xs sm:text-sm mt-1">
-          Have feedback, questions, or suggestions for the WCE CGPA to Percent Calculator?
+          Have feedback, questions, or suggestions for the WCE CGPA to Percentage Converter?
         </p>
       </div>
 

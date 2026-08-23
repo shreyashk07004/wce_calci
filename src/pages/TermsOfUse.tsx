@@ -12,7 +12,7 @@ export const TermsOfUse: React.FC = () => {
         </div>
         <h1 className="text-2xl sm:text-3xl font-black tracking-tight">Terms of Use & Disclaimer</h1>
         <p className="text-slate-300 text-xs sm:text-sm mt-1">
-          Please read these terms before using the WCE CGPA to Percent Calculator.
+          Please read these terms before using the WCE CGPA to Percentage Converter.
         </p>
       </div>
 
@@ -26,7 +26,7 @@ export const TermsOfUse: React.FC = () => {
             1. "As Is" Informational Purpose
           </h2>
           <p>
-            <strong>WCE CGPA to Percent Calculator</strong> is provided strictly on an <strong>"as is" and "as available" basis</strong> for convenience and informational reference purposes only. While every care has been taken to implement the exact published formulas from WCE's <i>Academic and Examination Rules and Regulations 2023-24</i>, no warranty or guarantee of absolute accuracy, completeness, or suitability for any specific official purpose is implied.
+            <strong>WCE CGPA to Percentage Converter</strong> is provided strictly on an <strong>"as is" and "as available" basis</strong> for convenience and informational reference purposes only. While every care has been taken to implement the exact published formulas from WCE's <i>Academic and Examination Rules and Regulations 2023-24</i>, no warranty or guarantee of absolute accuracy, completeness, or suitability for any specific official purpose is implied.
           </p>
         </section>
 

@@ -15,7 +15,7 @@ export const PrivacyPolicy: React.FC = () => {
         </div>
         <h1 className="text-2xl sm:text-3xl font-black tracking-tight">Privacy Policy</h1>
         <p className="text-slate-300 text-xs sm:text-sm mt-1">
-          How WCE CGPA to Percent Calculator handles user privacy and browser data storage.
+          How WCE CGPA to Percentage Converter handles user privacy and browser data storage.
         </p>
         <div className="mt-4 inline-flex items-center gap-1.5 text-xs text-slate-400 font-medium">
           <Calendar className="w-3.5 h-3.5 text-blue-400" />
@@ -33,7 +33,7 @@ export const PrivacyPolicy: React.FC = () => {
             1. Client-Side Execution & Zero Backend Server
           </h2>
           <p>
-            <strong>WCE CGPA to Percent Calculator</strong> operates as a 100% client-side web application. All calculations (including CGPA to percentage conversions, SGPA computations, and attendance penalty evaluations) are executed entirely inside your browser. No data, inputs, or calculation results are ever transmitted to or stored on an external backend server or database.
+            <strong>WCE CGPA to Percentage Converter</strong> operates as a 100% client-side web application. All calculations (including CGPA to percentage conversions, SGPA computations, and attendance penalty evaluations) are executed entirely inside your browser. No data, inputs, or calculation results are ever transmitted to or stored on an external backend server or database.
           </p>
         </section>
 

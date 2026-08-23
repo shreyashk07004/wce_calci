@@ -27,7 +27,7 @@ export const Footer: React.FC = () => {
                 WCE
               </div>
               <span className="font-bold text-white text-base">
-                WCE CGPA to Percent Calculator
+                WCE CGPA to Percentage Converter
               </span>
             </div>
             <p className="text-xs text-slate-400 leading-relaxed max-w-sm">
@@ -96,7 +96,7 @@ export const Footer: React.FC = () => {
         {/* Bottom Bar & Footer Links */}
         <div className="pt-4 border-t border-slate-800/80 flex flex-col sm:flex-row items-center justify-between text-xs text-slate-500 gap-4">
           <div className="flex flex-wrap items-center gap-x-3 gap-y-1 text-slate-400">
-            <span>© {new Date().getFullYear()} WCE CGPA to Percent Calculator</span>
+            <span>© {new Date().getFullYear()} WCE CGPA to Percentage Converter</span>
             <span className="hidden sm:inline">•</span>
             <Link to="/privacy-policy" className="hover:text-white underline transition-colors">
               Privacy Policy

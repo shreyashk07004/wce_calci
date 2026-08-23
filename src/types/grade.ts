@@ -1,4 +1,4 @@
-// Types for WCE Grade & CGPA Calculator
+// Types for WCE Grade & CGPA Converter
 
 export type GradeLetter = 'AA' | 'AB' | 'BB' | 'BC' | 'CC' | 'CD' | 'DD' | 'FF' | 'XX';
 

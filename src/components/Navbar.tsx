@@ -29,7 +29,7 @@ export const Navbar: React.FC<NavbarProps> = ({ historyCount }) => {
             <div>
               <div className="flex items-center gap-2">
                 <span className="font-extrabold text-slate-900 dark:text-white text-base leading-none tracking-tight">
-                  WCE CGPA to Percent Calculator
+                  WCE CGPA to Percentage Converter
                 </span>
                 <span className="inline-flex items-center gap-1 px-2 py-0.5 rounded-full text-[10px] font-semibold bg-blue-100 text-blue-800 dark:bg-blue-950/80 dark:text-blue-300 border border-blue-200 dark:border-blue-800">
                   <ShieldCheck className="w-3 h-3 text-blue-600 dark:text-blue-400" />
