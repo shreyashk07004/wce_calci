@@ -87,41 +87,41 @@ export const CgpaToPercentageCalculator: React.FC<Props> = ({ onHistoryUpdate })
   };
 
   return (
-    <div className="space-y-6 max-w-4xl mx-auto">
+    <div className="space-y-6 max-w-4xl mx-auto px-1 sm:px-0">
       {/* Top Banner / Headline */}
-      <div className="bg-gradient-to-r from-blue-900 via-indigo-900 to-slate-900 rounded-2xl p-6 text-white shadow-xl relative overflow-hidden">
+      <div className="bg-gradient-to-r from-blue-900 via-indigo-900 to-slate-900 rounded-2xl p-4 sm:p-6 text-white shadow-xl relative overflow-hidden">
         <div className="absolute -right-10 -bottom-10 w-48 h-48 bg-blue-500/10 rounded-full blur-2xl pointer-events-none"></div>
         <div className="relative z-10 flex flex-col md:flex-row items-start md:items-center justify-between gap-4">
-          <div className="space-y-2">
-            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full text-xs font-semibold bg-blue-500/20 text-blue-300 border border-blue-400/30">
-              <Sparkles className="w-3.5 h-3.5 text-blue-300" />
+          <div className="space-y-1.5 sm:space-y-2">
+            <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-[11px] sm:text-xs font-semibold bg-blue-500/20 text-blue-300 border border-blue-400/30">
+              <Sparkles className="w-3.5 h-3.5 text-blue-300 shrink-0" />
               WCE Official Formula (Section 16)
             </div>
-            <h1 className="text-2xl sm:text-3xl font-extrabold tracking-tight">
+            <h1 className="text-xl sm:text-2xl md:text-3xl font-extrabold tracking-tight">
               CGPA to Percentage Converter
             </h1>
-            <p className="text-slate-300 text-sm max-w-xl">
+            <p className="text-slate-300 text-xs sm:text-sm max-w-xl leading-relaxed">
               Calculate your exact percentage using the official formula defined in WCE’s Academic & Examination Rules and Regulations.
             </p>
           </div>
           <Link
             to="/how-its-calculated"
-            className="inline-flex items-center gap-2 px-4 py-2 rounded-xl bg-white/10 hover:bg-white/20 text-xs font-medium text-white transition-all backdrop-blur-md border border-white/20"
+            className="inline-flex items-center gap-2 px-3.5 py-2 min-h-[40px] rounded-xl bg-white/10 hover:bg-white/20 text-xs font-medium text-white transition-all backdrop-blur-md border border-white/20 shrink-0"
           >
-            <HelpCircle className="w-4 h-4 text-blue-300" />
-            View Official Formula
+            <HelpCircle className="w-4 h-4 text-blue-300 shrink-0" />
+            <span>View Official Formula</span>
           </Link>
         </div>
       </div>
 
       {/* Main Calculator Card */}
-      <div className="bg-white dark:bg-slate-900 rounded-2xl p-6 sm:p-8 border border-slate-200 dark:border-slate-800 shadow-md transition-colors">
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
+      <div className="bg-white dark:bg-slate-900 rounded-2xl p-4 sm:p-8 border border-slate-200 dark:border-slate-800 shadow-md transition-colors">
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 sm:gap-8 items-start">
           
           {/* Left Column: Input Form */}
           <div className="lg:col-span-6 space-y-6">
             <div>
-              <label htmlFor="cgpa-input" className="block text-sm font-bold text-slate-900 dark:text-white mb-2">
+              <label htmlFor="cgpa-input" className="block text-xs sm:text-sm font-bold text-slate-900 dark:text-white mb-2">
                 Enter your CGPA (0.00 - 10.00) <span className="text-rose-500">*</span>
               </label>
               <div className="relative">
@@ -137,13 +137,13 @@ export const CgpaToPercentageCalculator: React.FC<Props> = ({ onHistoryUpdate })
                     setSavedSuccess(false);
                   }}
                   placeholder="e.g. 8.36"
-                  className={`w-full pl-4 pr-16 py-3.5 text-2xl font-bold rounded-xl border bg-slate-50 dark:bg-slate-800 text-slate-900 dark:text-white placeholder-slate-400 focus:outline-none focus:ring-2 transition-all ${
+                  className={`w-full pl-4 pr-16 py-3 sm:py-3.5 text-xl sm:text-2xl font-bold rounded-xl border bg-slate-50 dark:bg-slate-800 text-slate-900 dark:text-white placeholder-slate-400 focus:outline-none focus:ring-2 transition-all ${
                     !validationState.isValid
                       ? 'border-rose-500 focus:ring-rose-500'
                       : 'border-slate-300 dark:border-slate-700 focus:ring-blue-500 focus:border-blue-500'
                   }`}
                 />
-                <div className="absolute right-4 top-1/2 -translate-y-1/2 text-slate-400 text-sm font-bold pointer-events-none">
+                <div className="absolute right-4 top-1/2 -translate-y-1/2 text-slate-400 text-xs sm:text-sm font-bold pointer-events-none select-none">
                   / 10.00
                 </div>
               </div>
@@ -162,13 +162,13 @@ export const CgpaToPercentageCalculator: React.FC<Props> = ({ onHistoryUpdate })
               <span className="block text-xs font-semibold text-slate-500 dark:text-slate-400 mb-2">
                 Quick Test Values (Official WCE Verification Table):
               </span>
-              <div className="flex flex-wrap gap-2">
+              <div className="grid grid-cols-4 sm:flex sm:flex-wrap gap-2">
                 {[6.25, 6.75, 7.25, 7.75, 8.25, 8.50, 9.00].map((preset) => (
                   <button
                     key={preset}
                     onClick={() => handlePresetClick(preset)}
                     type="button"
-                    className={`px-3 py-1.5 rounded-lg text-xs font-semibold transition-colors border ${
+                    className={`px-2.5 sm:px-3 py-2 min-h-[40px] rounded-lg text-xs font-semibold transition-colors border flex items-center justify-center ${
                       validationState.numValue === preset
                         ? 'bg-blue-600 text-white border-blue-600 shadow-sm'
                         : 'bg-slate-100 dark:bg-slate-800 text-slate-700 dark:text-slate-300 border-slate-200 dark:border-slate-700 hover:bg-slate-200 dark:hover:bg-slate-700'
@@ -183,7 +183,7 @@ export const CgpaToPercentageCalculator: React.FC<Props> = ({ onHistoryUpdate })
             {/* Formula Reference Box */}
             <div className="p-4 rounded-xl bg-slate-50 dark:bg-slate-800/50 border border-slate-200 dark:border-slate-800 text-xs space-y-1">
               <span className="font-bold text-slate-900 dark:text-slate-200">Official WCE Formula (Section 16):</span>
-              <p className="font-mono text-blue-700 dark:text-blue-400 font-semibold text-sm">
+              <p className="font-mono text-blue-700 dark:text-blue-400 font-semibold text-xs sm:text-sm break-all">
                 Percentage = (10.00 × CGPA) − 7.50
               </p>
               <p className="text-slate-500 dark:text-slate-400 text-[11px]">
@@ -197,16 +197,16 @@ export const CgpaToPercentageCalculator: React.FC<Props> = ({ onHistoryUpdate })
             {calculationResult ? (
               <div
                 id="cgpa-report-card"
-                className="bg-gradient-to-b from-slate-50 to-blue-50/40 dark:from-slate-800/80 dark:to-slate-800/40 rounded-2xl p-6 border border-blue-200/80 dark:border-slate-700 shadow-inner space-y-6"
+                className="bg-gradient-to-b from-slate-50 to-blue-50/40 dark:from-slate-800/80 dark:to-slate-800/40 rounded-2xl p-4 sm:p-6 border border-blue-200/80 dark:border-slate-700 shadow-inner space-y-5 sm:space-y-6"
               >
                 {/* Result Header */}
-                <div className="flex items-center justify-between border-b border-slate-200 dark:border-slate-700 pb-4">
+                <div className="flex items-center justify-between border-b border-slate-200 dark:border-slate-700 pb-3.5">
                   <div className="flex items-center gap-2">
-                    <div className="w-8 h-8 rounded-lg bg-blue-600 text-white flex items-center justify-center font-black text-sm">
+                    <div className="w-8 h-8 rounded-lg bg-blue-600 text-white flex items-center justify-center font-black text-sm shrink-0">
                       %
                     </div>
                     <div>
-                      <h2 className="text-xs font-bold text-slate-500 dark:text-slate-400 uppercase tracking-wider">
+                      <h2 className="text-[11px] sm:text-xs font-bold text-slate-500 dark:text-slate-400 uppercase tracking-wider">
                         Calculated Percentage
                       </h2>
                       <p className="text-xs font-semibold text-slate-700 dark:text-slate-300">
@@ -214,14 +214,14 @@ export const CgpaToPercentageCalculator: React.FC<Props> = ({ onHistoryUpdate })
                       </p>
                     </div>
                   </div>
-                  <span className="text-[10px] font-semibold px-2 py-1 bg-emerald-100 dark:bg-emerald-950 text-emerald-800 dark:text-emerald-300 rounded-md border border-emerald-200 dark:border-emerald-800">
+                  <span className="text-[10px] font-semibold px-2 py-1 bg-emerald-100 dark:bg-emerald-950 text-emerald-800 dark:text-emerald-300 rounded-md border border-emerald-200 dark:border-emerald-800 shrink-0">
                     Live Validated
                   </span>
                 </div>
 
                 {/* Big Result Display */}
                 <div className="text-center py-2 space-y-1">
-                  <div className="text-5xl sm:text-6xl font-black text-blue-600 dark:text-blue-400 tracking-tight">
+                  <div className="text-4xl sm:text-6xl font-black text-blue-600 dark:text-blue-400 tracking-tight">
                     {calculationResult.percentage.toFixed(2)}%
                   </div>
                   <div className="text-xs font-medium text-slate-500 dark:text-slate-400">
@@ -230,11 +230,11 @@ export const CgpaToPercentageCalculator: React.FC<Props> = ({ onHistoryUpdate })
                 </div>
 
                 {/* Substituted Formula Breakdown */}
-                <div className="bg-white dark:bg-slate-900 rounded-xl p-4 border border-slate-200 dark:border-slate-700 shadow-sm space-y-1.5">
+                <div className="bg-white dark:bg-slate-900 rounded-xl p-3.5 sm:p-4 border border-slate-200 dark:border-slate-700 shadow-sm space-y-1.5">
                   <span className="text-[11px] font-bold text-slate-500 dark:text-slate-400 uppercase tracking-wider block">
                     Formula Substitution:
                   </span>
-                  <div className="font-mono text-sm sm:text-base font-bold text-slate-900 dark:text-slate-100 bg-slate-100 dark:bg-slate-800 p-2.5 rounded-lg border border-slate-200 dark:border-slate-700 overflow-x-auto text-center">
+                  <div className="font-mono text-xs sm:text-base font-bold text-slate-900 dark:text-slate-100 bg-slate-100 dark:bg-slate-800 p-2.5 rounded-lg border border-slate-200 dark:border-slate-700 overflow-x-auto text-center break-words">
                     {calculationResult.formula}
                   </div>
                 </div>
@@ -252,18 +252,18 @@ export const CgpaToPercentageCalculator: React.FC<Props> = ({ onHistoryUpdate })
                   <button
                     onClick={handleCopy}
                     type="button"
-                    className="flex items-center justify-center gap-1.5 px-3 py-2 rounded-xl text-xs font-semibold bg-white dark:bg-slate-800 hover:bg-slate-100 dark:hover:bg-slate-700 text-slate-700 dark:text-slate-200 border border-slate-200 dark:border-slate-700 transition-all shadow-sm"
+                    className="flex items-center justify-center gap-1.5 px-3 py-2.5 min-h-[44px] rounded-xl text-xs font-semibold bg-white dark:bg-slate-800 hover:bg-slate-100 dark:hover:bg-slate-700 text-slate-700 dark:text-slate-200 border border-slate-200 dark:border-slate-700 transition-all shadow-sm active:scale-95"
                   >
-                    {copied ? <CheckCircle2 className="w-3.5 h-3.5 text-emerald-500" /> : <Copy className="w-3.5 h-3.5" />}
+                    {copied ? <CheckCircle2 className="w-4 h-4 text-emerald-500 shrink-0" /> : <Copy className="w-4 h-4 shrink-0" />}
                     <span>{copied ? 'Copied!' : 'Copy'}</span>
                   </button>
 
                   <button
                     onClick={handleSaveToHistory}
                     type="button"
-                    className="flex items-center justify-center gap-1.5 px-3 py-2 rounded-xl text-xs font-semibold bg-white dark:bg-slate-800 hover:bg-slate-100 dark:hover:bg-slate-700 text-slate-700 dark:text-slate-200 border border-slate-200 dark:border-slate-700 transition-all shadow-sm"
+                    className="flex items-center justify-center gap-1.5 px-3 py-2.5 min-h-[44px] rounded-xl text-xs font-semibold bg-white dark:bg-slate-800 hover:bg-slate-100 dark:hover:bg-slate-700 text-slate-700 dark:text-slate-200 border border-slate-200 dark:border-slate-700 transition-all shadow-sm active:scale-95"
                   >
-                    {savedSuccess ? <CheckCircle2 className="w-3.5 h-3.5 text-emerald-500" /> : <Save className="w-3.5 h-3.5" />}
+                    {savedSuccess ? <CheckCircle2 className="w-4 h-4 text-emerald-500 shrink-0" /> : <Save className="w-4 h-4 shrink-0" />}
                     <span>{savedSuccess ? 'Saved!' : 'Save'}</span>
                   </button>
 
@@ -271,9 +271,9 @@ export const CgpaToPercentageCalculator: React.FC<Props> = ({ onHistoryUpdate })
                     onClick={handleExportPng}
                     disabled={isExporting}
                     type="button"
-                    className="flex items-center justify-center gap-1.5 px-3 py-2 rounded-xl text-xs font-semibold bg-white dark:bg-slate-800 hover:bg-slate-100 dark:hover:bg-slate-700 text-slate-700 dark:text-slate-200 border border-slate-200 dark:border-slate-700 transition-all shadow-sm"
+                    className="flex items-center justify-center gap-1.5 px-3 py-2.5 min-h-[44px] rounded-xl text-xs font-semibold bg-white dark:bg-slate-800 hover:bg-slate-100 dark:hover:bg-slate-700 text-slate-700 dark:text-slate-200 border border-slate-200 dark:border-slate-700 transition-all shadow-sm active:scale-95"
                   >
-                    <FileSpreadsheet className="w-3.5 h-3.5 text-blue-500" />
+                    <FileSpreadsheet className="w-4 h-4 text-blue-500 shrink-0" />
                     <span>PNG</span>
                   </button>
 
@@ -281,20 +281,20 @@ export const CgpaToPercentageCalculator: React.FC<Props> = ({ onHistoryUpdate })
                     onClick={handleExportPdf}
                     disabled={isExporting}
                     type="button"
-                    className="flex items-center justify-center gap-1.5 px-3 py-2 rounded-xl text-xs font-semibold bg-blue-600 hover:bg-blue-700 text-white transition-all shadow-sm"
+                    className="flex items-center justify-center gap-1.5 px-3 py-2.5 min-h-[44px] rounded-xl text-xs font-semibold bg-blue-600 hover:bg-blue-700 text-white transition-all shadow-sm active:scale-95"
                   >
-                    <Download className="w-3.5 h-3.5" />
+                    <Download className="w-4 h-4 shrink-0" />
                     <span>PDF</span>
                   </button>
                 </div>
               </div>
             ) : (
-              <div className="h-full min-h-[300px] flex flex-col items-center justify-center rounded-2xl border-2 border-dashed border-slate-200 dark:border-slate-800 p-8 text-center bg-slate-50/50 dark:bg-slate-800/20">
-                <Calculator className="w-12 h-12 text-slate-300 dark:text-slate-700 mb-3" />
-                <h3 className="text-sm font-bold text-slate-700 dark:text-slate-300">
+              <div className="h-full min-h-[250px] sm:min-h-[300px] flex flex-col items-center justify-center rounded-2xl border-2 border-dashed border-slate-200 dark:border-slate-800 p-6 sm:p-8 text-center bg-slate-50/50 dark:bg-slate-800/20">
+                <Calculator className="w-10 h-10 sm:w-12 sm:h-12 text-slate-300 dark:text-slate-700 mb-3" />
+                <h3 className="text-xs sm:text-sm font-bold text-slate-700 dark:text-slate-300">
                   Ready to Calculate
                 </h3>
-                <p className="text-xs text-slate-500 dark:text-slate-400 max-w-xs mt-1">
+                <p className="text-xs text-slate-500 dark:text-slate-400 max-w-xs mt-1 leading-relaxed">
                   Enter a valid CGPA between 0.00 and 10.00 on the left to see your instant percentage result and conversion formula.
                 </p>
               </div>

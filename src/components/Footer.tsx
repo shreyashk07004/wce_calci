@@ -4,11 +4,11 @@ import { ShieldCheck, Heart, AlertCircle } from 'lucide-react';
 
 export const Footer: React.FC = () => {
   return (
-    <footer className="bg-slate-900 text-slate-400 py-10 border-t border-slate-800 transition-colors mt-auto">
+    <footer className="bg-slate-900 text-slate-400 py-8 sm:py-10 border-t border-slate-800 transition-colors mt-auto">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-6">
         
         {/* Persistent Site-Wide Disclaimer Banner */}
-        <div className="p-4 rounded-xl bg-slate-800/90 border border-slate-700/80 text-xs text-slate-300 space-y-1.5 leading-relaxed shadow-inner">
+        <div className="p-3.5 sm:p-4 rounded-xl bg-slate-800/90 border border-slate-700/80 text-xs text-slate-300 space-y-1.5 leading-relaxed shadow-inner">
           <div className="flex items-center gap-2 font-bold text-amber-400">
             <AlertCircle className="w-4 h-4 shrink-0 text-amber-400" />
             <span>Disclaimer & Legal Notice</span>
@@ -19,14 +19,14 @@ export const Footer: React.FC = () => {
         </div>
 
         {/* Links Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-12 gap-8 pt-2">
+        <div className="grid grid-cols-1 md:grid-cols-12 gap-6 sm:gap-8 pt-2">
           {/* Brand Column */}
           <div className="md:col-span-5 space-y-3">
             <div className="flex items-center space-x-3">
-              <div className="w-8 h-8 rounded-lg bg-blue-600 flex items-center justify-center text-white font-black text-sm">
+              <div className="w-8 h-8 rounded-lg bg-blue-600 flex items-center justify-center text-white font-black text-sm shrink-0">
                 WCE
               </div>
-              <span className="font-bold text-white text-base">
+              <span className="font-bold text-white text-sm sm:text-base">
                 WCE CGPA to Percentage Converter
               </span>
             </div>
@@ -34,8 +34,8 @@ export const Footer: React.FC = () => {
               Free CGPA to percentage converter tool for Walchand College of Engineering, Sangli.
             </p>
             <div className="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full text-[11px] font-semibold bg-slate-800 text-slate-300 border border-slate-700">
-              <ShieldCheck className="w-3.5 h-3.5 text-emerald-400" />
-              100% Client-Side • Zero Backend • No Tracking
+              <ShieldCheck className="w-3.5 h-3.5 text-emerald-400 shrink-0" />
+              <span>100% Client-Side • Zero Backend • No Tracking</span>
             </div>
           </div>
 
@@ -44,19 +44,19 @@ export const Footer: React.FC = () => {
             <h4 className="text-xs font-bold text-white uppercase tracking-wider">
               Quick Links
             </h4>
-            <ul className="space-y-1.5 text-xs">
+            <ul className="space-y-2 text-xs">
               <li>
-                <Link to="/" className="hover:text-white transition-colors">
+                <Link to="/" className="hover:text-white transition-colors py-0.5 inline-block">
                   CGPA to Percentage Converter
                 </Link>
               </li>
               <li>
-                <Link to="/how-its-calculated" className="hover:text-white transition-colors">
+                <Link to="/how-its-calculated" className="hover:text-white transition-colors py-0.5 inline-block">
                   Official WCE Formula Breakdown
                 </Link>
               </li>
               <li>
-                <Link to="/history" className="hover:text-white transition-colors">
+                <Link to="/history" className="hover:text-white transition-colors py-0.5 inline-block">
                   Saved Calculation History
                 </Link>
               </li>
@@ -68,24 +68,24 @@ export const Footer: React.FC = () => {
             <h4 className="text-xs font-bold text-white uppercase tracking-wider">
               Legal & Information
             </h4>
-            <ul className="space-y-1.5 text-xs">
+            <ul className="space-y-2 text-xs">
               <li>
-                <Link to="/privacy-policy" className="hover:text-white transition-colors">
+                <Link to="/privacy-policy" className="hover:text-white transition-colors py-0.5 inline-block">
                   Privacy Policy
                 </Link>
               </li>
               <li>
-                <Link to="/terms" className="hover:text-white transition-colors">
+                <Link to="/terms" className="hover:text-white transition-colors py-0.5 inline-block">
                   Terms of Use & Disclaimer
                 </Link>
               </li>
               <li>
-                <Link to="/about" className="hover:text-white transition-colors">
+                <Link to="/about" className="hover:text-white transition-colors py-0.5 inline-block">
                   About Us
                 </Link>
               </li>
               <li>
-                <Link to="/contact" className="hover:text-white transition-colors">
+                <Link to="/contact" className="hover:text-white transition-colors py-0.5 inline-block">
                   Contact Us
                 </Link>
               </li>
@@ -95,7 +95,7 @@ export const Footer: React.FC = () => {
 
         {/* Bottom Bar & Footer Links */}
         <div className="pt-4 border-t border-slate-800/80 flex flex-col sm:flex-row items-center justify-between text-xs text-slate-500 gap-4">
-          <div className="flex flex-wrap items-center gap-x-3 gap-y-1 text-slate-400">
+          <div className="flex flex-wrap items-center justify-center sm:justify-start gap-x-3 gap-y-1.5 text-slate-400 text-center sm:text-left">
             <span>© {new Date().getFullYear()} WCE CGPA to Percentage Converter</span>
             <span className="hidden sm:inline">•</span>
             <Link to="/privacy-policy" className="hover:text-white underline transition-colors">
