@@ -26,9 +26,9 @@ export const HowItsCalculated: React.FC = () => {
             1
           </div>
           <div>
-            <h3 className="text-base sm:text-lg font-extrabold text-slate-900 dark:text-white">
+            <h2 className="text-base sm:text-lg font-extrabold text-slate-900 dark:text-white">
               Official WCE Grade Point Table
-            </h3>
+            </h2>
             <p className="text-xs text-slate-500 dark:text-slate-400">
               Cited from WCE Academic and Examination Rules and Regulations 2023-24, Section 12.01 (Table 16.1)
             </p>
@@ -82,9 +82,9 @@ export const HowItsCalculated: React.FC = () => {
             2
           </div>
           <div>
-            <h3 className="text-base sm:text-lg font-extrabold text-slate-900 dark:text-white">
+            <h2 className="text-base sm:text-lg font-extrabold text-slate-900 dark:text-white">
               SGPA Formula (Semester Grade Point Average)
-            </h3>
+            </h2>
             <p className="text-xs text-slate-500 dark:text-slate-400">
               Per WCE Academic RR 2023-24, Section 16
             </p>
@@ -124,9 +124,9 @@ export const HowItsCalculated: React.FC = () => {
             3
           </div>
           <div>
-            <h3 className="text-base sm:text-lg font-extrabold text-slate-900 dark:text-white">
+            <h2 className="text-base sm:text-lg font-extrabold text-slate-900 dark:text-white">
               CGPA Formula (Cumulative Grade Point Average)
-            </h3>
+            </h2>
             <p className="text-xs text-slate-500 dark:text-slate-400">
               Per WCE Academic RR 2023-24, Section 16
             </p>
@@ -152,9 +152,9 @@ export const HowItsCalculated: React.FC = () => {
             4
           </div>
           <div>
-            <h3 className="text-base sm:text-lg font-extrabold text-slate-900 dark:text-white">
+            <h2 className="text-base sm:text-lg font-extrabold text-slate-900 dark:text-white">
               CGPA to Percentage Conversion Formula
-            </h3>
+            </h2>
             <p className="text-xs text-slate-500 dark:text-slate-400">
               Cited directly from WCE Academic and Examination Rules and Regulations 2023-24, Section 16
             </p>
@@ -199,6 +199,137 @@ export const HowItsCalculated: React.FC = () => {
             <div className="pt-2 font-sans font-bold text-emerald-600 dark:text-emerald-400">
               So a CGPA of 7.80 is equivalent to 70.50%.
             </div>
+          </div>
+        </div>
+      </div>
+
+      {/* Card 5: Quick Reference Lookup Table */}
+      <div className="bg-white dark:bg-slate-900 rounded-2xl p-4 sm:p-8 border border-slate-200 dark:border-slate-800 shadow-md space-y-4">
+        <div className="flex items-center gap-3 border-b border-slate-200 dark:border-slate-800 pb-4">
+          <div className="w-8 h-8 rounded-lg bg-blue-600 text-white flex items-center justify-center font-bold text-sm shrink-0">
+            5
+          </div>
+          <div>
+            <h2 className="text-base sm:text-lg font-extrabold text-slate-900 dark:text-white">
+              CGPA to Percentage Quick Reference Table
+            </h2>
+            <p className="text-xs text-slate-500 dark:text-slate-400">
+              Pre-calculated percentage values in 0.25 CGPA increments from 5.00 to 10.00 using formula: (10.00 × CGPA) − 7.50
+            </p>
+          </div>
+        </div>
+
+        <div className="overflow-x-auto -mx-4 sm:mx-0 px-4 sm:px-0">
+          <table className="w-full text-left text-xs border-collapse min-w-[360px]">
+            <thead>
+              <tr className="bg-slate-100 dark:bg-slate-800 text-slate-700 dark:text-slate-300 border-b border-slate-200 dark:border-slate-700">
+                <th className="py-2.5 px-4 font-bold">WCE CGPA</th>
+                <th className="py-2.5 px-4 font-bold">Official Calculation</th>
+                <th className="py-2.5 px-4 font-bold">Equivalent Percentage</th>
+                <th className="py-2.5 px-4 font-bold">Status</th>
+              </tr>
+            </thead>
+            <tbody className="divide-y divide-slate-200 dark:divide-slate-800">
+              {[
+                { cgpa: '5.00', calc: '(10.00 × 5.00) − 7.50', per: '42.50%', note: 'Minimum Pass CGPA' },
+                { cgpa: '5.25', calc: '(10.00 × 5.25) − 7.50', per: '45.00%', note: 'Standard Increment' },
+                { cgpa: '5.50', calc: '(10.00 × 5.50) − 7.50', per: '47.50%', note: 'Standard Increment' },
+                { cgpa: '5.75', calc: '(10.00 × 5.75) − 7.50', per: '50.00%', note: 'Second Class Benchmark' },
+                { cgpa: '6.00', calc: '(10.00 × 6.00) − 7.50', per: '52.50%', note: 'Standard Increment' },
+                { cgpa: '6.25', calc: '(10.00 × 6.25) − 7.50', per: '55.00%', note: 'WCE Verification Table' },
+                { cgpa: '6.50', calc: '(10.00 × 6.50) − 7.50', per: '57.50%', note: 'Standard Increment' },
+                { cgpa: '6.75', calc: '(10.00 × 6.75) − 7.50', per: '60.00%', note: 'WCE Verification Table (1st Class)' },
+                { cgpa: '7.00', calc: '(10.00 × 7.00) − 7.50', per: '62.50%', note: 'Standard Increment' },
+                { cgpa: '7.25', calc: '(10.00 × 7.25) − 7.50', per: '65.00%', note: 'WCE Verification Table' },
+                { cgpa: '7.50', calc: '(10.00 × 7.50) − 7.50', per: '67.50%', note: 'Standard Increment' },
+                { cgpa: '7.75', calc: '(10.00 × 7.75) − 7.50', per: '70.00%', note: 'WCE Verification Table (Distinction)' },
+                { cgpa: '8.00', calc: '(10.00 × 8.00) − 7.50', per: '72.50%', note: 'Standard Increment' },
+                { cgpa: '8.25', calc: '(10.00 × 8.25) − 7.50', per: '75.00%', note: 'WCE Verification Table' },
+                { cgpa: '8.50', calc: '(10.00 × 8.50) − 7.50', per: '77.50%', note: 'High Academic Standing' },
+                { cgpa: '8.75', calc: '(10.00 × 8.75) − 7.50', per: '80.00%', note: 'High Academic Standing' },
+                { cgpa: '9.00', calc: '(10.00 × 9.00) − 7.50', per: '82.50%', note: 'Excellence Standing' },
+                { cgpa: '9.25', calc: '(10.00 × 9.25) − 7.50', per: '85.00%', note: 'Excellence Standing' },
+                { cgpa: '9.50', calc: '(10.00 × 9.50) − 7.50', per: '87.50%', note: 'Top Tier Standing' },
+                { cgpa: '9.75', calc: '(10.00 × 9.75) − 7.50', per: '90.00%', note: 'Top Tier Standing' },
+                { cgpa: '10.00', calc: '(10.00 × 10.00) − 7.50', per: '92.50%', note: 'Maximum Achievable Grade' },
+              ].map((row) => (
+                <tr key={row.cgpa} className="hover:bg-slate-50 dark:hover:bg-slate-800/40 transition-colors">
+                  <td className="py-2.5 px-4 font-black text-blue-600 dark:text-blue-400">{row.cgpa}</td>
+                  <td className="py-2.5 px-4 font-mono text-slate-600 dark:text-slate-300">{row.calc}</td>
+                  <td className="py-2.5 px-4 font-bold text-slate-900 dark:text-white">{row.per}</td>
+                  <td className="py-2.5 px-4 text-slate-500 dark:text-slate-400 text-[11px]">{row.note}</td>
+                </tr>
+              ))}
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+      {/* Card 6: Frequently Asked Questions (FAQ) */}
+      <div className="bg-white dark:bg-slate-900 rounded-2xl p-4 sm:p-8 border border-slate-200 dark:border-slate-800 shadow-md space-y-6">
+        <div className="flex items-center gap-3 border-b border-slate-200 dark:border-slate-800 pb-4">
+          <div className="w-8 h-8 rounded-lg bg-indigo-600 text-white flex items-center justify-center font-bold text-sm shrink-0">
+            6
+          </div>
+          <div>
+            <h2 className="text-base sm:text-lg font-extrabold text-slate-900 dark:text-white">
+              Frequently Asked Questions (FAQ)
+            </h2>
+            <p className="text-xs text-slate-500 dark:text-slate-400">
+              Common questions answered using official WCE Academic and Examination Rules and Regulations 2023-24.
+            </p>
+          </div>
+        </div>
+
+        <div className="space-y-4 text-xs sm:text-sm">
+          {/* Q1 */}
+          <div className="p-4 rounded-xl bg-slate-50 dark:bg-slate-800/60 border border-slate-200 dark:border-slate-700 space-y-1.5">
+            <h3 className="font-bold text-slate-900 dark:text-white text-sm sm:text-base">
+              What percentage is a 7 CGPA at WCE?
+            </h3>
+            <p className="text-slate-600 dark:text-slate-300 leading-relaxed">
+              A 7.00 CGPA at Walchand College of Engineering (WCE), Sangli is equivalent to <strong>62.50%</strong>. This is calculated using the official WCE formula: <code className="font-mono bg-slate-200 dark:bg-slate-700 px-1 py-0.5 rounded text-blue-600 dark:text-blue-400">(10.00 × 7.00) − 7.50 = 62.50%</code>.
+            </p>
+          </div>
+
+          {/* Q2 */}
+          <div className="p-4 rounded-xl bg-slate-50 dark:bg-slate-800/60 border border-slate-200 dark:border-slate-700 space-y-1.5">
+            <h3 className="font-bold text-slate-900 dark:text-white text-sm sm:text-base">
+              What percentage is an 8 CGPA at WCE?
+            </h3>
+            <p className="text-slate-600 dark:text-slate-300 leading-relaxed">
+              An 8.00 CGPA at WCE Sangli is equivalent to <strong>72.50%</strong>. According to Section 16 of the Academic Rules, applying the official formula yields: <code className="font-mono bg-slate-200 dark:bg-slate-700 px-1 py-0.5 rounded text-blue-600 dark:text-blue-400">(10.00 × 8.00) − 7.50 = 72.50%</code>.
+            </p>
+          </div>
+
+          {/* Q3 */}
+          <div className="p-4 rounded-xl bg-slate-50 dark:bg-slate-800/60 border border-slate-200 dark:border-slate-700 space-y-1.5">
+            <h3 className="font-bold text-slate-900 dark:text-white text-sm sm:text-base">
+              What is the minimum CGPA required to pass at WCE?
+            </h3>
+            <p className="text-slate-600 dark:text-slate-300 leading-relaxed">
+              As per WCE Academic & Examination Regulations Section 09.01, a student must maintain a minimum Cumulative Grade Point Average of <strong>CGPA ≥ 5.00</strong> to qualify for the award of an undergraduate degree. Values below 5.00 do not satisfy minimum degree eligibility criteria.
+            </p>
+          </div>
+
+          {/* Q4 */}
+          <div className="p-4 rounded-xl bg-slate-50 dark:bg-slate-800/60 border border-slate-200 dark:border-slate-700 space-y-1.5">
+            <h3 className="font-bold text-slate-900 dark:text-white text-sm sm:text-base">
+              Does this formula work for all WCE CGPA values?
+            </h3>
+            <p className="text-slate-600 dark:text-slate-300 leading-relaxed">
+              The conversion formula <code className="font-mono bg-slate-200 dark:bg-slate-700 px-1 py-0.5 rounded text-blue-600 dark:text-blue-400">Percentage = (10.00 × CGPA) − 7.50</code> is officially defined by WCE for all CGPA values greater than or equal to <strong>5.00</strong>. For CGPA values below 5.00, converted percentages are displayed for mathematical reference only.
+            </p>
+          </div>
+
+          {/* Q5 */}
+          <div className="p-4 rounded-xl bg-slate-50 dark:bg-slate-800/60 border border-slate-200 dark:border-slate-700 space-y-1.5">
+            <h3 className="font-bold text-slate-900 dark:text-white text-sm sm:text-base">
+              Is this an official WCE website?
+            </h3>
+            <p className="text-slate-600 dark:text-slate-300 leading-relaxed">
+              No, this application is an independent, student-built utility. It is not an official product of or endorsed by Walchand College of Engineering (WCE), Sangli. For official transcripts or grade cards, please contact the WCE Examination Section.
+            </p>
           </div>
         </div>
       </div>
