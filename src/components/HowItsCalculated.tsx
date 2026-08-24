@@ -11,11 +11,11 @@ export const HowItsCalculated: React.FC = () => {
           <ShieldCheck className="w-3.5 h-3.5 shrink-0" />
           <span>Official WCE Academic & Examination Regulations 2023-24</span>
         </div>
-        <h2 className="text-xl sm:text-2xl md:text-3xl font-black tracking-tight">
-          How is my CGPA & Percentage Calculated?
-        </h2>
+        <h1 className="text-xl sm:text-2xl md:text-3xl font-black tracking-tight">
+          How to Calculate CGPA Percentage at WCE
+        </h1>
         <p className="text-slate-300 text-xs sm:text-sm mt-1 max-w-2xl leading-relaxed">
-          Complete guide to Walchand College of Engineering (WCE), Sangli grade point conversion, SGPA, CGPA, and attendance rules as published in Section 12 & 16 of the official Academic Rules.
+          Complete guide to WCE grade conversion, SGPA, CGPA, and official conversion formulas for Walchand College of Engineering, Sangli students as published in Section 12 & 16 of the Academic Rules.
         </p>
       </div>
 

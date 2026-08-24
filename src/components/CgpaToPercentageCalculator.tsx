@@ -98,10 +98,10 @@ export const CgpaToPercentageCalculator: React.FC<Props> = ({ onHistoryUpdate })
               WCE Official Formula (Section 16)
             </div>
             <h1 className="text-xl sm:text-2xl md:text-3xl font-extrabold tracking-tight">
-              CGPA to Percentage Converter
+              WCE CGPA to Percentage Converter
             </h1>
             <p className="text-slate-300 text-xs sm:text-sm max-w-xl leading-relaxed">
-              Calculate your exact percentage using the official formula defined in WCE’s Academic & Examination Rules and Regulations.
+              Official WCE grade conversion & percentage calculator for Walchand College of Engineering, Sangli students based on Section 16 of the Academic Rules.
             </p>
           </div>
           <Link
