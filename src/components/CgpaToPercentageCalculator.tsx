@@ -75,14 +75,16 @@ export const CgpaToPercentageCalculator: React.FC<Props> = ({ onHistoryUpdate })
   };
 
   const handleExportPng = async () => {
+    if (!calculationResult) return;
     setIsExporting(true);
-    await exportElementAsPng('cgpa-report-card', `WCE_CGPA_Conversion_${calculationResult?.cgpa.toFixed(2)}`);
+    await exportElementAsPng('cgpa-export-report-card', `WCE_CGPA_Conversion_${calculationResult.cgpa.toFixed(2)}`);
     setIsExporting(false);
   };
 
   const handleExportPdf = async () => {
+    if (!calculationResult) return;
     setIsExporting(true);
-    await exportElementAsPdf('cgpa-report-card', `WCE_CGPA_Conversion_${calculationResult?.cgpa.toFixed(2)}`);
+    await exportElementAsPdf('cgpa-export-report-card', `WCE_CGPA_Conversion_${calculationResult.cgpa.toFixed(2)}`);
     setIsExporting(false);
   };
 
@@ -220,12 +222,15 @@ export const CgpaToPercentageCalculator: React.FC<Props> = ({ onHistoryUpdate })
                 </div>
 
                 {/* Big Result Display */}
-                <div className="text-center py-2 space-y-1">
+                <div className="text-center py-2 space-y-2">
                   <div className="text-4xl sm:text-6xl font-black text-blue-600 dark:text-blue-400 tracking-tight">
                     {calculationResult.percentage.toFixed(2)}%
                   </div>
-                  <div className="text-xs font-medium text-slate-500 dark:text-slate-400">
-                    Equivalent percentage for CGPA <span className="font-bold text-slate-900 dark:text-white">{calculationResult.cgpa.toFixed(2)}</span>
+                  <div className="text-xs font-medium text-slate-500 dark:text-slate-400 flex items-center justify-center gap-1.5 flex-wrap">
+                    <span>Equivalent percentage for CGPA</span>
+                    <span className="font-extrabold text-slate-900 dark:text-white px-2 py-0.5 rounded-md bg-slate-200/80 dark:bg-slate-700/80">
+                      {calculationResult.cgpa.toFixed(2)}
+                    </span>
                   </div>
                 </div>
 
@@ -248,43 +253,43 @@ export const CgpaToPercentageCalculator: React.FC<Props> = ({ onHistoryUpdate })
                 )}
 
                 {/* Action Buttons */}
-                <div className="grid grid-cols-2 sm:grid-cols-4 gap-2 pt-2 border-t border-slate-200 dark:border-slate-700">
+                <div className="grid grid-cols-2 sm:grid-cols-2 lg:grid-cols-4 gap-2.5 pt-2 border-t border-slate-200 dark:border-slate-700">
                   <button
                     onClick={handleCopy}
                     type="button"
-                    className="flex items-center justify-center gap-1.5 px-3 py-2.5 min-h-[44px] rounded-xl text-xs font-semibold bg-white dark:bg-slate-800 hover:bg-slate-100 dark:hover:bg-slate-700 text-slate-700 dark:text-slate-200 border border-slate-200 dark:border-slate-700 transition-all shadow-sm active:scale-95"
+                    className="flex items-center justify-center gap-1.5 px-3 py-2.5 min-h-[44px] rounded-xl text-xs font-semibold bg-white dark:bg-slate-800 hover:bg-slate-100 dark:hover:bg-slate-700 text-slate-700 dark:text-slate-200 border border-slate-200 dark:border-slate-700 transition-all shadow-sm active:scale-95 text-center"
                   >
                     {copied ? <CheckCircle2 className="w-4 h-4 text-emerald-500 shrink-0" /> : <Copy className="w-4 h-4 shrink-0" />}
-                    <span>{copied ? 'Copied!' : 'Copy'}</span>
+                    <span>{copied ? 'Copied!' : 'Copy Result'}</span>
                   </button>
 
                   <button
                     onClick={handleSaveToHistory}
                     type="button"
-                    className="flex items-center justify-center gap-1.5 px-3 py-2.5 min-h-[44px] rounded-xl text-xs font-semibold bg-white dark:bg-slate-800 hover:bg-slate-100 dark:hover:bg-slate-700 text-slate-700 dark:text-slate-200 border border-slate-200 dark:border-slate-700 transition-all shadow-sm active:scale-95"
+                    className="flex items-center justify-center gap-1.5 px-3 py-2.5 min-h-[44px] rounded-xl text-xs font-semibold bg-white dark:bg-slate-800 hover:bg-slate-100 dark:hover:bg-slate-700 text-slate-700 dark:text-slate-200 border border-slate-200 dark:border-slate-700 transition-all shadow-sm active:scale-95 text-center"
                   >
                     {savedSuccess ? <CheckCircle2 className="w-4 h-4 text-emerald-500 shrink-0" /> : <Save className="w-4 h-4 shrink-0" />}
-                    <span>{savedSuccess ? 'Saved!' : 'Save'}</span>
+                    <span>{savedSuccess ? 'Saved!' : 'Save to History'}</span>
                   </button>
 
                   <button
                     onClick={handleExportPng}
                     disabled={isExporting}
                     type="button"
-                    className="flex items-center justify-center gap-1.5 px-3 py-2.5 min-h-[44px] rounded-xl text-xs font-semibold bg-white dark:bg-slate-800 hover:bg-slate-100 dark:hover:bg-slate-700 text-slate-700 dark:text-slate-200 border border-slate-200 dark:border-slate-700 transition-all shadow-sm active:scale-95"
+                    className="flex items-center justify-center gap-1.5 px-3 py-2.5 min-h-[44px] rounded-xl text-xs font-semibold bg-white dark:bg-slate-800 hover:bg-slate-100 dark:hover:bg-slate-700 text-slate-700 dark:text-slate-200 border border-slate-200 dark:border-slate-700 transition-all shadow-sm active:scale-95 text-center"
                   >
                     <FileSpreadsheet className="w-4 h-4 text-blue-500 shrink-0" />
-                    <span>PNG</span>
+                    <span>Download Image</span>
                   </button>
 
                   <button
                     onClick={handleExportPdf}
                     disabled={isExporting}
                     type="button"
-                    className="flex items-center justify-center gap-1.5 px-3 py-2.5 min-h-[44px] rounded-xl text-xs font-semibold bg-blue-600 hover:bg-blue-700 text-white transition-all shadow-sm active:scale-95"
+                    className="flex items-center justify-center gap-1.5 px-3 py-2.5 min-h-[44px] rounded-xl text-xs font-semibold bg-blue-600 hover:bg-blue-700 text-white transition-all shadow-sm active:scale-95 text-center"
                   >
                     <Download className="w-4 h-4 shrink-0" />
-                    <span>PDF</span>
+                    <span>Download PDF</span>
                   </button>
                 </div>
               </div>
@@ -302,6 +307,88 @@ export const CgpaToPercentageCalculator: React.FC<Props> = ({ onHistoryUpdate })
           </div>
         </div>
       </div>
+
+      {/* Off-Screen Dedicated PDF/PNG Export Template (Captured by html2canvas) */}
+      {calculationResult && (
+        <div
+          id="cgpa-export-report-card"
+          className="fixed -left-[9999px] top-0 w-[800px] bg-white text-slate-900 p-10 space-y-6 font-sans border border-slate-200"
+          style={{ backgroundColor: '#ffffff', color: '#0f172a' }}
+        >
+          {/* 1. Header Section */}
+          <div className="flex items-center justify-between border-b-2 border-blue-600 pb-5">
+            <div className="flex items-center gap-3">
+              <div className="w-12 h-12 rounded-xl bg-blue-700 text-white flex items-center justify-center font-black text-xl tracking-tighter">
+                WCE
+              </div>
+              <div>
+                <h1 className="text-xl font-extrabold text-slate-900 tracking-tight">
+                  WCE CGPA to Percentage Converter
+                </h1>
+                <p className="text-xs text-slate-500 font-semibold">
+                  Official Grade Conversion Report • Walchand College of Engineering, Sangli
+                </p>
+              </div>
+            </div>
+            <div className="text-right">
+              <span className="inline-block px-3 py-1 bg-blue-50 text-blue-800 text-xs font-bold rounded-md border border-blue-200">
+                Official RR 2023-24
+              </span>
+            </div>
+          </div>
+
+          {/* 2. Core Result Section */}
+          <div className="bg-slate-50 rounded-2xl p-8 border border-slate-200 text-center space-y-3">
+            <span className="text-xs font-bold uppercase tracking-wider text-slate-500">
+              Grade Conversion Summary
+            </span>
+            <div className="flex items-center justify-center gap-8 py-2">
+              <div className="text-center">
+                <span className="text-xs text-slate-500 font-bold uppercase block mb-1">Cumulative CGPA</span>
+                <span className="text-3xl font-black text-slate-900 bg-white px-5 py-2.5 rounded-xl border border-slate-300 inline-block shadow-sm">
+                  {calculationResult.cgpa.toFixed(2)}
+                </span>
+              </div>
+              <div className="text-3xl font-black text-blue-600">→</div>
+              <div className="text-center">
+                <span className="text-xs text-slate-500 font-bold uppercase block mb-1">Calculated Percentage</span>
+                <span className="text-4xl font-black text-blue-700 bg-blue-50 px-6 py-2.5 rounded-xl border border-blue-300 inline-block shadow-sm">
+                  {calculationResult.percentage.toFixed(2)}%
+                </span>
+              </div>
+            </div>
+          </div>
+
+          {/* 3. Formula Breakdown Section */}
+          <div className="bg-white rounded-xl p-5 border border-slate-200 space-y-2">
+            <span className="text-xs font-bold uppercase tracking-wider text-slate-500 block">
+              Official Formula & Substitution Breakdown:
+            </span>
+            <div className="font-mono text-base font-bold text-slate-900 bg-slate-100 p-3.5 rounded-lg border border-slate-200 text-center">
+              {calculationResult.formula}
+            </div>
+          </div>
+
+          {/* 4. Citation Line */}
+          <div className="p-4 rounded-xl bg-blue-50/60 border border-blue-100 text-xs text-slate-700 space-y-1">
+            <span className="font-bold text-blue-900 block">Official Regulation Citation:</span>
+            <p className="text-slate-600 leading-relaxed">
+              Calculated using the official formula defined in Section 16 of the Walchand College of Engineering (WCE), Sangli <i>Academic and Examination Rules and Regulations 2023-24</i>.
+            </p>
+          </div>
+
+          {/* 5. Footer Section */}
+          <div className="pt-5 border-t border-slate-200 space-y-3 text-xs text-slate-500">
+            <div className="flex items-center justify-between font-medium">
+              <span>Report Generated: {new Date().toLocaleString(undefined, { dateStyle: 'medium', timeStyle: 'short' })}</span>
+              <span className="font-bold text-blue-700">wce-cgpa-to-percentage.vercel.app</span>
+            </div>
+            <p className="text-[11px] leading-relaxed text-slate-400 bg-slate-50 p-3 rounded-lg border border-slate-200">
+              <b>Disclaimer:</b> This is an unofficial, independently built student tool. Not affiliated with or endorsed by Walchand College of Engineering, Sangli. Always verify official results and transcripts with the WCE Examination Section.
+            </p>
+          </div>
+        </div>
+      )}
     </div>
   );
 };

@@ -18,12 +18,12 @@ export interface ExportData {
 export const exportElementAsPng = async (elementId: string, filename: string): Promise<boolean> => {
   try {
     const el = document.getElementById(elementId);
-    if (!el) throw new Error('Target element not found for image export.');
+    if (!el) throw new Error(`Target element #${elementId} not found for PNG export.`);
 
     const canvas = await html2canvas(el, {
       scale: 2,
       useCORS: true,
-      backgroundColor: document.documentElement.classList.contains('dark') ? '#0f172a' : '#ffffff',
+      backgroundColor: '#ffffff',
       logging: false,
     });
 
@@ -36,7 +36,7 @@ export const exportElementAsPng = async (elementId: string, filename: string): P
     document.body.removeChild(link);
     return true;
   } catch (error) {
-    console.error('Failed to export element as image:', error);
+    console.error('Failed to export element as PNG image:', error);
     alert('Could not generate image file. Please try again.');
     return false;
   }
@@ -48,7 +48,7 @@ export const exportElementAsPng = async (elementId: string, filename: string): P
 export const exportElementAsPdf = async (elementId: string, filename: string): Promise<boolean> => {
   try {
     const el = document.getElementById(elementId);
-    if (!el) throw new Error('Target element not found for PDF export.');
+    if (!el) throw new Error(`Target element #${elementId} not found for PDF export.`);
 
     const canvas = await html2canvas(el, {
       scale: 2,
