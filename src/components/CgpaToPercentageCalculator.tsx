@@ -253,43 +253,47 @@ export const CgpaToPercentageCalculator: React.FC<Props> = ({ onHistoryUpdate })
                 )}
 
                 {/* Action Buttons */}
-                <div className="grid grid-cols-2 sm:grid-cols-2 md:grid-cols-4 gap-2 sm:gap-2.5 pt-2 border-t border-slate-200 dark:border-slate-700">
+                <div className="grid grid-cols-4 gap-1.5 sm:gap-3 pt-2 border-t border-slate-200 dark:border-slate-700">
                   <button
                     onClick={handleCopy}
                     type="button"
-                    className="flex items-center justify-center gap-1.5 px-2.5 py-2.5 min-h-[44px] w-full rounded-xl text-[11px] sm:text-xs font-semibold bg-white dark:bg-slate-800 hover:bg-slate-100 dark:hover:bg-slate-700 text-slate-700 dark:text-slate-200 border border-slate-200 dark:border-slate-700 transition-all shadow-sm active:scale-95 text-center whitespace-nowrap"
+                    title="Copy calculation summary to clipboard"
+                    className="flex flex-col items-center justify-center gap-1.5 p-2 sm:p-2.5 min-h-[56px] w-full rounded-xl text-xs font-semibold bg-white dark:bg-slate-800 hover:bg-slate-100 dark:hover:bg-slate-700 text-slate-700 dark:text-slate-200 border border-slate-200 dark:border-slate-700 transition-all shadow-sm active:scale-95 text-center leading-none"
                   >
                     {copied ? <CheckCircle2 className="w-4 h-4 text-emerald-500 shrink-0" /> : <Copy className="w-4 h-4 shrink-0" />}
-                    <span className="truncate">{copied ? 'Copied!' : 'Copy Result'}</span>
+                    <span>{copied ? 'Copied' : 'Copy'}</span>
                   </button>
 
                   <button
                     onClick={handleSaveToHistory}
                     type="button"
-                    className="flex items-center justify-center gap-1.5 px-2.5 py-2.5 min-h-[44px] w-full rounded-xl text-[11px] sm:text-xs font-semibold bg-white dark:bg-slate-800 hover:bg-slate-100 dark:hover:bg-slate-700 text-slate-700 dark:text-slate-200 border border-slate-200 dark:border-slate-700 transition-all shadow-sm active:scale-95 text-center whitespace-nowrap"
+                    title="Save calculation to browser history"
+                    className="flex flex-col items-center justify-center gap-1.5 p-2 sm:p-2.5 min-h-[56px] w-full rounded-xl text-xs font-semibold bg-white dark:bg-slate-800 hover:bg-slate-100 dark:hover:bg-slate-700 text-slate-700 dark:text-slate-200 border border-slate-200 dark:border-slate-700 transition-all shadow-sm active:scale-95 text-center leading-none"
                   >
                     {savedSuccess ? <CheckCircle2 className="w-4 h-4 text-emerald-500 shrink-0" /> : <Save className="w-4 h-4 shrink-0" />}
-                    <span className="truncate">{savedSuccess ? 'Saved!' : 'Save to History'}</span>
+                    <span>{savedSuccess ? 'Saved' : 'Save'}</span>
                   </button>
 
                   <button
                     onClick={handleExportPng}
                     disabled={isExporting}
                     type="button"
-                    className="flex items-center justify-center gap-1.5 px-2.5 py-2.5 min-h-[44px] w-full rounded-xl text-[11px] sm:text-xs font-semibold bg-white dark:bg-slate-800 hover:bg-slate-100 dark:hover:bg-slate-700 text-slate-700 dark:text-slate-200 border border-slate-200 dark:border-slate-700 transition-all shadow-sm active:scale-95 text-center whitespace-nowrap"
+                    title="Download clean report image (PNG)"
+                    className="flex flex-col items-center justify-center gap-1.5 p-2 sm:p-2.5 min-h-[56px] w-full rounded-xl text-xs font-semibold bg-white dark:bg-slate-800 hover:bg-slate-100 dark:hover:bg-slate-700 text-slate-700 dark:text-slate-200 border border-slate-200 dark:border-slate-700 transition-all shadow-sm active:scale-95 text-center leading-none"
                   >
                     <FileSpreadsheet className="w-4 h-4 text-blue-500 shrink-0" />
-                    <span className="truncate">Download Image</span>
+                    <span>Image</span>
                   </button>
 
                   <button
                     onClick={handleExportPdf}
                     disabled={isExporting}
                     type="button"
-                    className="flex items-center justify-center gap-1.5 px-2.5 py-2.5 min-h-[44px] w-full rounded-xl text-[11px] sm:text-xs font-semibold bg-blue-600 hover:bg-blue-700 text-white border border-blue-600 transition-all shadow-sm active:scale-95 text-center whitespace-nowrap"
+                    title="Download clean report document (PDF)"
+                    className="flex flex-col items-center justify-center gap-1.5 p-2 sm:p-2.5 min-h-[56px] w-full rounded-xl text-xs font-semibold bg-blue-600 hover:bg-blue-700 text-white border border-blue-600 transition-all shadow-sm active:scale-95 text-center leading-none"
                   >
                     <Download className="w-4 h-4 shrink-0" />
-                    <span className="truncate">Download PDF</span>
+                    <span>PDF</span>
                   </button>
                 </div>
               </div>
