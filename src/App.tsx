@@ -11,13 +11,26 @@ import { TermsOfUse } from './pages/TermsOfUse';
 import { ContactUs } from './pages/ContactUs';
 import { Footer } from './components/Footer';
 import { getHistory } from './utils/storage';
+import { getRouteMetadata } from './utils/routeMetadata';
 
-// Helper component to auto scroll to top on route change
-const ScrollToTop: React.FC = () => {
+// Helper component to auto scroll to top and update document title/meta tags on route change
+const RouteMetadataHandler: React.FC = () => {
   const { pathname } = useLocation();
   useEffect(() => {
     window.scrollTo(0, 0);
+
+    const { title, description } = getRouteMetadata(pathname);
+    document.title = title;
+
+    let metaDescription = document.querySelector('meta[name="description"]');
+    if (!metaDescription) {
+      metaDescription = document.createElement('meta');
+      metaDescription.setAttribute('name', 'description');
+      document.head.appendChild(metaDescription);
+    }
+    metaDescription.setAttribute('content', description);
   }, [pathname]);
+
   return null;
 };
 
@@ -34,7 +47,7 @@ const AppContent: React.FC = () => {
 
   return (
     <div className="min-h-screen flex flex-col bg-slate-50 dark:bg-[#0b0f19] text-slate-900 dark:text-slate-100 font-sans transition-colors">
-      <ScrollToTop />
+      <RouteMetadataHandler />
       <Analytics />
       {/* Persistent Navigation Header */}
       <Navbar historyCount={historyCount} />
