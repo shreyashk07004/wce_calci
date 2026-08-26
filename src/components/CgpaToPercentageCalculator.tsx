@@ -321,20 +321,20 @@ export const CgpaToPercentageCalculator: React.FC<Props> = ({ onHistoryUpdate })
           {/* 1. Header Section */}
           <div className="flex items-center justify-between border-b-2 border-rose-900 pb-5">
             <div className="flex items-center gap-3.5">
-              <div className="w-12 h-12 rounded bg-rose-900 text-white flex items-center justify-center font-serif font-bold text-xl shrink-0">
+              <div className="w-12 h-12 rounded bg-rose-900 text-white flex items-center justify-center text-center font-serif font-bold text-xl leading-none shrink-0 select-none">
                 WCE
               </div>
-              <div>
-                <h1 className="text-xl font-serif font-bold text-slate-900 tracking-tight leading-tight">
+              <div className="flex flex-col justify-center">
+                <h1 className="text-xl font-serif font-bold text-slate-900 tracking-tight leading-snug">
                   WCE CGPA to Percentage Converter
                 </h1>
-                <p className="text-xs text-slate-500 font-sans mt-0.5">
+                <p className="text-xs text-slate-500 font-sans mt-0.5 leading-normal">
                   Official Grade Conversion Report • Walchand College of Engineering, Sangli
                 </p>
               </div>
             </div>
-            <div className="flex items-center shrink-0">
-              <span className="inline-flex items-center px-3 py-1 bg-rose-50 text-rose-900 text-xs font-sans rounded border border-rose-200">
+            <div className="flex items-center justify-center shrink-0">
+              <span className="inline-flex items-center justify-center px-3 py-1 bg-rose-50 text-rose-900 text-xs font-sans font-semibold rounded border border-rose-200 leading-none">
                 Official RR 2023-24
               </span>
             </div>
@@ -347,7 +347,7 @@ export const CgpaToPercentageCalculator: React.FC<Props> = ({ onHistoryUpdate })
             </span>
             <div className="flex items-center justify-center gap-4 py-1">
               {/* CGPA Box */}
-              <div className="flex flex-col items-center justify-center border border-slate-300 rounded-lg p-4 bg-white min-w-[200px] min-h-[96px]">
+              <div className="flex flex-col items-center justify-center border border-slate-300 rounded-lg p-4 bg-white min-w-[200px] min-h-[96px] text-center">
                 <span className="text-xs font-semibold text-slate-500 uppercase block mb-1">
                   Cumulative CGPA
                 </span>
@@ -357,12 +357,12 @@ export const CgpaToPercentageCalculator: React.FC<Props> = ({ onHistoryUpdate })
               </div>
 
               {/* Centered Separator Arrow */}
-              <div className="flex items-center justify-center text-2xl font-bold text-rose-900 px-2 shrink-0 select-none">
+              <div className="flex items-center justify-center text-2xl font-bold text-rose-900 px-2 shrink-0 select-none leading-none">
                 →
               </div>
 
               {/* Percentage Box */}
-              <div className="flex flex-col items-center justify-center border border-rose-300 rounded-lg p-4 bg-rose-50/60 min-w-[200px] min-h-[96px]">
+              <div className="flex flex-col items-center justify-center border border-rose-300 rounded-lg p-4 bg-rose-50/60 min-w-[200px] min-h-[96px] text-center">
                 <span className="text-xs font-semibold text-rose-900 uppercase block mb-1">
                   Calculated Percentage
                 </span>
