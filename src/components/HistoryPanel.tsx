@@ -47,16 +47,16 @@ export const HistoryPanel: React.FC<Props> = ({ onHistoryChanged }) => {
   };
 
   return (
-    <div className="space-y-6 max-w-4xl mx-auto px-1 sm:px-0">
+    <div className="space-y-6 max-w-4xl mx-auto px-1 sm:px-0 font-sans">
       {/* Header Banner */}
-      <div className="bg-gradient-to-r from-slate-800 via-slate-900 to-slate-900 rounded-2xl p-4 sm:p-6 text-white shadow-xl flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4">
+      <div className="bg-slate-900 dark:bg-[#151921] rounded-xl p-5 sm:p-7 text-white border-l-4 border-rose-800 shadow-sm flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4">
         <div>
-          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full text-xs font-semibold bg-slate-700 text-slate-200 mb-2">
-            <History className="w-3.5 h-3.5 text-blue-400 shrink-0" />
+          <div className="inline-flex items-center gap-1.5 px-2.5 py-1 rounded text-xs font-sans text-slate-300 bg-slate-800 border border-slate-700 mb-2">
+            <History className="w-3.5 h-3.5 text-rose-400 shrink-0" />
             <span>Browser Local Storage Only</span>
           </div>
-          <h2 className="text-xl sm:text-2xl font-extrabold tracking-tight">Calculation History</h2>
-          <p className="text-slate-400 text-xs mt-1 leading-relaxed">
+          <h2 className="text-xl sm:text-2xl font-serif font-bold tracking-tight text-white">Calculation History</h2>
+          <p className="text-slate-300 text-xs sm:text-sm mt-1 leading-relaxed">
             Your recent calculations saved locally on your device. No data ever leaves your browser.
           </p>
         </div>
@@ -64,7 +64,7 @@ export const HistoryPanel: React.FC<Props> = ({ onHistoryChanged }) => {
           <button
             onClick={handleClear}
             type="button"
-            className="inline-flex items-center justify-center gap-2 px-4 py-2.5 min-h-[40px] rounded-xl bg-rose-600 hover:bg-rose-700 text-xs font-semibold text-white transition-all shadow-sm shrink-0 w-full sm:w-auto"
+            className="inline-flex items-center justify-center gap-2 px-4 py-2.5 min-h-[38px] rounded-md bg-amber-700 hover:bg-amber-800 text-xs font-semibold text-white transition-colors shrink-0 w-full sm:w-auto"
           >
             <Trash2 className="w-4 h-4 shrink-0" />
             <span>Clear History</span>
@@ -73,8 +73,8 @@ export const HistoryPanel: React.FC<Props> = ({ onHistoryChanged }) => {
       </div>
 
       {!isAvailable && (
-        <div className="p-4 rounded-xl bg-amber-50 dark:bg-amber-950/60 border border-amber-200 dark:border-amber-900 text-amber-800 dark:text-amber-300 text-xs flex items-center gap-3">
-          <AlertCircle className="w-5 h-5 shrink-0 text-amber-600 dark:text-amber-400" />
+        <div className="p-4 rounded-lg bg-amber-50 dark:bg-amber-950/60 border border-amber-300 dark:border-amber-900 text-amber-900 dark:text-amber-200 text-xs flex items-center gap-3">
+          <AlertCircle className="w-5 h-5 shrink-0 text-amber-700 dark:text-amber-400" />
           <span>
             LocalStorage is unavailable in your browser or private mode. Calculations will not persist across page reloads.
           </span>
@@ -82,9 +82,9 @@ export const HistoryPanel: React.FC<Props> = ({ onHistoryChanged }) => {
       )}
 
       {historyItems.length === 0 ? (
-        <div className="bg-white dark:bg-slate-900 rounded-2xl p-8 sm:p-12 border border-slate-200 dark:border-slate-800 text-center space-y-3 shadow-sm">
-          <History className="w-10 h-10 sm:w-12 sm:h-12 text-slate-300 dark:text-slate-700 mx-auto" />
-          <h3 className="text-sm sm:text-base font-bold text-slate-800 dark:text-slate-200">No Calculations Saved Yet</h3>
+        <div className="bg-white dark:bg-[#151921] rounded-xl p-8 sm:p-12 border border-slate-200 dark:border-slate-800 text-center space-y-3 font-sans">
+          <History className="w-10 h-10 text-slate-400 dark:text-slate-600 mx-auto" />
+          <h3 className="text-base font-serif font-bold text-slate-800 dark:text-slate-200">No Calculations Saved Yet</h3>
           <p className="text-xs text-slate-500 dark:text-slate-400 max-w-sm mx-auto leading-relaxed">
             Use the CGPA to Percentage Converter and click "Save" to keep track of your calculations.
           </p>
@@ -94,19 +94,19 @@ export const HistoryPanel: React.FC<Props> = ({ onHistoryChanged }) => {
           {historyItems.map((item) => (
             <div
               key={item.id}
-              className="bg-white dark:bg-slate-900 rounded-2xl p-4 border border-slate-200 dark:border-slate-800 shadow-sm hover:shadow-md transition-all flex flex-col sm:flex-row items-start sm:items-center justify-between gap-3 sm:gap-4"
+              className="bg-white dark:bg-[#151921] rounded-xl p-4 border border-slate-200 dark:border-slate-800 transition-colors flex flex-col sm:flex-row items-start sm:items-center justify-between gap-3 sm:gap-4 font-sans"
             >
               <div className="space-y-1 flex-1 min-w-0">
                 <div className="flex items-center gap-2 flex-wrap">
-                  <span className="px-2.5 py-0.5 rounded-full text-[10px] font-bold bg-blue-100 dark:bg-blue-950 text-blue-800 dark:text-blue-300 border border-blue-200 dark:border-blue-800 uppercase tracking-wider shrink-0">
+                  <span className="px-2 py-0.5 rounded text-xs font-semibold bg-rose-50 dark:bg-rose-950/60 text-rose-900 dark:text-rose-200 border border-rose-200 dark:border-rose-900 shrink-0">
                     {item.title}
                   </span>
-                  <span className="text-[11px] text-slate-400 font-medium flex items-center gap-1 shrink-0">
-                    <Calendar className="w-3 h-3" />
+                  <span className="text-xs text-slate-500 dark:text-slate-400 font-sans flex items-center gap-1 shrink-0">
+                    <Calendar className="w-3.5 h-3.5" />
                     {formatDate(item.timestamp)}
                   </span>
                 </div>
-                <div className="text-sm sm:text-base font-extrabold text-slate-900 dark:text-white truncate">
+                <div className="text-sm sm:text-base font-mono font-bold text-slate-900 dark:text-white truncate">
                   {item.summary}
                 </div>
                 {item.details && (
@@ -120,9 +120,9 @@ export const HistoryPanel: React.FC<Props> = ({ onHistoryChanged }) => {
                 <button
                   onClick={() => handleCopyItem(item)}
                   type="button"
-                  className="px-3.5 py-2 min-h-[40px] rounded-xl bg-slate-100 dark:bg-slate-800 hover:bg-slate-200 dark:hover:bg-slate-700 text-slate-700 dark:text-slate-300 text-xs font-semibold flex items-center justify-center gap-1.5 transition-colors w-full sm:w-auto"
+                  className="px-3.5 py-2 min-h-[38px] rounded-md bg-slate-100 dark:bg-slate-800 hover:bg-slate-200 dark:hover:bg-slate-700 text-slate-700 dark:text-slate-300 text-xs font-semibold flex items-center justify-center gap-1.5 transition-colors w-full sm:w-auto"
                 >
-                  {copiedId === item.id ? <CheckCircle2 className="w-3.5 h-3.5 text-emerald-500 shrink-0" /> : <Copy className="w-3.5 h-3.5 shrink-0" />}
+                  {copiedId === item.id ? <CheckCircle2 className="w-3.5 h-3.5 text-emerald-600 shrink-0" /> : <Copy className="w-3.5 h-3.5 shrink-0" />}
                   <span>{copiedId === item.id ? 'Copied' : 'Copy'}</span>
                 </button>
               </div>

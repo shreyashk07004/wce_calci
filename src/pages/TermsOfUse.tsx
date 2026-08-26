@@ -3,26 +3,26 @@ import { FileText, AlertTriangle, ShieldAlert, CheckCircle2 } from 'lucide-react
 
 export const TermsOfUse: React.FC = () => {
   return (
-    <div className="space-y-6 sm:space-y-8 max-w-4xl mx-auto px-1 sm:px-0">
+    <div className="space-y-6 max-w-4xl mx-auto px-1 sm:px-0 font-sans">
       {/* Header Banner */}
-      <div className="bg-gradient-to-r from-slate-900 via-indigo-950 to-slate-900 rounded-2xl p-4 sm:p-8 text-white shadow-xl">
-        <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full text-xs font-semibold bg-slate-700 text-slate-200 border border-slate-600 mb-3">
-          <FileText className="w-3.5 h-3.5 shrink-0" />
+      <div className="bg-slate-900 dark:bg-[#151921] rounded-xl p-5 sm:p-7 text-white border-l-4 border-rose-800 shadow-sm space-y-2">
+        <div className="inline-flex items-center gap-1.5 px-2.5 py-1 rounded text-xs font-sans text-rose-200 bg-rose-950/70 border border-rose-800/80 mb-1">
+          <FileText className="w-3.5 h-3.5 shrink-0 text-rose-400" />
           <span>Legal Terms</span>
         </div>
-        <h1 className="text-xl sm:text-2xl md:text-3xl font-black tracking-tight">Terms of Use & Disclaimer</h1>
-        <p className="text-slate-300 text-xs sm:text-sm mt-1 leading-relaxed">
+        <h1 className="text-2xl sm:text-3xl font-serif font-bold tracking-tight text-white">Terms of Use & Disclaimer</h1>
+        <p className="text-slate-300 text-xs sm:text-sm max-w-2xl leading-relaxed">
           Please read these terms before using the WCE CGPA to Percentage Converter.
         </p>
       </div>
 
       {/* Main Terms Box */}
-      <div className="bg-white dark:bg-slate-900 rounded-2xl p-4 sm:p-8 border border-slate-200 dark:border-slate-800 shadow-md space-y-6 text-slate-700 dark:text-slate-300 text-xs sm:text-sm leading-relaxed">
+      <div className="bg-white dark:bg-[#151921] rounded-xl p-5 sm:p-8 border border-slate-200 dark:border-slate-800 space-y-6 text-slate-700 dark:text-slate-300 text-xs sm:text-sm leading-relaxed">
         
         {/* Term 1: Provided As Is */}
         <section className="space-y-2">
-          <h2 className="text-sm sm:text-base font-bold text-slate-900 dark:text-white flex items-center gap-2">
-            <AlertTriangle className="w-4 h-4 text-amber-500 shrink-0" />
+          <h2 className="text-base sm:text-lg font-serif font-bold text-slate-900 dark:text-white flex items-center gap-2">
+            <AlertTriangle className="w-4 h-4 text-amber-600 dark:text-amber-400 shrink-0" />
             <span>1. "As Is" Informational Purpose</span>
           </h2>
           <p>
@@ -32,8 +32,8 @@ export const TermsOfUse: React.FC = () => {
 
         {/* Term 2: Verification Requirement */}
         <section className="space-y-2 pt-4 border-t border-slate-200 dark:border-slate-800">
-          <h2 className="text-sm sm:text-base font-bold text-slate-900 dark:text-white flex items-center gap-2">
-            <CheckCircle2 className="w-4 h-4 text-blue-600 dark:text-blue-400 shrink-0" />
+          <h2 className="text-base sm:text-lg font-serif font-bold text-slate-900 dark:text-white flex items-center gap-2">
+            <CheckCircle2 className="w-4 h-4 text-rose-900 dark:text-rose-400 shrink-0" />
             <span>2. Official Verification Requirement</span>
           </h2>
           <p>
@@ -43,8 +43,8 @@ export const TermsOfUse: React.FC = () => {
 
         {/* Term 3: Limitation of Liability */}
         <section className="space-y-2 pt-4 border-t border-slate-200 dark:border-slate-800">
-          <h2 className="text-sm sm:text-base font-bold text-slate-900 dark:text-white flex items-center gap-2">
-            <ShieldAlert className="w-4 h-4 text-rose-500 shrink-0" />
+          <h2 className="text-base sm:text-lg font-serif font-bold text-slate-900 dark:text-white flex items-center gap-2">
+            <ShieldAlert className="w-4 h-4 text-rose-900 dark:text-rose-400 shrink-0" />
             <span>3. Limitation of Liability</span>
           </h2>
           <p>
@@ -54,7 +54,7 @@ export const TermsOfUse: React.FC = () => {
 
         {/* Term 4: Unofficial Status */}
         <section className="space-y-2 pt-4 border-t border-slate-200 dark:border-slate-800">
-          <h2 className="text-sm sm:text-base font-bold text-slate-900 dark:text-white">
+          <h2 className="text-base sm:text-lg font-serif font-bold text-slate-900 dark:text-white">
             4. Unofficial Status Notice
           </h2>
           <p>

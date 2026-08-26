@@ -4,16 +4,16 @@ import { ShieldCheck, Heart, AlertCircle } from 'lucide-react';
 
 export const Footer: React.FC = () => {
   return (
-    <footer className="bg-slate-900 text-slate-400 py-8 sm:py-10 border-t border-slate-800 transition-colors mt-auto">
+    <footer className="bg-slate-900 dark:bg-[#0A0D12] text-slate-400 py-8 sm:py-10 border-t border-slate-800 transition-colors mt-auto font-sans">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-6">
         
         {/* Persistent Site-Wide Disclaimer Banner */}
-        <div className="p-3.5 sm:p-4 rounded-xl bg-slate-800/90 border border-slate-700/80 text-xs text-slate-300 space-y-1.5 leading-relaxed shadow-inner">
+        <div className="p-4 rounded-lg bg-slate-800/80 border border-slate-700/80 text-xs text-slate-300 space-y-1.5 leading-relaxed">
           <div className="flex items-center gap-2 font-bold text-amber-400">
             <AlertCircle className="w-4 h-4 shrink-0 text-amber-400" />
             <span>Disclaimer & Legal Notice</span>
           </div>
-          <p className="text-slate-300 text-[11px] sm:text-xs leading-relaxed">
+          <p className="text-slate-300 text-xs leading-relaxed">
             This is an independent, unofficial tool built by a student for the convenience of WCE Sangli students. It is not affiliated with, endorsed by, or an official product of Walchand College of Engineering. Calculations are based on the published WCE Academic and Examination Rules and Regulations 2023-24. Always verify your official CGPA and percentage with the WCE Examination Section or your official grade card.
           </p>
         </div>
@@ -23,17 +23,17 @@ export const Footer: React.FC = () => {
           {/* Brand Column */}
           <div className="md:col-span-5 space-y-3">
             <div className="flex items-center space-x-3">
-              <div className="w-8 h-8 rounded-lg bg-blue-600 flex items-center justify-center text-white font-black text-sm shrink-0">
+              <div className="w-8 h-8 rounded bg-rose-900 text-white flex items-center justify-center font-serif font-bold text-sm shrink-0">
                 WCE
               </div>
-              <span className="font-bold text-white text-sm sm:text-base">
-                WCE CGPA to Percentage Converter
+              <span className="font-serif font-bold text-white text-base">
+                WCE CGPA Converter
               </span>
             </div>
             <p className="text-xs text-slate-400 leading-relaxed max-w-sm">
               Free CGPA to percentage converter tool for Walchand College of Engineering, Sangli.
             </p>
-            <div className="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full text-[11px] font-semibold bg-slate-800 text-slate-300 border border-slate-700">
+            <div className="inline-flex items-center gap-1.5 px-2.5 py-1 rounded text-xs text-slate-300 bg-slate-800 border border-slate-700">
               <ShieldCheck className="w-3.5 h-3.5 text-emerald-400 shrink-0" />
               <span>100% Client-Side • Zero Backend • No Tracking</span>
             </div>
@@ -41,7 +41,7 @@ export const Footer: React.FC = () => {
 
           {/* Tools Quick Links */}
           <div className="md:col-span-4 space-y-2">
-            <h4 className="text-xs font-bold text-white uppercase tracking-wider">
+            <h4 className="text-xs font-serif font-bold text-white uppercase tracking-wider">
               Quick Links
             </h4>
             <ul className="space-y-2 text-xs">
@@ -65,7 +65,7 @@ export const Footer: React.FC = () => {
 
           {/* AdSense Legal & Info Links */}
           <div className="md:col-span-3 space-y-2">
-            <h4 className="text-xs font-bold text-white uppercase tracking-wider">
+            <h4 className="text-xs font-serif font-bold text-white uppercase tracking-wider">
               Legal & Information
             </h4>
             <ul className="space-y-2 text-xs">
