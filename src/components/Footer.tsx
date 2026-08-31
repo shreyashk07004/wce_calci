@@ -23,7 +23,7 @@ export const Footer: React.FC = () => {
           {/* Brand Column */}
           <div className="md:col-span-5 space-y-3">
             <div className="flex items-center space-x-3">
-              <div className="w-8 h-8 rounded bg-rose-900 text-white flex items-center justify-center font-serif font-bold text-sm shrink-0">
+              <div className="w-8 h-8 sm:w-9 sm:h-9 rounded-md bg-rose-900 text-white flex items-center justify-center font-serif font-bold text-xs sm:text-sm tracking-normal shrink-0 select-none shadow-sm">
                 WCE
               </div>
               <span className="font-serif font-bold text-white text-base">

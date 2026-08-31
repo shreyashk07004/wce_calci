@@ -23,7 +23,7 @@ export const Navbar: React.FC<NavbarProps> = ({ historyCount }) => {
         <div className="flex items-center justify-between h-16 gap-2">
           {/* Brand Header */}
           <Link to="/" className="flex items-center space-x-2.5 sm:space-x-3 group min-w-0">
-            <div className="w-9 h-9 sm:w-10 sm:h-10 rounded-lg bg-rose-900 dark:bg-rose-800 flex items-center justify-center text-white font-serif font-bold text-lg sm:text-xl tracking-tight shrink-0 select-none">
+            <div className="w-10 h-10 sm:w-11 sm:h-11 rounded-lg bg-rose-900 dark:bg-rose-800 flex items-center justify-center text-white font-serif font-bold text-base sm:text-lg tracking-normal shrink-0 select-none shadow-sm">
               WCE
             </div>
             <div className="min-w-0">
