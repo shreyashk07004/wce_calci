@@ -3,52 +3,81 @@ import Layout from '../layouts/Layout.astro';
 ---
 
 <Layout
-  title="Terms of Use & Disclaimer | WCE CGPA to Percentage Calculator"
-  description="Terms of service, academic disclaimer, and usage rules for the WCE CGPA to Percentage Calculator."
+  title="Terms of Use | WCE CGPA to Percentage Converter"
+  description="Terms of Use for WCE CGPA to Percentage Converter."
 >
-  <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-12 space-y-8">
+  <div class="space-y-6 max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-10 font-sans">
     
-    <div class="space-y-3">
-      <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-binance-card border border-binance-yellow/30 text-xs font-mono text-binance-yellow">
-        <span>Terms & Conditions</span>
+    <!-- Page Header -->
+    <div class="pb-4 border-b border-binance-border space-y-1.5">
+      <div class="text-xs text-binance-yellow font-mono font-medium uppercase tracking-wider">
+        Legal Terms & Unofficial Service Notice
       </div>
-      <h1 class="text-3xl sm:text-4xl font-extrabold text-white">
-        Terms of Use & <span class="text-binance-yellow">Disclaimer</span>
+      <h1 class="text-2xl sm:text-3xl font-bold tracking-tight text-white">
+        Terms of Use & Disclaimer
       </h1>
-      <p class="text-xs font-mono text-binance-muted">Effective Date: Academic Year 2023-24</p>
+      <p class="text-binance-muted text-xs sm:text-sm max-w-2xl leading-relaxed">
+        Please read these terms before using the WCE CGPA to Percentage Converter.
+      </p>
     </div>
 
-    <div class="bg-binance-card rounded-2xl border border-binance-border p-6 md:p-8 space-y-6 text-xs font-mono text-binance-text leading-relaxed">
+    <!-- Main Terms Box -->
+    <div class="bg-binance-card rounded-2xl p-6 sm:p-8 border border-binance-border space-y-6 text-binance-text text-xs sm:text-sm leading-relaxed binance-glow-card">
       
-      <div class="space-y-2">
-        <h2 class="text-sm font-bold text-white uppercase tracking-wider text-binance-yellow">1. Academic Calculation Accuracy</h2>
-        <p class="text-binance-muted">
-          This calculator implements the official conversion formula specified in Section 16 of the Walchand College of Engineering, Sangli Academic and Examination Rules and Regulations 2023-24: <code class="text-white bg-binance-canvas px-1.5 py-0.5 rounded border border-binance-border">Percentage = (10.00 × CGPA) − 7.50</code>. While every attempt is made to mirror institutional rules verbatim, this tool is an independent digital helper and does not replace official grade cards or college transcripts issued by the Controller of Examinations (COE), WCE Sangli.
+      <!-- Term 1: Provided As Is -->
+      <section class="space-y-2">
+        <h2 class="text-base sm:text-lg font-bold text-white flex items-center gap-2">
+          <svg class="w-4 h-4 text-binance-down shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="m21.73 18-8-14a2 2 0 0 0-3.48 0l-8 14A2 2 0 0 0 4 21h16a2 2 0 0 0 1.73-3Z"></path>
+            <line x1="12" y1="9" x2="12" y2="13"></line>
+            <line x1="12" y1="17" x2="12.01" y2="17"></line>
+          </svg>
+          <span>1. "As Is" Informational Purpose</span>
+        </h2>
+        <p class="text-binance-muted leading-relaxed">
+          <strong>WCE CGPA to Percentage Converter</strong> is provided strictly on an <strong>"as is" and "as available" basis</strong> for convenience and informational reference purposes only. While every care has been taken to implement the exact published formulas from WCE's <i>Academic and Examination Rules and Regulations 2023-24</i>, no warranty or guarantee of absolute accuracy, completeness, or suitability for any specific official purpose is implied.
         </p>
-      </div>
+      </section>
 
-      <div class="space-y-2">
-        <h2 class="text-sm font-bold text-white uppercase tracking-wider text-binance-yellow">2. Official Verification Recommendation</h2>
-        <p class="text-binance-muted">
-          Students submitting credentials for recruitment, visa processing, GATE/MPSC applications, or foreign higher education should always attach their official WCE Grade Cards and institutional CGPA-to-Percentage Equivalence Certificate issued by WCE Sangli.
+      <!-- Term 2: Verification Requirement -->
+      <section class="space-y-2 pt-4 border-t border-binance-border">
+        <h2 class="text-base sm:text-lg font-bold text-white flex items-center gap-2">
+          <svg class="w-4 h-4 text-binance-up shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path>
+            <path d="m9 12 2 2 4-4"></path>
+          </svg>
+          <span>2. Official Verification Requirement</span>
+        </h2>
+        <p class="text-binance-muted leading-relaxed">
+          This tool does not issue official transcripts or grade sheets. For any formal academic, job application, higher education admission, passport, visa, scholarship, or legal purpose, you must verify your results against your official grade card or confirm them directly with the <strong>WCE Examination Section</strong>.
         </p>
-      </div>
+      </section>
 
-      <div class="space-y-2">
-        <h2 class="text-sm font-bold text-white uppercase tracking-wider text-binance-yellow">3. Intellectual Property & Trademarks</h2>
-        <p class="text-binance-muted">
-          "Walchand College of Engineering", "WCE", and associated institute crests belong exclusively to Walchand College of Engineering, Sangli. This web application is an educational community utility and is not officially sponsored by or legally affiliated with WCE administration.
+      <!-- Term 3: Limitation of Liability -->
+      <section class="space-y-2 pt-4 border-t border-binance-border">
+        <h2 class="text-base sm:text-lg font-bold text-white flex items-center gap-2">
+          <svg class="w-4 h-4 text-binance-yellow shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path>
+            <line x1="12" y1="8" x2="12" y2="12"></line>
+            <line x1="12" y1="16" x2="12.01" y2="16"></line>
+          </svg>
+          <span>3. Limitation of Liability</span>
+        </h2>
+        <p class="text-binance-muted leading-relaxed">
+          Under no circumstances shall the developer or site owner be held liable for any direct, indirect, incidental, consequential, or special damages or losses resulting from the use of, or inability to use, this application or any reliance placed upon calculations generated by it.
         </p>
-      </div>
+      </section>
 
-      <div class="space-y-2">
-        <h2 class="text-sm font-bold text-white uppercase tracking-wider text-binance-yellow">4. Limitation of Liability</h2>
-        <p class="text-binance-muted">
-          The developers of this software cannot be held liable for discrepancies arising from candidate misentry, browser rounding nuances, or retrospective rule amendments enacted by academic bodies.
+      <!-- Term 4: Unofficial Status -->
+      <section class="space-y-2 pt-4 border-t border-binance-border">
+        <h2 class="text-base sm:text-lg font-bold text-white">
+          4. Unofficial Status Notice
+        </h2>
+        <p class="text-binance-muted leading-relaxed">
+          This website is an independent student utility and is not affiliated with, endorsed by, or representative of Walchand College of Engineering, Sangli. All institution names are referenced solely for descriptive academic purposes.
         </p>
-      </div>
+      </section>
 
     </div>
-
   </div>
 </Layout>

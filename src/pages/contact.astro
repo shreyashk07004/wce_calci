@@ -1,119 +1,67 @@
 ---
 import Layout from '../layouts/Layout.astro';
+const contactEmail = 'kshreyash004@gmail.com';
 ---
 
 <Layout
-  title="Contact & Feedback | WCE CGPA to Percentage Calculator"
-  description="Send feedback, report formula questions, or suggest features for the WCE CGPA Calculator."
+  title="Contact Us | WCE CGPA to Percentage Converter"
+  description="Contact the WCE CGPA to Percentage Converter support team for feedback or inquiries."
 >
-  <div class="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 py-12 space-y-8">
+  <div class="space-y-6 max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 py-10 font-sans">
     
-    <div class="text-center space-y-3">
-      <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-binance-card border border-binance-yellow/30 text-xs font-mono text-binance-yellow">
-        <span>Get in Touch</span>
+    <!-- Page Header -->
+    <div class="pb-4 border-b border-binance-border space-y-1.5">
+      <div class="text-xs text-binance-yellow font-mono font-medium uppercase tracking-wider">
+        Feedback & Support
       </div>
-      <h1 class="text-3xl sm:text-4xl font-extrabold text-white">
-        Contact & <span class="text-binance-yellow">Feedback</span>
+      <h1 class="text-2xl sm:text-3xl font-bold tracking-tight text-white">
+        Contact Us
       </h1>
-      <p class="text-sm text-binance-muted max-w-xl mx-auto leading-relaxed">
-        Have questions about the conversion formula, found a discrepancy in a syllabus regulation, or want to suggest new features? Reach out!
+      <p class="text-binance-muted text-xs sm:text-sm max-w-2xl leading-relaxed">
+        Have feedback, questions, or suggestions for the WCE CGPA Converter?
       </p>
     </div>
 
-    <!-- Contact Form Card in Binance theme -->
-    <div class="bg-binance-card rounded-2xl border border-binance-border p-6 md:p-8 binance-glow-card">
-      <form id="contact-form" class="space-y-5 text-xs font-mono">
-        
-        <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
-          <div class="space-y-1.5">
-            <label class="block text-binance-text font-medium">Your Name</label>
-            <input
-              type="text"
-              required
-              placeholder="e.g. Rahul Patil"
-              class="w-full bg-binance-canvas border border-binance-border focus:border-binance-yellow text-white px-3.5 py-2.5 rounded-xl outline-none transition-colors"
-            />
-          </div>
+    <!-- Main Contact Card -->
+    <div class="bg-binance-card rounded-2xl p-6 sm:p-8 border border-binance-border space-y-6 text-center binance-glow-card">
+      <div class="w-14 h-14 rounded-2xl bg-binance-yellow/10 text-binance-yellow flex items-center justify-center mx-auto border border-binance-yellow/20 shrink-0">
+        <svg class="w-7 h-7" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"></path>
+        </svg>
+      </div>
 
-          <div class="space-y-1.5">
-            <label class="block text-binance-text font-medium">Email Address</label>
-            <input
-              type="email"
-              required
-              placeholder="e.g. rahul@example.com"
-              class="w-full bg-binance-canvas border border-binance-border focus:border-binance-yellow text-white px-3.5 py-2.5 rounded-xl outline-none transition-colors"
-            />
-          </div>
-        </div>
+      <div class="space-y-2">
+        <h2 class="text-base sm:text-lg font-bold text-white">Email Contact</h2>
+        <p class="text-xs sm:text-sm text-binance-muted max-w-md mx-auto leading-relaxed">
+          For questions about calculations, privacy concerns, or feedback on how to improve this tool for WCE students, please send an email to:
+        </p>
+      </div>
 
-        <div class="space-y-1.5">
-          <label class="block text-binance-text font-medium">Department / Branch</label>
-          <select class="w-full bg-binance-canvas border border-binance-border focus:border-binance-yellow text-white px-3.5 py-2.5 rounded-xl outline-none transition-colors">
-            <option>Computer Science & Engineering (CSE)</option>
-            <option>Information Technology (IT)</option>
-            <option>Electronics Engineering</option>
-            <option>Electrical Engineering</option>
-            <option>Mechanical Engineering</option>
-            <option>Civil Engineering</option>
-            <option>Alumni / Other</option>
-          </select>
-        </div>
-
-        <div class="space-y-1.5">
-          <label class="block text-binance-text font-medium">Subject / Topic</label>
-          <input
-            type="text"
-            required
-            placeholder="e.g. Question on 2024 revised grading circular"
-            class="w-full bg-binance-canvas border border-binance-border focus:border-binance-yellow text-white px-3.5 py-2.5 rounded-xl outline-none transition-colors"
-          />
-        </div>
-
-        <div class="space-y-1.5">
-          <label class="block text-binance-text font-medium">Message / Query</label>
-          <textarea
-            rows="4"
-            required
-            placeholder="Write your query or feedback here..."
-            class="w-full bg-binance-canvas border border-binance-border focus:border-binance-yellow text-white px-3.5 py-2.5 rounded-xl outline-none transition-colors"
-          ></textarea>
-        </div>
-
-        <button
-          type="submit"
-          id="contact-submit-btn"
-          class="w-full py-3 rounded-xl bg-binance-yellow hover:bg-binance-yellow-hover text-binance-ink font-bold text-sm transition-all flex items-center justify-center gap-2"
+      <div class="py-2 sm:py-3">
+        <a
+          href={`mailto:${contactEmail}`}
+          class="inline-flex items-center justify-center gap-2.5 px-6 py-3 rounded-xl bg-binance-yellow hover:bg-binance-yellow-hover text-binance-ink font-bold text-xs sm:text-sm transition-all shadow-sm max-w-full truncate"
         >
-          <span>Send Message</span>
-          <svg class="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="22" y1="2" x2="11" y2="13"></line><polygon points="22 2 15 22 11 13 2 9 22 2"></polygon></svg>
-        </button>
+          <svg class="w-4 h-4 shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+            <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path>
+            <polyline points="22,6 12,13 2,6"></polyline>
+          </svg>
+          <span class="truncate font-mono">{contactEmail}</span>
+        </a>
+      </div>
 
-        <div id="contact-success" class="hidden p-3 rounded-xl bg-binance-up/10 border border-binance-up/30 text-binance-up text-center font-bold">
-          Thank you! Your feedback has been received.
+      <div class="p-4 rounded-xl bg-binance-canvas border border-binance-border text-xs text-binance-muted max-w-md mx-auto space-y-1">
+        <div class="flex items-center justify-center gap-1.5 font-bold text-binance-up">
+          <svg class="w-3.5 h-3.5 shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+            <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path>
+            <path d="m9 12 2 2 4-4"></path>
+          </svg>
+          <span>100% Backend-Free</span>
         </div>
-
-      </form>
+        <p class="leading-relaxed text-[11px]">
+          This site has no backend server or database form handlers. Clicking the button above directly opens your email client.
+        </p>
+      </div>
     </div>
-
   </div>
 </Layout>
-
-<script>
-  const form = document.getElementById('contact-form');
-  const successMsg = document.getElementById('contact-success');
-  const submitBtn = document.getElementById('contact-submit-btn');
-
-  if (form && successMsg) {
-    form.addEventListener('submit', (e) => {
-      e.preventDefault();
-      if (submitBtn) {
-        submitBtn.setAttribute('disabled', 'true');
-        submitBtn.classList.add('opacity-50');
-      }
-      setTimeout(() => {
-        successMsg.classList.remove('hidden');
-        form.reset();
-      }, 600);
-    });
-  }
-</script>
