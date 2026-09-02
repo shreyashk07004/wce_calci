@@ -122,11 +122,14 @@ const cgpaList = [
   document.querySelectorAll('.apply-table-cgpa').forEach(btn => {
     btn.addEventListener('click', (e) => {
       const cgpa = (e.currentTarget as HTMLButtonElement).dataset.cgpa;
+      if (!cgpa) return;
       const mainInput = document.getElementById('cgpa-input') as HTMLInputElement | null;
-      if (mainInput && cgpa) {
+      if (mainInput) {
         mainInput.value = cgpa;
         mainInput.dispatchEvent(new Event('input', { bubbles: true }));
         document.getElementById('calculator')?.scrollIntoView({ behavior: 'smooth' });
+      } else {
+        window.location.href = `/?cgpa=${encodeURIComponent(cgpa)}#calculator`;
       }
     });
   });

@@ -368,8 +368,22 @@
       });
     });
 
-    // Start with empty input state on initial load
-    updateAll(null);
+    // Check for ?cgpa= query parameter on load
+    const urlParams = new URLSearchParams(window.location.search);
+    const paramCgpa = urlParams.get('cgpa');
+    if (paramCgpa) {
+      const parsed = parseFloat(paramCgpa);
+      if (!isNaN(parsed) && parsed >= 0 && parsed <= 10) {
+        cgpaInput.value = parsed.toFixed(2);
+        cgpaSlider.value = String(parsed);
+        updateAll(parsed);
+      } else {
+        updateAll(null);
+      }
+    } else {
+      // Start with empty input state on initial load
+      updateAll(null);
+    }
   }
 
   // Copy result action
