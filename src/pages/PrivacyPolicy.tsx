@@ -1,5 +1,5 @@
 import React from 'react';
-import { ShieldCheck, Lock, Database, EyeOff, Mail, Calendar } from 'lucide-react';
+import { Lock, Database, EyeOff, Mail } from 'lucide-react';
 
 export const PrivacyPolicy: React.FC = () => {
   const lastUpdatedDate = 'August 15, 2026';
@@ -8,15 +8,13 @@ export const PrivacyPolicy: React.FC = () => {
   return (
     <div className="space-y-6 max-w-4xl mx-auto px-1 sm:px-0 font-sans">
       {/* Editorial Page Header */}
-      <div className="pb-5 border-b border-slate-200 dark:border-slate-800 space-y-2">
+      <div className="pb-4 border-b border-slate-200 dark:border-slate-800 space-y-1.5">
         <div className="flex flex-wrap items-center justify-between gap-3">
-          <div className="inline-flex items-center gap-1.5 px-2 py-0.5 rounded-sm text-xs text-slate-700 dark:text-slate-300 border border-slate-300 dark:border-slate-700 bg-transparent">
-            <ShieldCheck className="w-3.5 h-3.5 text-rose-800 dark:text-rose-400 shrink-0" />
-            <span>Transparency & Security</span>
+          <div className="text-xs text-rose-900 dark:text-rose-300 font-sans font-medium">
+            Data Privacy & Client-Side Execution Guarantee
           </div>
-          <div className="inline-flex items-center gap-1.5 text-xs text-slate-500 dark:text-slate-400 font-sans">
-            <Calendar className="w-3.5 h-3.5 text-slate-400 shrink-0" />
-            <span>Last updated: {lastUpdatedDate}</span>
+          <div className="text-xs text-slate-500 dark:text-slate-400 font-sans">
+            Last updated: {lastUpdatedDate}
           </div>
         </div>
         <h1 className="text-2xl sm:text-3xl font-serif font-bold tracking-tight text-slate-900 dark:text-slate-100">

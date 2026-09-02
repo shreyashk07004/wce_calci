@@ -5,6 +5,12 @@
 @layer base {
   body {
     @apply antialiased text-slate-900 bg-[#FAF9F6] dark:bg-[#0D1117] dark:text-slate-100 font-sans;
+    background-image: radial-gradient(rgba(15, 23, 42, 0.03) 1px, transparent 1px);
+    background-size: 24px 24px;
+  }
+  .dark body {
+    background-image: radial-gradient(rgba(255, 255, 255, 0.02) 1px, transparent 1px);
+    background-size: 24px 24px;
   }
   h1, h2, h3, h4, .font-serif {
     font-family: 'Lora', Georgia, Cambria, "Times New Roman", Times, serif;

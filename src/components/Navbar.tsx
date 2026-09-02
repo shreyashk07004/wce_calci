@@ -1,7 +1,7 @@
 import React from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import { ThemeToggle } from './ThemeToggle';
-import { Calculator, ShieldCheck, History, BookOpen } from 'lucide-react';
+import { Calculator, History, BookOpen } from 'lucide-react';
 
 interface NavbarProps {
   historyCount: number;
@@ -31,9 +31,8 @@ export const Navbar: React.FC<NavbarProps> = ({ historyCount }) => {
                 <span className="font-serif font-bold text-slate-900 dark:text-slate-100 text-sm sm:text-base leading-tight truncate">
                   WCE CGPA Converter
                 </span>
-                <span className="hidden sm:inline-flex items-center gap-1 px-2 py-0.5 rounded-sm text-xs text-rose-900 border border-rose-300/80 bg-rose-50/60 dark:bg-rose-950/40 dark:text-rose-200 dark:border-rose-900 shrink-0 font-sans">
-                  <ShieldCheck className="w-3.5 h-3.5 text-rose-800 dark:text-rose-300" />
-                  Official RR 2023-24
+                <span className="hidden sm:inline text-xs text-rose-900 dark:text-rose-300 font-sans tracking-tight">
+                  (Official RR 2023-24)
                 </span>
               </div>
               <p className="text-xs text-slate-600 dark:text-slate-400 font-sans truncate">

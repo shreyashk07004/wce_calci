@@ -49,17 +49,16 @@ export const HistoryPanel: React.FC<Props> = ({ onHistoryChanged }) => {
   return (
     <div className="space-y-6 max-w-4xl mx-auto px-1 sm:px-0 font-sans">
       {/* Editorial Page Header */}
-      <div className="pb-5 border-b border-slate-200 dark:border-slate-800 space-y-2">
+      <div className="pb-4 border-b border-slate-200 dark:border-slate-800 space-y-1.5">
         <div className="flex flex-wrap items-center justify-between gap-3">
-          <div className="inline-flex items-center gap-1.5 px-2 py-0.5 rounded-sm text-xs text-slate-700 dark:text-slate-300 border border-slate-300 dark:border-slate-700 bg-transparent">
-            <History className="w-3.5 h-3.5 text-rose-800 dark:text-rose-400 shrink-0" />
-            <span>Browser Local Storage Only</span>
+          <div className="text-xs text-rose-900 dark:text-rose-300 font-sans font-medium">
+            Saved Client-Side Calculations (Browser localStorage)
           </div>
           {historyItems.length > 0 && (
             <button
               onClick={handleClear}
               type="button"
-              className="inline-flex items-center justify-center gap-1.5 px-3 py-1 min-h-[32px] rounded-sm text-xs font-medium text-amber-800 dark:text-amber-300 border border-amber-300 dark:border-amber-800 bg-amber-50/50 dark:bg-amber-950/20 hover:bg-amber-100 dark:hover:bg-amber-900/40 transition-colors shrink-0"
+              className="inline-flex items-center justify-center gap-1.5 px-3 py-1 min-h-[30px] rounded-sm text-xs font-medium text-amber-800 dark:text-amber-300 border border-amber-300 dark:border-amber-800 hover:bg-amber-50 dark:hover:bg-amber-950/40 transition-colors shrink-0"
             >
               <Trash2 className="w-3.5 h-3.5 shrink-0" />
               <span>Clear History</span>

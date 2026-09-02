@@ -7,16 +7,15 @@ export const ContactUs: React.FC = () => {
   return (
     <div className="space-y-6 max-w-3xl mx-auto px-1 sm:px-0 font-sans">
       {/* Editorial Page Header */}
-      <div className="pb-5 border-b border-slate-200 dark:border-slate-800 space-y-2">
-        <div className="inline-flex items-center gap-1.5 px-2 py-0.5 rounded-sm text-xs text-slate-700 dark:text-slate-300 border border-slate-300 dark:border-slate-700 bg-transparent">
-          <Mail className="w-3.5 h-3.5 text-rose-800 dark:text-rose-400 shrink-0" />
-          <span>Get In Touch</span>
+      <div className="pb-4 border-b border-slate-200 dark:border-slate-800 space-y-1.5">
+        <div className="text-xs text-rose-900 dark:text-rose-300 font-sans font-medium">
+          Feedback & Support
         </div>
         <h1 className="text-2xl sm:text-3xl font-serif font-bold tracking-tight text-slate-900 dark:text-slate-100">
           Contact Us
         </h1>
         <p className="text-slate-600 dark:text-slate-400 text-xs sm:text-sm max-w-2xl leading-relaxed">
-          Have feedback, questions, or suggestions for the WCE CGPA to Percentage Converter?
+          Have feedback, questions, or suggestions for the WCE CGPA Converter?
         </p>
       </div>
 

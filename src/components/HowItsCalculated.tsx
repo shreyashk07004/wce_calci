@@ -1,38 +1,32 @@
 import React from 'react';
 import { GRADE_DEFINITIONS } from '../utils/gradeCalculations';
-import { ShieldCheck, CheckCircle2, Info } from 'lucide-react';
+import { CheckCircle2, Info } from 'lucide-react';
 
 export const HowItsCalculated: React.FC = () => {
   return (
-    <div className="space-y-6 max-w-4xl mx-auto px-1 sm:px-0 font-sans">
+    <div className="space-y-8 max-w-4xl mx-auto px-1 sm:px-0 font-sans">
       {/* Editorial Page Header */}
-      <div className="pb-5 border-b border-slate-200 dark:border-slate-800 space-y-2">
-        <div className="inline-flex items-center gap-1.5 px-2 py-0.5 rounded-sm text-xs text-rose-900 dark:text-rose-200 border border-rose-300/80 dark:border-rose-800/80 bg-rose-50/50 dark:bg-rose-950/30">
-          <ShieldCheck className="w-3.5 h-3.5 text-rose-800 dark:text-rose-300 shrink-0" />
-          <span>Official WCE Academic & Examination Regulations 2023-24</span>
+      <div className="pb-4 border-b border-slate-200 dark:border-slate-800 space-y-1.5">
+        <div className="text-xs text-rose-900 dark:text-rose-300 font-sans font-medium">
+          Official WCE Academic & Examination Regulations 2023-24 (Sections 12 & 16)
         </div>
         <h1 className="text-2xl sm:text-3xl font-serif font-bold tracking-tight text-slate-900 dark:text-slate-100">
           How CGPA Percentage is Calculated at WCE
         </h1>
         <p className="text-slate-600 dark:text-slate-400 text-xs sm:text-sm max-w-2xl leading-relaxed">
-          Complete guide to WCE grade conversion, SGPA, CGPA, and official conversion formulas for Walchand College of Engineering, Sangli students as published in Section 12 & 16 of the Academic Rules.
+          Complete guide to WCE grade conversion, SGPA, CGPA, and official conversion formulas for Walchand College of Engineering, Sangli students.
         </p>
       </div>
 
-      {/* Card 1: Official Citation & Grade Point Table */}
-      <div className="bg-white dark:bg-[#151921] rounded-md p-5 sm:p-7 border border-slate-200 dark:border-slate-800 space-y-4">
-        <div className="flex items-center gap-3 border-b border-slate-200 dark:border-slate-800 pb-3">
-          <div className="w-6 h-6 rounded-sm bg-rose-900 text-white flex items-center justify-center font-serif font-bold text-xs shrink-0">
-            1
-          </div>
-          <div>
-            <h2 className="text-base sm:text-lg font-serif font-bold text-slate-900 dark:text-white">
-              Official WCE Grade Point Table
-            </h2>
-            <p className="text-xs text-slate-500 dark:text-slate-400">
-              Cited from WCE Academic and Examination Rules and Regulations 2023-24, Section 12.01 (Table 16.1)
-            </p>
-          </div>
+      {/* Section 1: Official Citation & Grade Point Table */}
+      <div className="space-y-4 pt-1">
+        <div className="border-b border-slate-200 dark:border-slate-800 pb-2">
+          <h2 className="text-base sm:text-lg font-serif font-bold text-slate-900 dark:text-white">
+            1. Official WCE Grade Point Table
+          </h2>
+          <p className="text-xs text-slate-500 dark:text-slate-400">
+            Cited from WCE Academic and Examination Rules and Regulations 2023-24, Section 12.01 (Table 16.1)
+          </p>
         </div>
 
         <p className="text-xs sm:text-sm text-slate-600 dark:text-slate-300 leading-relaxed">
