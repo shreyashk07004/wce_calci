@@ -247,7 +247,6 @@
 </div>
 
 <script>
-  import confetti from 'canvas-confetti';
   import html2canvas from 'html2canvas';
   import jsPDF from 'jspdf';
 
@@ -316,7 +315,7 @@
   const exportPdfBtn = document.getElementById('export-pdf-btn');
   const toastMsg = document.getElementById('toast-msg');
 
-  function updateAll(rawVal: number, triggerConfetti = false) {
+  function updateAll(rawVal: number) {
     if (isNaN(rawVal) || rawVal < 0 || rawVal > 10) {
       if (inputError) inputError.classList.remove('hidden');
       return;
@@ -356,17 +355,6 @@
       } else {
         rangeWarning.classList.add('hidden');
       }
-    }
-
-    if (triggerConfetti && percentage >= 75) {
-      try {
-        confetti({
-          particleCount: 40,
-          spread: 50,
-          origin: { y: 0.7 },
-          colors: ['#FCD535', '#0ECB81', '#ffffff']
-        });
-      } catch (e) {}
     }
   }
 
