@@ -13,14 +13,6 @@ const gradeDefinitions = [
   { grade: 'FF', points: '0', description: 'Fail / Unsatisfactory', marks: '< 40%' },
   { grade: 'XX', points: '0', description: 'Course Ineligible (Attendance < 50%)', marks: 'N/A' },
 ];
-
-const classAwardList = [
-  { award: 'First Class with Distinction', cgpaReq: 'CGPA ≥ 8.25', pctReq: 'Percentage ≥ 75.00%', desc: 'Passed all examinations in first attempt with exemplary academic standing.' },
-  { award: 'First Class', cgpaReq: '6.75 ≤ CGPA < 8.25', pctReq: '60.00% ≤ Percentage < 75.00%', desc: 'Demonstrates solid mastery of engineering subjects.' },
-  { award: 'Higher Second Class', cgpaReq: '6.25 ≤ CGPA < 6.75', pctReq: '55.00% ≤ Percentage < 60.00%', desc: 'Above average academic standard.' },
-  { award: 'Second Class', cgpaReq: '5.75 ≤ CGPA < 6.25', pctReq: '50.00% ≤ Percentage < 55.00%', desc: 'Satisfactory standard across curriculum.' },
-  { award: 'Pass Class', cgpaReq: '4.75 ≤ CGPA < 5.75', pctReq: '40.00% ≤ Percentage < 50.00%', desc: 'Minimum passing standard achieved.' },
-];
 ---
 
 <Layout
@@ -68,27 +60,27 @@ const classAwardList = [
 
       <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 font-mono text-xs text-slate-600 dark:text-binance-muted">
         <div class="p-4 rounded-lg bg-slate-50 dark:bg-binance-canvas border border-slate-200 dark:border-binance-border space-y-1">
-          <span class="text-slate-900 dark:text-white font-bold block">Example 1: Top Bracket</span>
-          <p>CGPA = 9.20</p>
-          <p class="text-amber-700 dark:text-binance-yellow font-semibold">Percentage = (10.00 × 9.20) − 7.50 = 84.50%</p>
+          <span class="text-slate-900 dark:text-white font-bold block">Worked Example (From Regulations)</span>
+          <p>CGPA = 7.80</p>
+          <p class="text-amber-700 dark:text-binance-yellow font-semibold">Percentage = (10.00 × 7.80) − 7.50 = 70.50%</p>
         </div>
         <div class="p-4 rounded-lg bg-slate-50 dark:bg-binance-canvas border border-slate-200 dark:border-binance-border space-y-1">
-          <span class="text-slate-900 dark:text-white font-bold block">Example 2: First Class Cutoff</span>
+          <span class="text-slate-900 dark:text-white font-bold block">Official Verification Point</span>
           <p>CGPA = 6.75</p>
           <p class="text-amber-700 dark:text-binance-yellow font-semibold">Percentage = (10.00 × 6.75) − 7.50 = 60.00%</p>
         </div>
       </div>
     </div>
 
-    <!-- Section 12: Table 16.1 - Grade Letter & Points Mapping -->
+    <!-- Section 12: Table 16.1 - Grade Letter & Points Mapping (Course-Level) -->
     <div id="grading-scale" class="bg-white dark:bg-binance-card rounded-2xl border border-slate-200 dark:border-binance-border p-6 md:p-8 space-y-6 shadow-xs transition-colors duration-150">
       <div class="flex items-center gap-3">
         <span class="w-8 h-8 rounded-lg bg-amber-100 text-amber-800 dark:bg-binance-yellow/10 dark:text-binance-yellow border border-amber-300 dark:border-binance-yellow/20 flex items-center justify-center font-mono font-bold">
           12
         </span>
         <div>
-          <h2 class="text-xl font-bold text-slate-900 dark:text-white">Section 12 (Table 16.1): Official 10-Point Grading Scale</h2>
-          <p class="text-xs text-slate-500 dark:text-binance-muted">Grade Letter definitions, Grade Points, and Qualitative Assessment</p>
+          <h2 class="text-xl font-bold text-slate-900 dark:text-white">Section 12 (Table 16.1): Course Grade Points Scale</h2>
+          <p class="text-xs text-slate-500 dark:text-binance-muted">Course-level grade letters, grade points, and qualitative descriptions</p>
         </div>
       </div>
 
@@ -99,7 +91,7 @@ const classAwardList = [
               <th class="py-3 px-4">Grade Letter</th>
               <th class="py-3 px-4">Grade Points</th>
               <th class="py-3 px-4">Qualitative Description</th>
-              <th class="py-3 px-4">Equivalent Range</th>
+              <th class="py-3 px-4">Marks Range Indicator</th>
             </tr>
           </thead>
           <tbody class="divide-y divide-slate-200 dark:divide-binance-border/50">
@@ -117,33 +109,6 @@ const classAwardList = [
             ))}
           </tbody>
         </table>
-      </div>
-    </div>
-
-    <!-- Award of Degree Classes -->
-    <div class="bg-white dark:bg-binance-card rounded-2xl border border-slate-200 dark:border-binance-border p-6 md:p-8 space-y-6 shadow-xs transition-colors duration-150">
-      <div class="flex items-center gap-3">
-        <span class="w-8 h-8 rounded-lg bg-amber-100 text-amber-800 dark:bg-binance-yellow/10 dark:text-binance-yellow border border-amber-300 dark:border-binance-yellow/20 flex items-center justify-center font-mono font-bold">
-          ★
-        </span>
-        <div>
-          <h2 class="text-xl font-bold text-slate-900 dark:text-white">Award of Class & Degree Honours</h2>
-          <p class="text-xs text-slate-500 dark:text-binance-muted">Classification awarded upon graduation based on final CGPA</p>
-        </div>
-      </div>
-
-      <div class="grid grid-cols-1 md:grid-cols-2 gap-4 font-mono text-xs">
-        {classAwardList.map(c => (
-          <div class="p-4 rounded-xl bg-slate-50 dark:bg-binance-canvas border border-slate-200 dark:border-binance-border space-y-2">
-            <span class="text-sm font-bold text-slate-900 dark:text-white block">{c.award}</span>
-            <div class="flex items-center gap-2">
-              <span class="px-2 py-0.5 rounded bg-white dark:bg-binance-card border border-slate-200 dark:border-binance-border text-amber-700 dark:text-binance-yellow">{c.cgpaReq}</span>
-              <span class="text-slate-400 dark:text-binance-muted">|</span>
-              <span class="text-emerald-700 dark:text-binance-up font-semibold">{c.pctReq}</span>
-            </div>
-            <p class="text-[11px] text-slate-600 dark:text-binance-muted leading-relaxed font-sans">{c.desc}</p>
-          </div>
-        ))}
       </div>
     </div>
 

@@ -68,7 +68,7 @@ It is an independent, unofficial Grade Conversion & Academic Utility built stric
 | **[TypeScript](https://www.typescriptlang.org/)** | Type-safe strict calculation models & contracts |
 | **[Tailwind CSS v4](https://tailwindcss.com/)** | Design system implementation with Binance tokens (`DESIGN.md`) |
 | **[Vitest 3](https://vitest.dev/)** | Unit testing framework for math engine correctness |
-| **[html2canvas](https://html2canvas.hertzen.com/) & [jsPDF](https://github.com/parallax/jsPDF)** | Client-side PNG/PDF report export |
+| **Canvas API & [jsPDF](https://github.com/parallax/jsPDF)** | Client-side PNG/PDF report export |
 
 ---
 

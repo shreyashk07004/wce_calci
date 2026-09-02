@@ -1,26 +1,26 @@
 ---
-// Quick reference conversion lookup table
+// ConversionTable.astro - Official WCE Standard Conversion Reference Table (Section 16)
 const cgpaList = [
-  { cgpa: '10.00', pct: '92.50%', grade: 'AA', class: 'First Class with Distinction', highlight: true },
-  { cgpa: '9.75', pct: '90.00%', grade: 'AA', class: 'First Class with Distinction', highlight: false },
-  { cgpa: '9.50', pct: '87.50%', grade: 'AA', class: 'First Class with Distinction', highlight: false },
-  { cgpa: '9.25', pct: '85.00%', grade: 'AA', class: 'First Class with Distinction', highlight: false },
-  { cgpa: '9.00', pct: '82.50%', grade: 'AA', class: 'First Class with Distinction', highlight: true },
-  { cgpa: '8.75', pct: '80.00%', grade: 'AB', class: 'First Class with Distinction', highlight: false },
-  { cgpa: '8.50', pct: '77.50%', grade: 'AB', class: 'First Class with Distinction', highlight: false },
-  { cgpa: '8.25', pct: '75.00%', grade: 'AB', class: 'First Class with Distinction', highlight: true },
-  { cgpa: '8.00', pct: '72.50%', grade: 'BB', class: 'First Class', highlight: false },
-  { cgpa: '7.75', pct: '70.00%', grade: 'BB', class: 'First Class', highlight: false },
-  { cgpa: '7.50', pct: '67.50%', grade: 'BB', class: 'First Class', highlight: true },
-  { cgpa: '7.25', pct: '65.00%', grade: 'BC', class: 'First Class', highlight: false },
-  { cgpa: '7.00', pct: '62.50%', grade: 'BC', class: 'First Class', highlight: false },
-  { cgpa: '6.75', pct: '60.00%', grade: 'BC', class: 'First Class', highlight: true },
-  { cgpa: '6.50', pct: '57.50%', grade: 'CC', class: 'Higher Second Class', highlight: false },
-  { cgpa: '6.25', pct: '55.00%', grade: 'CC', class: 'Higher Second Class', highlight: true },
-  { cgpa: '6.00', pct: '52.50%', grade: 'CC', class: 'Second Class', highlight: false },
-  { cgpa: '5.75', pct: '50.00%', grade: 'CD', class: 'Second Class', highlight: true },
-  { cgpa: '5.50', pct: '47.50%', grade: 'CD', class: 'Pass Class', highlight: false },
-  { cgpa: '5.00', pct: '42.50%', grade: 'DD', class: 'Pass Class', highlight: true },
+  { cgpa: '10.00', calc: '(10.00 × 10.00) − 7.50', pct: '92.50%', note: 'Calculated Value', highlight: false },
+  { cgpa: '9.75', calc: '(10.00 × 9.75) − 7.50', pct: '90.00%', note: 'Calculated Value', highlight: false },
+  { cgpa: '9.50', calc: '(10.00 × 9.50) − 7.50', pct: '87.50%', note: 'Calculated Value', highlight: false },
+  { cgpa: '9.25', calc: '(10.00 × 9.25) − 7.50', pct: '85.00%', note: 'Calculated Value', highlight: false },
+  { cgpa: '9.00', calc: '(10.00 × 9.00) − 7.50', pct: '82.50%', note: 'Calculated Value', highlight: false },
+  { cgpa: '8.75', calc: '(10.00 × 8.75) − 7.50', pct: '80.00%', note: 'Calculated Value', highlight: false },
+  { cgpa: '8.50', calc: '(10.00 × 8.50) − 7.50', pct: '77.50%', note: 'Calculated Value', highlight: false },
+  { cgpa: '8.25', calc: '(10.00 × 8.25) − 7.50', pct: '75.00%', note: 'Official WCE Verification Table Value', highlight: true },
+  { cgpa: '8.00', calc: '(10.00 × 8.00) − 7.50', pct: '72.50%', note: 'Calculated Value', highlight: false },
+  { cgpa: '7.80', calc: '(10.00 × 7.80) − 7.50', pct: '70.50%', note: 'Worked Example in WCE Regulations', highlight: true },
+  { cgpa: '7.75', calc: '(10.00 × 7.75) − 7.50', pct: '70.00%', note: 'Official WCE Verification Table Value', highlight: true },
+  { cgpa: '7.50', calc: '(10.00 × 7.50) − 7.50', pct: '67.50%', note: 'Calculated Value', highlight: false },
+  { cgpa: '7.25', calc: '(10.00 × 7.25) − 7.50', pct: '65.00%', note: 'Official WCE Verification Table Value', highlight: true },
+  { cgpa: '7.00', calc: '(10.00 × 7.00) − 7.50', pct: '62.50%', note: 'Calculated Value', highlight: false },
+  { cgpa: '6.75', calc: '(10.00 × 6.75) − 7.50', pct: '60.00%', note: 'Official WCE Verification Table Value', highlight: true },
+  { cgpa: '6.50', calc: '(10.00 × 6.50) − 7.50', pct: '57.50%', note: 'Calculated Value', highlight: false },
+  { cgpa: '6.25', calc: '(10.00 × 6.25) − 7.50', pct: '55.00%', note: 'Official WCE Verification Table Value', highlight: true },
+  { cgpa: '6.00', calc: '(10.00 × 6.00) − 7.50', pct: '52.50%', note: 'Calculated Value', highlight: false },
+  { cgpa: '5.50', calc: '(10.00 × 5.50) − 7.50', pct: '47.50%', note: 'Calculated Value', highlight: false },
+  { cgpa: '5.00', calc: '(10.00 × 5.00) − 7.50', pct: '42.50%', note: 'Official Base Threshold (CGPA ≥ 5.00)', highlight: true },
 ];
 ---
 
@@ -36,7 +36,7 @@ const cgpaList = [
         </svg>
         WCE Standard Conversion Reference Table
       </h3>
-      <p class="text-xs text-slate-500 dark:text-binance-muted">Reference conversion points based on Section 16</p>
+      <p class="text-xs text-slate-500 dark:text-binance-muted">Reference values evaluated using Section 16 formula: Percentage = (10.00 × CGPA) − 7.50</p>
     </div>
 
     <!-- Live Search input -->
@@ -44,7 +44,7 @@ const cgpaList = [
       <input
         type="text"
         id="table-search"
-        placeholder="Filter CGPA (e.g. 8.5)..."
+        placeholder="Filter CGPA (e.g. 7.75)..."
         class="w-full bg-white dark:bg-binance-canvas border border-slate-300 dark:border-binance-border focus:border-binance-yellow text-slate-900 dark:text-white text-xs px-3 py-2 pl-8 rounded-lg outline-none font-mono"
       />
       <svg class="w-3.5 h-3.5 text-slate-400 dark:text-binance-muted absolute left-2.5 top-2.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
@@ -59,9 +59,9 @@ const cgpaList = [
       <thead>
         <tr class="bg-slate-100/90 dark:bg-binance-canvas/90 text-slate-600 dark:text-binance-muted uppercase text-[11px] tracking-wider sticky top-0 border-b border-slate-200 dark:border-binance-border z-10 backdrop-blur-sm">
           <th class="py-3 px-6">CGPA</th>
-          <th class="py-3 px-6">Calculated %</th>
-          <th class="py-3 px-6">Letter Grade</th>
-          <th class="py-3 px-6">Degree Classification</th>
+          <th class="py-3 px-6">Applied Formula</th>
+          <th class="py-3 px-6">Equated Percentage</th>
+          <th class="py-3 px-6">Status / Source</th>
           <th class="py-3 px-6 text-right">Action</th>
         </tr>
       </thead>
@@ -72,17 +72,15 @@ const cgpaList = [
               {row.highlight && <span class="w-1.5 h-1.5 rounded-full bg-amber-500 dark:bg-binance-yellow"></span>}
               {row.cgpa}
             </td>
+            <td class="py-3 px-6 text-slate-600 dark:text-binance-muted">
+              {row.calc}
+            </td>
             <td class="py-3 px-6 text-emerald-700 dark:text-binance-up font-bold text-sm">
               {row.pct}
             </td>
-            <td class="py-3 px-6">
-              <span class="px-2 py-0.5 rounded bg-slate-100 dark:bg-binance-canvas border border-slate-200 dark:border-binance-border text-slate-800 dark:text-white font-medium">
-                {row.grade}
-              </span>
-            </td>
-            <td class="py-3 px-6 text-slate-700 dark:text-binance-text">
-              <span class={row.class.includes('Distinction') ? 'text-amber-700 dark:text-binance-yellow font-semibold' : ''}>
-                {row.class}
+            <td class="py-3 px-6 text-slate-500 dark:text-slate-400 text-xs">
+              <span class={row.highlight ? 'text-amber-700 dark:text-binance-yellow font-medium' : ''}>
+                {row.note}
               </span>
             </td>
             <td class="py-3 px-6 text-right">
