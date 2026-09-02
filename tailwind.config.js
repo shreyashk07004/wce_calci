@@ -8,16 +8,26 @@ export default {
   theme: {
     extend: {
       colors: {
-        wce: {
-          navy: '#0f172a',
-          blue: '#1e40af',
-          sky: '#0284c7',
-          accent: '#3b82f6',
-          gold: '#d97706',
-          lightBg: '#f8fafc',
-          cardLight: '#ffffff',
-          darkBg: '#0b0f19',
-          cardDark: '#131b2e'
+        ochre: {
+          50: '#FDF8F0',
+          100: '#F9EED9',
+          200: '#F2DAB3',
+          300: '#E8C185',
+          400: '#DDA658',
+          500: '#C98A2C',
+          600: '#A96E1B',
+          700: '#8D5B0F', // Primary Light Mode Academic Ochre
+          800: '#6F4506',
+          900: '#523303',
+          950: '#331E01',
+          gold: '#DE9F42', // Primary Dark Mode Soft Ochre Amber
+        },
+        darkSurface: {
+          base: '#1B1F27',
+          card: '#242933',
+          inset: '#2A303C',
+          border: '#38404E',
+          borderSubtle: '#2F3643',
         }
       },
       fontFamily: {

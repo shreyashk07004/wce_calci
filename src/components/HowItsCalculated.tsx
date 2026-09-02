@@ -7,7 +7,7 @@ export const HowItsCalculated: React.FC = () => {
     <div className="space-y-8 max-w-4xl mx-auto px-1 sm:px-0 font-sans">
       {/* Editorial Page Header */}
       <div className="pb-4 border-b border-slate-200 dark:border-slate-800 space-y-1.5">
-        <div className="text-xs text-rose-900 dark:text-rose-300 font-sans font-medium">
+        <div className="text-xs text-[#8D5B0F] dark:text-[#DE9F42] font-sans font-medium">
           Official WCE Academic & Examination Regulations 2023-24 (Sections 12 & 16)
         </div>
         <h1 className="text-2xl sm:text-3xl font-serif font-bold tracking-tight text-slate-900 dark:text-slate-100">
@@ -36,16 +36,16 @@ export const HowItsCalculated: React.FC = () => {
         <div className="overflow-x-auto -mx-4 sm:mx-0 px-4 sm:px-0">
           <table className="w-full text-left text-xs border-collapse min-w-[340px]">
             <thead>
-              <tr className="bg-slate-100 dark:bg-slate-800 text-slate-700 dark:text-slate-300 border-b border-slate-200 dark:border-slate-700">
+              <tr className="bg-slate-100 dark:bg-[#242933] text-slate-700 dark:text-slate-300 border-b border-slate-200 dark:border-slate-700">
                 <th className="py-2.5 px-3 sm:px-4 font-bold">Letter Grade</th>
                 <th className="py-2.5 px-3 sm:px-4 font-bold">Grade Points</th>
                 <th className="py-2.5 px-3 sm:px-4 font-bold">Performance Description</th>
               </tr>
             </thead>
-            <tbody className="divide-y divide-slate-200 dark:divide-slate-800">
+            <tbody className="divide-y divide-slate-200 dark:divide-slate-700/80">
               {GRADE_DEFINITIONS.map((row) => (
-                <tr key={row.grade} className="hover:bg-slate-50 dark:hover:bg-slate-800/40 transition-colors">
-                  <td className="py-2.5 px-3 sm:px-4 font-mono font-bold text-rose-900 dark:text-rose-300">{row.grade}</td>
+                <tr key={row.grade} className="hover:bg-slate-50 dark:hover:bg-[#242933]/50 transition-colors">
+                  <td className="py-2.5 px-3 sm:px-4 font-mono font-bold text-[#8D5B0F] dark:text-[#DE9F42]">{row.grade}</td>
                   <td className="py-2.5 px-3 sm:px-4 font-mono font-bold text-slate-900 dark:text-white">{row.points}</td>
                   <td className="py-2.5 px-3 sm:px-4 text-slate-600 dark:text-slate-300">{row.description}</td>
                 </tr>
@@ -55,9 +55,9 @@ export const HowItsCalculated: React.FC = () => {
         </div>
 
         {/* Relative Grading Clarification Callout */}
-        <div className="mt-4 p-4 rounded-lg bg-amber-50 dark:bg-amber-950/40 border border-amber-300 dark:border-amber-900/60 text-xs text-amber-900 dark:text-amber-200 space-y-1.5 leading-relaxed">
-          <div className="flex items-center gap-2 font-bold text-amber-800 dark:text-amber-300">
-            <Info className="w-4 h-4 text-amber-600 dark:text-amber-400 shrink-0" />
+        <div className="mt-4 p-4 rounded-sm bg-amber-50/70 dark:bg-[#242933] border border-amber-300/80 dark:border-slate-700 text-xs text-slate-700 dark:text-slate-300 space-y-1.5 leading-relaxed">
+          <div className="flex items-center gap-2 font-bold text-[#8D5B0F] dark:text-[#DE9F42]">
+            <Info className="w-4 h-4 text-[#8D5B0F] dark:text-[#DE9F42] shrink-0" />
             <span>Note on Relative Grading vs. Fixed Formulas</span>
           </div>
           <p>
@@ -70,9 +70,9 @@ export const HowItsCalculated: React.FC = () => {
       </div>
 
       {/* Card 2: SGPA Explanation */}
-      <div className="bg-white dark:bg-[#151921] rounded-md p-5 sm:p-7 border border-slate-200 dark:border-slate-800 space-y-4">
-        <div className="flex items-center gap-3 border-b border-slate-200 dark:border-slate-800 pb-3">
-          <div className="w-6 h-6 rounded-sm bg-rose-900 text-white flex items-center justify-center font-serif font-bold text-xs shrink-0">
+      <div className="bg-white dark:bg-[#242933] rounded-sm p-5 sm:p-7 border border-slate-200 dark:border-slate-700/80 space-y-4">
+        <div className="flex items-center gap-3 border-b border-slate-200 dark:border-slate-700/80 pb-3">
+          <div className="w-6 h-6 rounded-sm bg-[#8D5B0F] dark:bg-[#DE9F42] text-white dark:text-[#1B1F27] flex items-center justify-center font-serif font-bold text-xs shrink-0">
             2
           </div>
           <div>
@@ -85,9 +85,9 @@ export const HowItsCalculated: React.FC = () => {
           </div>
         </div>
 
-        <div className="p-4 rounded-md bg-slate-50 dark:bg-slate-800/60 border border-slate-200 dark:border-slate-700 space-y-2">
+        <div className="p-4 rounded-sm bg-slate-50 dark:bg-[#1B1F27] border border-slate-200 dark:border-slate-700 space-y-2">
           <span className="text-xs font-semibold uppercase text-slate-500 dark:text-slate-400">Formula:</span>
-          <div className="font-mono text-sm sm:text-base font-bold text-rose-900 dark:text-rose-300 break-words">
+          <div className="font-mono text-sm sm:text-base font-bold text-[#8D5B0F] dark:text-[#DE9F42] break-words">
             SGPA = Σ(Ci × Gi) / Σ(Ci)
           </div>
           <p className="text-xs text-slate-600 dark:text-slate-300 leading-relaxed">
@@ -96,13 +96,13 @@ export const HowItsCalculated: React.FC = () => {
         </div>
 
         <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 text-xs">
-          <div className="p-3.5 rounded-md bg-slate-50 dark:bg-slate-800/40 border border-slate-200 dark:border-slate-700">
+          <div className="p-3.5 rounded-sm bg-slate-50 dark:bg-[#1B1F27] border border-slate-200 dark:border-slate-700">
             <span className="font-bold text-slate-900 dark:text-white block mb-1">What are Credits (Ci)?</span>
             <p className="text-slate-600 dark:text-slate-300 leading-relaxed">
               Credits measure the academic weight or hours assigned to a course (for example, a theory subject might have 3 or 4 credits, while a lab might have 1 or 2 credits).
             </p>
           </div>
-          <div className="p-3.5 rounded-md bg-slate-50 dark:bg-slate-800/40 border border-slate-200 dark:border-slate-700">
+          <div className="p-3.5 rounded-sm bg-slate-50 dark:bg-[#1B1F27] border border-slate-200 dark:border-slate-700">
             <span className="font-bold text-slate-900 dark:text-white block mb-1">What are Grade Points (Gi)?</span>
             <p className="text-slate-600 dark:text-slate-300 leading-relaxed">
               Grade points are the numerical values corresponding to the letter grade you score in a course (for instance, AA = 10 points, AB = 9 points).
@@ -112,9 +112,9 @@ export const HowItsCalculated: React.FC = () => {
       </div>
 
       {/* Card 3: CGPA Explanation */}
-      <div className="bg-white dark:bg-[#151921] rounded-md p-5 sm:p-7 border border-slate-200 dark:border-slate-800 space-y-4">
-        <div className="flex items-center gap-3 border-b border-slate-200 dark:border-slate-800 pb-3">
-          <div className="w-6 h-6 rounded-sm bg-rose-900 text-white flex items-center justify-center font-serif font-bold text-xs shrink-0">
+      <div className="bg-white dark:bg-[#242933] rounded-sm p-5 sm:p-7 border border-slate-200 dark:border-slate-700/80 space-y-4">
+        <div className="flex items-center gap-3 border-b border-slate-200 dark:border-slate-700/80 pb-3">
+          <div className="w-6 h-6 rounded-sm bg-[#8D5B0F] dark:bg-[#DE9F42] text-white dark:text-[#1B1F27] flex items-center justify-center font-serif font-bold text-xs shrink-0">
             3
           </div>
           <div>
@@ -127,9 +127,9 @@ export const HowItsCalculated: React.FC = () => {
           </div>
         </div>
 
-        <div className="p-4 rounded-md bg-slate-50 dark:bg-slate-800/60 border border-slate-200 dark:border-slate-700 space-y-2">
+        <div className="p-4 rounded-sm bg-slate-50 dark:bg-[#1B1F27] border border-slate-200 dark:border-slate-700 space-y-2">
           <span className="text-xs font-semibold uppercase text-slate-500 dark:text-slate-400">Formula:</span>
-          <div className="font-mono text-sm sm:text-base font-bold text-rose-900 dark:text-rose-300 break-words">
+          <div className="font-mono text-sm sm:text-base font-bold text-[#8D5B0F] dark:text-[#DE9F42] break-words">
             CGPA = ΣΣ(Cij × Gij) / ΣΣ(Cij)
           </div>
         </div>
@@ -140,9 +140,9 @@ export const HowItsCalculated: React.FC = () => {
       </div>
 
       {/* Card 4: CGPA to Percentage Formula */}
-      <div className="bg-white dark:bg-[#151921] rounded-md p-5 sm:p-7 border border-slate-200 dark:border-slate-800 space-y-4">
-        <div className="flex items-center gap-3 border-b border-slate-200 dark:border-slate-800 pb-3">
-          <div className="w-6 h-6 rounded-sm bg-rose-900 text-white flex items-center justify-center font-serif font-bold text-xs shrink-0">
+      <div className="bg-white dark:bg-[#242933] rounded-sm p-5 sm:p-7 border border-slate-200 dark:border-slate-700/80 space-y-4">
+        <div className="flex items-center gap-3 border-b border-slate-200 dark:border-slate-700/80 pb-3">
+          <div className="w-6 h-6 rounded-sm bg-[#8D5B0F] dark:bg-[#DE9F42] text-white dark:text-[#1B1F27] flex items-center justify-center font-serif font-bold text-xs shrink-0">
             4
           </div>
           <div>
@@ -155,42 +155,42 @@ export const HowItsCalculated: React.FC = () => {
           </div>
         </div>
 
-        <div className="p-4 sm:p-5 rounded-md bg-rose-50/70 dark:bg-rose-950/30 border border-rose-200 dark:border-rose-900 text-center space-y-1">
-          <span className="text-xs font-semibold text-rose-900 dark:text-rose-300 block">
+        <div className="p-4 sm:p-5 rounded-sm bg-amber-50/50 dark:bg-[#1B1F27] border border-[#8D5B0F]/30 dark:border-[#DE9F42]/30 text-center space-y-1">
+          <span className="text-xs font-semibold text-[#8D5B0F] dark:text-[#DE9F42] block">
             Official WCE Conversion Formula
           </span>
-          <div className="font-mono text-xl sm:text-2xl font-bold text-rose-900 dark:text-rose-300 break-words">
+          <div className="font-mono text-xl sm:text-2xl font-bold text-[#8D5B0F] dark:text-[#DE9F42] break-words">
             Percentage = (10.00 × CGPA) − 7.50
           </div>
-          <p className="text-xs text-rose-800 dark:text-rose-300 pt-1">
+          <p className="text-xs text-slate-600 dark:text-slate-400 pt-1">
             Valid for CGPA ≥ 5.00. Result is rounded to 2 decimal places.
           </p>
         </div>
 
         {/* Step-by-Step Worked Example */}
-        <div className="bg-slate-50 dark:bg-slate-800/60 rounded-md p-4 sm:p-6 border border-slate-200 dark:border-slate-700 space-y-3">
+        <div className="bg-slate-50 dark:bg-[#1B1F27] rounded-sm p-4 sm:p-6 border border-slate-200 dark:border-slate-700 space-y-3">
           <div className="flex items-center gap-2 text-xs sm:text-sm font-bold text-slate-900 dark:text-white">
             <CheckCircle2 className="w-4 h-4 text-emerald-600 dark:text-emerald-400 shrink-0" />
             <span>Worked Step-by-Step Example:</span>
           </div>
 
-          <div className="bg-white dark:bg-slate-900 rounded-sm p-3.5 sm:p-4 border border-slate-200 dark:border-slate-700 text-xs sm:text-sm font-mono space-y-2 text-slate-800 dark:text-slate-200 break-words">
+          <div className="bg-white dark:bg-[#242933] rounded-sm p-3.5 sm:p-4 border border-slate-200 dark:border-slate-700 text-xs sm:text-sm font-mono space-y-2 text-slate-800 dark:text-slate-200 break-words">
             <p className="font-sans text-slate-600 dark:text-slate-300">
               Suppose a student has a CGPA of <b>7.80</b>.
             </p>
             <div className="flex items-start gap-2 pt-1">
-              <span className="font-bold text-rose-900 dark:text-rose-400 shrink-0">Step 1:</span>
+              <span className="font-bold text-[#8D5B0F] dark:text-[#DE9F42] shrink-0">Step 1:</span>
               <span>Take formula → <b>Percentage = (10.00 × CGPA) − 7.50</b></span>
             </div>
             <div className="flex items-start gap-2">
-              <span className="font-bold text-rose-900 dark:text-rose-400 shrink-0">Step 2:</span>
+              <span className="font-bold text-[#8D5B0F] dark:text-[#DE9F42] shrink-0">Step 2:</span>
               <span>Substitute → <b>Percentage = (10.00 × 7.80) − 7.50</b></span>
             </div>
             <div className="flex items-start gap-2">
-              <span className="font-bold text-rose-900 dark:text-rose-400 shrink-0">Step 3:</span>
+              <span className="font-bold text-[#8D5B0F] dark:text-[#DE9F42] shrink-0">Step 3:</span>
               <span>Calculate → <b>Percentage = 78.00 − 7.50 = 70.50%</b></span>
             </div>
-            <div className="pt-2 font-sans font-bold text-rose-900 dark:text-rose-300">
+            <div className="pt-2 font-sans font-bold text-[#8D5B0F] dark:text-[#DE9F42]">
               So a CGPA of 7.80 is equivalent to 70.50%.
             </div>
           </div>
@@ -198,9 +198,9 @@ export const HowItsCalculated: React.FC = () => {
       </div>
 
       {/* Card 5: Quick Reference Lookup Table */}
-      <div className="bg-white dark:bg-[#151921] rounded-md p-5 sm:p-7 border border-slate-200 dark:border-slate-800 space-y-4">
-        <div className="flex items-center gap-3 border-b border-slate-200 dark:border-slate-800 pb-3">
-          <div className="w-6 h-6 rounded-sm bg-rose-900 text-white flex items-center justify-center font-serif font-bold text-xs shrink-0">
+      <div className="bg-white dark:bg-[#242933] rounded-sm p-5 sm:p-7 border border-slate-200 dark:border-slate-700/80 space-y-4">
+        <div className="flex items-center gap-3 border-b border-slate-200 dark:border-slate-700/80 pb-3">
+          <div className="w-6 h-6 rounded-sm bg-[#8D5B0F] dark:bg-[#DE9F42] text-white dark:text-[#1B1F27] flex items-center justify-center font-serif font-bold text-xs shrink-0">
             5
           </div>
           <div>
@@ -216,14 +216,14 @@ export const HowItsCalculated: React.FC = () => {
         <div className="overflow-x-auto -mx-4 sm:mx-0 px-4 sm:px-0">
           <table className="w-full text-left text-xs border-collapse min-w-[360px]">
             <thead>
-              <tr className="bg-slate-100 dark:bg-slate-800 text-slate-700 dark:text-slate-300 border-b border-slate-200 dark:border-slate-700">
+              <tr className="bg-slate-100 dark:bg-[#1B1F27] text-slate-700 dark:text-slate-300 border-b border-slate-200 dark:border-slate-700">
                 <th className="py-2.5 px-4 font-bold">WCE CGPA</th>
                 <th className="py-2.5 px-4 font-bold">Official Calculation</th>
                 <th className="py-2.5 px-4 font-bold">Equivalent Percentage</th>
                 <th className="py-2.5 px-4 font-bold">Status</th>
               </tr>
             </thead>
-            <tbody className="divide-y divide-slate-200 dark:divide-slate-800">
+            <tbody className="divide-y divide-slate-200 dark:divide-slate-700/80">
               {[
                 { cgpa: '5.00', calc: '(10.00 × 5.00) − 7.50', per: '42.50%', note: 'Minimum Degree Eligibility (Section 09.01)' },
                 { cgpa: '5.25', calc: '(10.00 × 5.25) − 7.50', per: '45.00%', note: 'Calculated Value' },
@@ -247,8 +247,8 @@ export const HowItsCalculated: React.FC = () => {
                 { cgpa: '9.75', calc: '(10.00 × 9.75) − 7.50', per: '90.00%', note: 'Calculated Value' },
                 { cgpa: '10.00', calc: '(10.00 × 10.00) − 7.50', per: '92.50%', note: 'Calculated Value' },
               ].map((row) => (
-                <tr key={row.cgpa} className="hover:bg-slate-50 dark:hover:bg-slate-800/40 transition-colors">
-                  <td className="py-2.5 px-4 font-mono font-bold text-rose-900 dark:text-rose-300">{row.cgpa}</td>
+                <tr key={row.cgpa} className="hover:bg-slate-50 dark:hover:bg-[#1B1F27]/50 transition-colors">
+                  <td className="py-2.5 px-4 font-mono font-bold text-[#8D5B0F] dark:text-[#DE9F42]">{row.cgpa}</td>
                   <td className="py-2.5 px-4 font-mono text-slate-600 dark:text-slate-300">{row.calc}</td>
                   <td className="py-2.5 px-4 font-mono font-bold text-slate-900 dark:text-white">{row.per}</td>
                   <td className="py-2.5 px-4 text-slate-500 dark:text-slate-400 text-xs">{row.note}</td>
@@ -260,9 +260,9 @@ export const HowItsCalculated: React.FC = () => {
       </div>
 
       {/* Card 6: Frequently Asked Questions (FAQ) */}
-      <div className="bg-white dark:bg-[#151921] rounded-md p-5 sm:p-7 border border-slate-200 dark:border-slate-800 space-y-6">
-        <div className="flex items-center gap-3 border-b border-slate-200 dark:border-slate-800 pb-3">
-          <div className="w-6 h-6 rounded-sm bg-rose-900 text-white flex items-center justify-center font-serif font-bold text-xs shrink-0">
+      <div className="bg-white dark:bg-[#242933] rounded-sm p-5 sm:p-7 border border-slate-200 dark:border-slate-700/80 space-y-6">
+        <div className="flex items-center gap-3 border-b border-slate-200 dark:border-slate-700/80 pb-3">
+          <div className="w-6 h-6 rounded-sm bg-[#8D5B0F] dark:bg-[#DE9F42] text-white dark:text-[#1B1F27] flex items-center justify-center font-serif font-bold text-xs shrink-0">
             6
           </div>
           <div>
@@ -277,27 +277,27 @@ export const HowItsCalculated: React.FC = () => {
 
         <div className="space-y-4 text-xs sm:text-sm">
           {/* Q1 */}
-          <div className="p-4 rounded-md bg-slate-50 dark:bg-slate-800/40 border border-slate-200 dark:border-slate-700 space-y-1.5">
+          <div className="p-4 rounded-sm bg-slate-50 dark:bg-[#1B1F27] border border-slate-200 dark:border-slate-700 space-y-1.5">
             <h3 className="font-serif font-bold text-slate-900 dark:text-white text-sm sm:text-base">
               What percentage is a 7 CGPA at WCE?
             </h3>
             <p className="text-slate-600 dark:text-slate-300 leading-relaxed">
-              A 7.00 CGPA at Walchand College of Engineering (WCE), Sangli is equivalent to <strong>62.50%</strong>. This is calculated using the official WCE formula: <code className="font-mono bg-slate-200 dark:bg-slate-700 px-1 py-0.5 rounded text-rose-900 dark:text-rose-300">(10.00 × 7.00) − 7.50 = 62.50%</code>.
+              A 7.00 CGPA at Walchand College of Engineering (WCE), Sangli is equivalent to <strong>62.50%</strong>. This is calculated using the official WCE formula: <code className="font-mono bg-slate-200 dark:bg-slate-700 px-1 py-0.5 rounded text-[#8D5B0F] dark:text-[#DE9F42]">(10.00 × 7.00) − 7.50 = 62.50%</code>.
             </p>
           </div>
 
           {/* Q2 */}
-          <div className="p-4 rounded-md bg-slate-50 dark:bg-slate-800/40 border border-slate-200 dark:border-slate-700 space-y-1.5">
+          <div className="p-4 rounded-sm bg-slate-50 dark:bg-[#1B1F27] border border-slate-200 dark:border-slate-700 space-y-1.5">
             <h3 className="font-serif font-bold text-slate-900 dark:text-white text-sm sm:text-base">
               What percentage is an 8 CGPA at WCE?
             </h3>
             <p className="text-slate-600 dark:text-slate-300 leading-relaxed">
-              An 8.00 CGPA at WCE Sangli is equivalent to <strong>72.50%</strong>. According to Section 16 of the Academic Rules, applying the official formula yields: <code className="font-mono bg-slate-200 dark:bg-slate-700 px-1 py-0.5 rounded text-rose-900 dark:text-rose-300">(10.00 × 8.00) − 7.50 = 72.50%</code>.
+              An 8.00 CGPA at WCE Sangli is equivalent to <strong>72.50%</strong>. According to Section 16 of the Academic Rules, applying the official formula yields: <code className="font-mono bg-slate-200 dark:bg-slate-700 px-1 py-0.5 rounded text-[#8D5B0F] dark:text-[#DE9F42]">(10.00 × 8.00) − 7.50 = 72.50%</code>.
             </p>
           </div>
 
           {/* Q3 */}
-          <div className="p-4 rounded-md bg-slate-50 dark:bg-slate-800/40 border border-slate-200 dark:border-slate-700 space-y-1.5">
+          <div className="p-4 rounded-sm bg-slate-50 dark:bg-[#1B1F27] border border-slate-200 dark:border-slate-700 space-y-1.5">
             <h3 className="font-serif font-bold text-slate-900 dark:text-white text-sm sm:text-base">
               What is the minimum CGPA required to pass at WCE?
             </h3>
@@ -307,17 +307,17 @@ export const HowItsCalculated: React.FC = () => {
           </div>
 
           {/* Q4 */}
-          <div className="p-4 rounded-md bg-slate-50 dark:bg-slate-800/40 border border-slate-200 dark:border-slate-700 space-y-1.5">
+          <div className="p-4 rounded-sm bg-slate-50 dark:bg-[#1B1F27] border border-slate-200 dark:border-slate-700 space-y-1.5">
             <h3 className="font-serif font-bold text-slate-900 dark:text-white text-sm sm:text-base">
               Does this formula work for all WCE CGPA values?
             </h3>
             <p className="text-slate-600 dark:text-slate-300 leading-relaxed">
-              The conversion formula <code className="font-mono bg-slate-200 dark:bg-slate-700 px-1 py-0.5 rounded text-rose-900 dark:text-rose-300">Percentage = (10.00 × CGPA) − 7.50</code> is officially defined by WCE for all CGPA values greater than or equal to <strong>5.00</strong>. For CGPA values below 5.00, converted percentages are displayed for mathematical reference only.
+              The conversion formula <code className="font-mono bg-slate-200 dark:bg-slate-700 px-1 py-0.5 rounded text-[#8D5B0F] dark:text-[#DE9F42]">Percentage = (10.00 × CGPA) − 7.50</code> is officially defined by WCE for all CGPA values greater than or equal to <strong>5.00</strong>. For CGPA values below 5.00, converted percentages are displayed for mathematical reference only.
             </p>
           </div>
 
           {/* Q5 */}
-          <div className="p-4 rounded-md bg-slate-50 dark:bg-slate-800/40 border border-slate-200 dark:border-slate-700 space-y-1.5">
+          <div className="p-4 rounded-sm bg-slate-50 dark:bg-[#1B1F27] border border-slate-200 dark:border-slate-700 space-y-1.5">
             <h3 className="font-serif font-bold text-slate-900 dark:text-white text-sm sm:text-base">
               Is this an official WCE website?
             </h3>
@@ -329,9 +329,9 @@ export const HowItsCalculated: React.FC = () => {
       </div>
 
       {/* Official Legal Disclaimer */}
-      <div className="bg-slate-100 dark:bg-slate-800/40 rounded-md p-4 sm:p-5 border border-slate-200 dark:border-slate-700 text-xs text-slate-600 dark:text-slate-400 space-y-1.5">
+      <div className="bg-slate-100 dark:bg-[#242933] rounded-sm p-4 sm:p-5 border border-slate-200 dark:border-slate-700 text-xs text-slate-600 dark:text-slate-400 space-y-1.5">
         <div className="flex items-center gap-2 font-bold text-slate-800 dark:text-slate-200">
-          <Info className="w-4 h-4 text-rose-800 dark:text-rose-400 shrink-0" />
+          <Info className="w-4 h-4 text-[#8D5B0F] dark:text-[#DE9F42] shrink-0" />
           <span>Notice & Legal Disclaimer</span>
         </div>
         <p className="leading-relaxed">

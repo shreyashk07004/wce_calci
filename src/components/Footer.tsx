@@ -4,11 +4,11 @@ import { ShieldCheck, Heart, AlertCircle } from 'lucide-react';
 
 export const Footer: React.FC = () => {
   return (
-    <footer className="bg-slate-900 dark:bg-[#0A0D12] text-slate-400 py-8 sm:py-10 border-t border-slate-800 transition-colors mt-auto font-sans">
+    <footer className="bg-slate-900 dark:bg-[#161920] text-slate-400 py-8 sm:py-10 border-t border-slate-800 transition-colors mt-auto font-sans">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-6">
         
         {/* Persistent Site-Wide Disclaimer Banner */}
-        <div className="p-4 rounded-lg bg-slate-800/80 border border-slate-700/80 text-xs text-slate-300 space-y-1.5 leading-relaxed">
+        <div className="p-4 rounded-sm bg-slate-800/80 border border-slate-700/80 text-xs text-slate-300 space-y-1.5 leading-relaxed">
           <div className="flex items-center gap-2 font-bold text-amber-400">
             <AlertCircle className="w-4 h-4 shrink-0 text-amber-400" />
             <span>Disclaimer & Legal Notice</span>
@@ -23,7 +23,7 @@ export const Footer: React.FC = () => {
           {/* Brand Column */}
           <div className="md:col-span-5 space-y-3">
             <div className="flex items-center space-x-3">
-              <div className="w-fit min-w-[42px] h-8 sm:h-9 px-2.5 py-1 rounded-sm bg-rose-900 text-white flex items-center justify-center font-serif font-bold text-xs sm:text-sm tracking-normal shrink-0 select-none">
+              <div className="w-fit min-w-[42px] h-8 sm:h-9 px-2.5 py-1 rounded-sm bg-[#8D5B0F] dark:bg-[#DE9F42] text-white dark:text-[#1B1F27] flex items-center justify-center font-serif font-bold text-xs sm:text-sm tracking-normal shrink-0 select-none">
                 WCE
               </div>
               <span className="font-serif font-bold text-white text-base">

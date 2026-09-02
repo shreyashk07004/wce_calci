@@ -18,12 +18,12 @@ export const Navbar: React.FC<NavbarProps> = ({ historyCount }) => {
   ];
 
   return (
-    <header className="sticky top-0 z-40 bg-white/95 dark:bg-[#151921]/95 backdrop-blur-md border-b border-slate-200 dark:border-slate-800 transition-colors">
+    <header className="sticky top-0 z-40 bg-white/95 dark:bg-[#1B1F27]/95 backdrop-blur-md border-b border-slate-200 dark:border-slate-800 transition-colors">
       <div className="max-w-7xl mx-auto px-3 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between h-16 gap-2">
           {/* Brand Header */}
           <Link to="/" className="flex items-center space-x-2.5 sm:space-x-3 group min-w-0">
-            <div className="w-fit min-w-[48px] h-10 sm:h-11 px-3 py-1.5 rounded-sm bg-rose-900 dark:bg-rose-800 flex items-center justify-center text-white font-serif font-bold text-base sm:text-lg tracking-normal shrink-0 select-none">
+            <div className="w-fit min-w-[48px] h-10 sm:h-11 px-3 py-1.5 rounded-sm bg-[#8D5B0F] dark:bg-[#DE9F42] flex items-center justify-center text-white dark:text-[#1B1F27] font-serif font-bold text-base sm:text-lg tracking-normal shrink-0 select-none">
               WCE
             </div>
             <div className="min-w-0">
@@ -31,7 +31,7 @@ export const Navbar: React.FC<NavbarProps> = ({ historyCount }) => {
                 <span className="font-serif font-bold text-slate-900 dark:text-slate-100 text-sm sm:text-base leading-tight truncate">
                   WCE CGPA Converter
                 </span>
-                <span className="hidden sm:inline text-xs text-rose-900 dark:text-rose-300 font-sans tracking-tight">
+                <span className="hidden sm:inline text-xs text-[#8D5B0F] dark:text-[#DE9F42] font-sans tracking-tight font-medium">
                   (Official RR 2023-24)
                 </span>
               </div>
@@ -58,10 +58,10 @@ export const Navbar: React.FC<NavbarProps> = ({ historyCount }) => {
               <Link
                 key={item.path}
                 to={item.path}
-                className={`flex items-center gap-2 px-3.5 py-2 min-h-[38px] rounded-md text-xs font-semibold whitespace-nowrap transition-colors font-sans ${
+                className={`flex items-center gap-2 px-3.5 py-2 min-h-[38px] rounded-sm text-xs font-semibold whitespace-nowrap transition-colors font-sans ${
                   isActive
-                    ? 'bg-rose-900 dark:bg-rose-800 text-white'
-                    : 'text-slate-700 dark:text-slate-300 hover:text-slate-900 dark:hover:text-white hover:bg-slate-100 dark:hover:bg-slate-800/60'
+                    ? 'bg-[#8D5B0F] dark:bg-[#DE9F42] text-white dark:text-[#1B1F27]'
+                    : 'text-slate-700 dark:text-slate-300 hover:text-slate-900 dark:hover:text-white hover:bg-slate-100 dark:hover:bg-[#242933]'
                 }`}
               >
                 {item.icon}

@@ -6,7 +6,7 @@ export const AboutUs: React.FC = () => {
     <div className="space-y-6 max-w-4xl mx-auto px-1 sm:px-0 font-sans">
       {/* Editorial Page Header */}
       <div className="pb-4 border-b border-slate-200 dark:border-slate-800 space-y-1.5">
-        <div className="text-xs text-rose-900 dark:text-rose-300 font-sans font-medium">
+        <div className="text-xs text-[#8D5B0F] dark:text-[#DE9F42] font-sans font-medium">
           Background & Purpose
         </div>
         <h1 className="text-2xl sm:text-3xl font-serif font-bold tracking-tight text-slate-900 dark:text-slate-100">
@@ -18,12 +18,12 @@ export const AboutUs: React.FC = () => {
       </div>
 
       {/* Main Content */}
-      <div className="bg-white dark:bg-[#151921] rounded-md p-5 sm:p-7 border border-slate-200 dark:border-slate-800 space-y-6 text-slate-700 dark:text-slate-300 text-xs sm:text-sm leading-relaxed">
+      <div className="bg-white dark:bg-[#242933] rounded-sm p-5 sm:p-7 border border-slate-200 dark:border-slate-700/80 space-y-6 text-slate-700 dark:text-slate-300 text-xs sm:text-sm leading-relaxed">
         
         {/* Section 1: Purpose & Mission */}
         <section className="space-y-3">
           <h2 className="text-base sm:text-lg font-serif font-bold text-slate-900 dark:text-white flex items-center gap-2">
-            <GraduationCap className="w-5 h-5 text-rose-900 dark:text-rose-400 shrink-0" />
+            <GraduationCap className="w-5 h-5 text-[#8D5B0F] dark:text-[#DE9F42] shrink-0" />
             Why This Tool Was Built
           </h2>
           <p>
@@ -35,21 +35,21 @@ export const AboutUs: React.FC = () => {
         </section>
 
         {/* Section 2: Core Tool Provided */}
-        <section className="space-y-3 pt-4 border-t border-slate-200 dark:border-slate-800">
+        <section className="space-y-3 pt-4 border-t border-slate-200 dark:border-slate-700">
           <h2 className="text-base sm:text-lg font-serif font-bold text-slate-900 dark:text-white flex items-center gap-2">
-            <Calculator className="w-5 h-5 text-rose-900 dark:text-rose-400 shrink-0" />
+            <Calculator className="w-5 h-5 text-[#8D5B0F] dark:text-[#DE9F42] shrink-0" />
             What This Tool Provides
           </h2>
-          <div className="p-4 rounded-md bg-slate-50 dark:bg-slate-800/40 border border-slate-200 dark:border-slate-700 space-y-1 text-xs">
+          <div className="p-4 rounded-sm bg-slate-50 dark:bg-[#1B1F27] border border-slate-200 dark:border-slate-700 space-y-1 text-xs">
             <span className="font-serif font-bold text-slate-900 dark:text-white block text-sm">CGPA to Percentage Converter</span>
             <p className="text-slate-600 dark:text-slate-300 text-xs leading-relaxed">
-              Instant percentage calculation using WCE's official formula: <code className="font-mono text-rose-900 dark:text-rose-300 font-bold">(10.00 × CGPA) − 7.50</code>. Valid officially for CGPA ≥ 5.00.
+              Instant percentage calculation using WCE's official formula: <code className="font-mono text-[#8D5B0F] dark:text-[#DE9F42] font-bold">(10.00 × CGPA) − 7.50</code>. Valid officially for CGPA ≥ 5.00.
             </p>
           </div>
         </section>
 
         {/* Section 3: Official Rule Citation */}
-        <section className="space-y-2 pt-4 border-t border-slate-200 dark:border-slate-800">
+        <section className="space-y-2 pt-4 border-t border-slate-200 dark:border-slate-700">
           <h2 className="text-base sm:text-lg font-serif font-bold text-slate-900 dark:text-white flex items-center gap-2">
             <ShieldCheck className="w-5 h-5 text-emerald-600 dark:text-emerald-400 shrink-0" />
             Official Source Citation
@@ -57,14 +57,14 @@ export const AboutUs: React.FC = () => {
           <p>
             All mathematical formulas, grade point values (AA=10, AB=9, BB=8, etc.), and academic rules referenced in this application are directly derived from Section 12 and Section 16 of the official document:
           </p>
-          <div className="p-3 rounded-md bg-rose-50/60 dark:bg-slate-800 border border-rose-200 dark:border-slate-700 font-semibold text-rose-900 dark:text-rose-200 text-xs break-words">
+          <div className="p-3 rounded-sm bg-amber-50 dark:bg-[#1B1F27] border border-[#8D5B0F]/30 dark:border-[#DE9F42]/30 font-semibold text-[#8D5B0F] dark:text-[#DE9F42] text-xs break-words">
             Walchand College of Engineering, Sangli — "Academic and Examination Rules and Regulations 2023-24"
           </div>
         </section>
 
         {/* Section 4: Independent Status */}
-        <section className="p-4 rounded-md bg-amber-50 dark:bg-amber-950/40 border border-amber-300 dark:border-amber-900/60 text-xs text-amber-900 dark:text-amber-200 space-y-1">
-          <span className="font-bold text-amber-800 dark:text-amber-300 block">Independent Unofficial Notice:</span>
+        <section className="p-4 rounded-sm bg-amber-50/60 dark:bg-[#1B1F27] border border-amber-300/80 dark:border-slate-700 text-xs text-slate-700 dark:text-slate-300 space-y-1">
+          <span className="font-bold text-[#8D5B0F] dark:text-[#DE9F42] block">Independent Unofficial Notice:</span>
           <p className="leading-relaxed">
             This website is an independent, student-built utility. It is not affiliated with, authorized by, endorsed by, or an official product of Walchand College of Engineering (WCE), Sangli.
           </p>

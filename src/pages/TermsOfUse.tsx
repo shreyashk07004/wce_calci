@@ -6,7 +6,7 @@ export const TermsOfUse: React.FC = () => {
     <div className="space-y-6 max-w-4xl mx-auto px-1 sm:px-0 font-sans">
       {/* Editorial Page Header */}
       <div className="pb-4 border-b border-slate-200 dark:border-slate-800 space-y-1.5">
-        <div className="text-xs text-rose-900 dark:text-rose-300 font-sans font-medium">
+        <div className="text-xs text-[#8D5B0F] dark:text-[#DE9F42] font-sans font-medium">
           Legal Terms & Unofficial Service Notice
         </div>
         <h1 className="text-2xl sm:text-3xl font-serif font-bold tracking-tight text-slate-900 dark:text-slate-100">
@@ -18,12 +18,12 @@ export const TermsOfUse: React.FC = () => {
       </div>
 
       {/* Main Terms Box */}
-      <div className="bg-white dark:bg-[#151921] rounded-md p-5 sm:p-7 border border-slate-200 dark:border-slate-800 space-y-6 text-slate-700 dark:text-slate-300 text-xs sm:text-sm leading-relaxed">
+      <div className="bg-white dark:bg-[#242933] rounded-sm p-5 sm:p-7 border border-slate-200 dark:border-slate-700/80 space-y-6 text-slate-700 dark:text-slate-300 text-xs sm:text-sm leading-relaxed">
         
         {/* Term 1: Provided As Is */}
         <section className="space-y-2">
           <h2 className="text-base sm:text-lg font-serif font-bold text-slate-900 dark:text-white flex items-center gap-2">
-            <AlertTriangle className="w-4 h-4 text-amber-600 dark:text-amber-400 shrink-0" />
+            <AlertTriangle className="w-4 h-4 text-red-600 dark:text-red-400 shrink-0" />
             <span>1. "As Is" Informational Purpose</span>
           </h2>
           <p>
@@ -32,9 +32,9 @@ export const TermsOfUse: React.FC = () => {
         </section>
 
         {/* Term 2: Verification Requirement */}
-        <section className="space-y-2 pt-4 border-t border-slate-200 dark:border-slate-800">
+        <section className="space-y-2 pt-4 border-t border-slate-200 dark:border-slate-700">
           <h2 className="text-base sm:text-lg font-serif font-bold text-slate-900 dark:text-white flex items-center gap-2">
-            <CheckCircle2 className="w-4 h-4 text-rose-900 dark:text-rose-400 shrink-0" />
+            <CheckCircle2 className="w-4 h-4 text-emerald-600 dark:text-emerald-400 shrink-0" />
             <span>2. Official Verification Requirement</span>
           </h2>
           <p>
@@ -43,9 +43,9 @@ export const TermsOfUse: React.FC = () => {
         </section>
 
         {/* Term 3: Limitation of Liability */}
-        <section className="space-y-2 pt-4 border-t border-slate-200 dark:border-slate-800">
+        <section className="space-y-2 pt-4 border-t border-slate-200 dark:border-slate-700">
           <h2 className="text-base sm:text-lg font-serif font-bold text-slate-900 dark:text-white flex items-center gap-2">
-            <ShieldAlert className="w-4 h-4 text-rose-900 dark:text-rose-400 shrink-0" />
+            <ShieldAlert className="w-4 h-4 text-[#8D5B0F] dark:text-[#DE9F42] shrink-0" />
             <span>3. Limitation of Liability</span>
           </h2>
           <p>
@@ -54,7 +54,7 @@ export const TermsOfUse: React.FC = () => {
         </section>
 
         {/* Term 4: Unofficial Status */}
-        <section className="space-y-2 pt-4 border-t border-slate-200 dark:border-slate-800">
+        <section className="space-y-2 pt-4 border-t border-slate-200 dark:border-slate-700">
           <h2 className="text-base sm:text-lg font-serif font-bold text-slate-900 dark:text-white">
             4. Unofficial Status Notice
           </h2>
