@@ -2,28 +2,28 @@
 // HistoryPanel.astro - Saved Conversion Log in Binance table layout
 ---
 
-<div class="bg-binance-card rounded-2xl border border-binance-border overflow-hidden">
-  <div class="px-6 py-4 bg-binance-elevated/60 border-b border-binance-border flex items-center justify-between">
+<div class="bg-white dark:bg-binance-card rounded-2xl border border-slate-200 dark:border-binance-border overflow-hidden transition-colors duration-150">
+  <div class="px-6 py-4 bg-slate-50 dark:bg-binance-elevated/60 border-b border-slate-200 dark:border-binance-border flex items-center justify-between">
     <div class="flex items-center gap-2">
-      <svg class="w-4 h-4 text-binance-yellow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+      <svg class="w-4 h-4 text-amber-600 dark:text-binance-yellow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
         <circle cx="12" cy="12" r="10"></circle>
         <polyline points="12 6 12 12 16 14"></polyline>
       </svg>
-      <h3 class="text-sm font-bold text-white uppercase tracking-wider">Recent Conversion Log</h3>
+      <h3 class="text-sm font-bold text-slate-900 dark:text-white uppercase tracking-wider">Recent Conversion Log</h3>
     </div>
     <button
       type="button"
       id="clear-all-history"
-      class="text-xs px-2.5 py-1 rounded bg-binance-canvas hover:bg-binance-elevated border border-binance-border text-binance-muted hover:text-binance-down transition-colors"
+      class="text-xs px-2.5 py-1 rounded bg-slate-100 hover:bg-red-50 text-slate-600 hover:text-red-600 border border-slate-300 dark:bg-binance-canvas dark:hover:bg-binance-elevated dark:border-binance-border dark:text-binance-muted dark:hover:text-binance-down transition-colors cursor-pointer"
     >
       Clear All
     </button>
   </div>
 
   <div class="p-4" id="history-container">
-    <div id="history-empty" class="text-center py-8 text-binance-muted text-xs font-mono">
+    <div id="history-empty" class="text-center py-8 text-slate-500 dark:text-binance-muted text-xs font-mono">
       <p>No recent conversions saved yet.</p>
-      <p class="text-[11px] mt-1 text-binance-muted/70">Click "Save Log" on the calculator to save your queries here.</p>
+      <p class="text-[11px] mt-1 text-slate-400 dark:text-binance-muted/70">Click "Save Log" on the calculator to save your queries here.</p>
     </div>
 
     <div id="history-list" class="hidden space-y-2 max-h-60 overflow-y-auto pr-1">
@@ -61,20 +61,20 @@
 
     items.forEach((item, index) => {
       const div = document.createElement('div');
-      div.className = 'p-2.5 rounded-lg bg-binance-canvas border border-binance-border flex items-center justify-between text-xs font-mono hover:border-binance-yellow/40 transition-colors';
+      div.className = 'p-2.5 rounded-lg bg-slate-50 dark:bg-binance-canvas border border-slate-200 dark:border-binance-border flex items-center justify-between text-xs font-mono hover:border-amber-500 dark:hover:border-binance-yellow/40 transition-colors';
       div.innerHTML = `
         <div class="flex items-center gap-3">
-          <span class="w-1.5 h-1.5 rounded-full bg-binance-yellow"></span>
+          <span class="w-1.5 h-1.5 rounded-full bg-amber-500 dark:bg-binance-yellow"></span>
           <div>
             <div class="flex items-center gap-2">
-              <span class="font-bold text-white text-sm">CGPA ${item.cgpa.toFixed(2)}</span>
-              <span class="text-binance-muted">→</span>
-              <span class="font-bold text-binance-up text-sm">${item.percentage.toFixed(2)}%</span>
+              <span class="font-bold text-slate-900 dark:text-white text-sm">CGPA ${item.cgpa.toFixed(2)}</span>
+              <span class="text-slate-400 dark:text-binance-muted">→</span>
+              <span class="font-bold text-emerald-700 dark:text-binance-up text-sm">${item.percentage.toFixed(2)}%</span>
             </div>
-            <span class="text-[10px] text-binance-muted block">${item.gradeClass} • ${item.timestamp}</span>
+            <span class="text-[10px] text-slate-500 dark:text-binance-muted block">${item.gradeClass} • ${item.timestamp}</span>
           </div>
         </div>
-        <button type="button" data-idx="${index}" class="del-hist-btn text-binance-muted hover:text-binance-down p-1 transition-colors" title="Delete entry">
+        <button type="button" data-idx="${index}" class="del-hist-btn text-slate-400 hover:text-red-600 dark:text-binance-muted dark:hover:text-binance-down p-1 transition-colors cursor-pointer" title="Delete entry">
           <svg class="w-3.5 h-3.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="3 6 5 6 21 6"></polyline><path d="M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6m3 0V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"></path></svg>
         </button>
       `;

@@ -24,19 +24,19 @@ const cgpaList = [
 ];
 ---
 
-<div class="bg-binance-card rounded-2xl border border-binance-border overflow-hidden">
-  <div class="px-6 py-4 bg-binance-elevated/60 border-b border-binance-border flex flex-wrap items-center justify-between gap-4">
+<div class="bg-white dark:bg-binance-card rounded-2xl border border-slate-200 dark:border-binance-border overflow-hidden transition-colors duration-150">
+  <div class="px-6 py-4 bg-slate-50 dark:bg-binance-elevated/60 border-b border-slate-200 dark:border-binance-border flex flex-wrap items-center justify-between gap-4">
     <div>
-      <h3 class="text-base font-bold text-white flex items-center gap-2">
-        <svg class="w-4 h-4 text-binance-yellow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+      <h3 class="text-base font-bold text-slate-900 dark:text-white flex items-center gap-2">
+        <svg class="w-4 h-4 text-amber-600 dark:text-binance-yellow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
           <path d="M3 3v18h18"/>
           <path d="M18 17V9"/>
           <path d="M13 17V5"/>
           <path d="M8 17v-3"/>
         </svg>
-        WCE Standard Conversion Market Table
+        WCE Standard Conversion Reference Table
       </h3>
-      <p class="text-xs text-binance-muted">Reference conversion points based on Section 16</p>
+      <p class="text-xs text-slate-500 dark:text-binance-muted">Reference conversion points based on Section 16</p>
     </div>
 
     <!-- Live Search input -->
@@ -45,9 +45,9 @@ const cgpaList = [
         type="text"
         id="table-search"
         placeholder="Filter CGPA (e.g. 8.5)..."
-        class="w-full bg-binance-canvas border border-binance-border focus:border-binance-yellow text-white text-xs px-3 py-2 pl-8 rounded-lg outline-none font-mono"
+        class="w-full bg-white dark:bg-binance-canvas border border-slate-300 dark:border-binance-border focus:border-binance-yellow text-slate-900 dark:text-white text-xs px-3 py-2 pl-8 rounded-lg outline-none font-mono"
       />
-      <svg class="w-3.5 h-3.5 text-binance-muted absolute left-2.5 top-2.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+      <svg class="w-3.5 h-3.5 text-slate-400 dark:text-binance-muted absolute left-2.5 top-2.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
         <circle cx="11" cy="11" r="8"></circle>
         <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
       </svg>
@@ -57,7 +57,7 @@ const cgpaList = [
   <div class="overflow-x-auto max-h-[460px] scrollbar-thin">
     <table class="w-full text-left border-collapse text-xs font-mono" id="conversion-data-table">
       <thead>
-        <tr class="bg-binance-canvas/90 text-binance-muted uppercase text-[11px] tracking-wider sticky top-0 border-b border-binance-border z-10 backdrop-blur-sm">
+        <tr class="bg-slate-100/90 dark:bg-binance-canvas/90 text-slate-600 dark:text-binance-muted uppercase text-[11px] tracking-wider sticky top-0 border-b border-slate-200 dark:border-binance-border z-10 backdrop-blur-sm">
           <th class="py-3 px-6">CGPA</th>
           <th class="py-3 px-6">Calculated %</th>
           <th class="py-3 px-6">Letter Grade</th>
@@ -65,23 +65,23 @@ const cgpaList = [
           <th class="py-3 px-6 text-right">Action</th>
         </tr>
       </thead>
-      <tbody class="divide-y divide-binance-border/60">
+      <tbody class="divide-y divide-slate-200 dark:divide-binance-border/60">
         {cgpaList.map((row) => (
-          <tr class={`hover:bg-binance-elevated/50 transition-colors group ${row.highlight ? 'bg-binance-yellow/[0.02]' : ''}`}>
-            <td class="py-3 px-6 font-bold text-white group-hover:text-binance-yellow transition-colors flex items-center gap-2">
-              {row.highlight && <span class="w-1.5 h-1.5 rounded-full bg-binance-yellow"></span>}
+          <tr class={`hover:bg-slate-50 dark:hover:bg-binance-elevated/50 transition-colors group ${row.highlight ? 'bg-amber-50/50 dark:bg-binance-yellow/[0.02]' : ''}`}>
+            <td class="py-3 px-6 font-bold text-slate-900 dark:text-white group-hover:text-amber-600 dark:group-hover:text-binance-yellow transition-colors flex items-center gap-2">
+              {row.highlight && <span class="w-1.5 h-1.5 rounded-full bg-amber-500 dark:bg-binance-yellow"></span>}
               {row.cgpa}
             </td>
-            <td class="py-3 px-6 text-binance-up font-bold text-sm">
+            <td class="py-3 px-6 text-emerald-700 dark:text-binance-up font-bold text-sm">
               {row.pct}
             </td>
             <td class="py-3 px-6">
-              <span class="px-2 py-0.5 rounded bg-binance-canvas border border-binance-border text-white font-medium">
+              <span class="px-2 py-0.5 rounded bg-slate-100 dark:bg-binance-canvas border border-slate-200 dark:border-binance-border text-slate-800 dark:text-white font-medium">
                 {row.grade}
               </span>
             </td>
-            <td class="py-3 px-6 text-binance-text">
-              <span class={row.class.includes('Distinction') ? 'text-binance-yellow font-medium' : ''}>
+            <td class="py-3 px-6 text-slate-700 dark:text-binance-text">
+              <span class={row.class.includes('Distinction') ? 'text-amber-700 dark:text-binance-yellow font-semibold' : ''}>
                 {row.class}
               </span>
             </td>
@@ -89,7 +89,7 @@ const cgpaList = [
               <button
                 type="button"
                 data-cgpa={row.cgpa}
-                class="apply-table-cgpa text-[11px] px-2.5 py-1 rounded bg-binance-canvas hover:bg-binance-yellow hover:text-binance-ink border border-binance-border text-binance-muted hover:border-binance-yellow font-medium transition-all"
+                class="apply-table-cgpa text-[11px] px-2.5 py-1 rounded bg-slate-100 hover:bg-binance-yellow hover:text-binance-ink border border-slate-300 dark:bg-binance-canvas dark:hover:bg-binance-yellow dark:hover:text-binance-ink dark:border-binance-border text-slate-700 dark:text-binance-muted hover:border-binance-yellow font-medium transition-all cursor-pointer"
               >
                 Load
               </button>

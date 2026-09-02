@@ -4,18 +4,18 @@ import HistoryPanel from '../components/HistoryPanel.astro';
 ---
 
 <Layout
-  title="Calculation History | WCE CGPA to Percentage Calculator"
+  title="Calculation History | WCE CGPA to Percentage Converter"
   description="View your saved WCE CGPA and percentage conversion logs."
 >
   <div class="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 py-12 space-y-8">
     <div class="space-y-3 text-center">
-      <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-binance-card border border-binance-yellow/30 text-xs font-mono text-binance-yellow">
+      <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-slate-100 dark:bg-binance-card border border-amber-300 dark:border-binance-yellow/30 text-xs font-mono text-amber-800 dark:text-binance-yellow">
         <span>Local History Storage</span>
       </div>
-      <h1 class="text-3xl sm:text-4xl font-extrabold text-white">
-        Conversion <span class="text-binance-yellow">History</span>
+      <h1 class="text-3xl sm:text-4xl font-extrabold text-slate-900 dark:text-white">
+        Conversion <span class="text-amber-600 dark:text-binance-yellow">History</span>
       </h1>
-      <p class="text-sm text-binance-muted max-w-md mx-auto">
+      <p class="text-sm text-slate-600 dark:text-binance-muted max-w-md mx-auto">
         Review previously calculated CGPA conversions saved in your browser.
       </p>
     </div>
@@ -25,7 +25,7 @@ import HistoryPanel from '../components/HistoryPanel.astro';
     <div class="text-center pt-4">
       <a
         href="/"
-        class="inline-flex items-center gap-2 px-4 py-2 rounded-lg bg-binance-canvas hover:bg-binance-card border border-binance-border text-white text-xs font-semibold transition-colors"
+        class="inline-flex items-center gap-2 px-4 py-2 rounded-lg bg-slate-100 hover:bg-slate-200 border border-slate-300 text-slate-800 dark:bg-binance-canvas dark:hover:bg-binance-card dark:border-binance-border dark:text-white text-xs font-semibold transition-colors cursor-pointer"
       >
         <svg class="w-3.5 h-3.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="15 18 9 12 15 6"></polyline></svg>
         <span>Back to Calculator</span>

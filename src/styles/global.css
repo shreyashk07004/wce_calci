@@ -1,17 +1,29 @@
 @import "tailwindcss";
 
+@custom-variant dark (&:where(.dark, .dark *));
+
 @theme {
   --color-binance-yellow: #fcd535;
   --color-binance-yellow-hover: #f0b90b;
   --color-binance-yellow-disabled: #3a3a1f;
+  
   --color-binance-canvas: #0b0e11;
+  --color-binance-canvas-light: #ffffff;
   --color-binance-card: #1e2329;
+  --color-binance-card-light: #ffffff;
   --color-binance-elevated: #2b3139;
+  --color-binance-elevated-light: #f5f5f5;
+  
   --color-binance-border: #2b3139;
+  --color-binance-border-light: #eaecef;
   --color-binance-border-subtle: #20262d;
+  
   --color-binance-text: #eaecef;
+  --color-binance-text-light: #181a20;
   --color-binance-muted: #848e9c;
+  --color-binance-muted-light: #707a8a;
   --color-binance-muted-strong: #929aa5;
+  
   --color-binance-up: #0ecb81;
   --color-binance-down: #f6465d;
   --color-binance-turquoise: #2dbdb6;
@@ -23,12 +35,12 @@
 
 @layer base {
   :root {
-    color-scheme: dark;
+    color-scheme: light dark;
   }
 
   body {
-    background-color: var(--color-binance-canvas);
-    color: var(--color-binance-text);
+    background-color: var(--color-binance-canvas-light);
+    color: var(--color-binance-text-light);
     font-family: var(--font-binance);
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
@@ -36,19 +48,33 @@
     overflow-x: hidden;
   }
 
-  /* Custom scrollbar matching Binance Dark */
+  html.dark body {
+    background-color: var(--color-binance-canvas);
+    color: var(--color-binance-text);
+  }
+
+  /* Custom scrollbars */
   ::-webkit-scrollbar {
     width: 6px;
     height: 6px;
   }
   ::-webkit-scrollbar-track {
+    background: #f5f5f5;
+  }
+  html.dark ::-webkit-scrollbar-track {
     background: #0b0e11;
   }
   ::-webkit-scrollbar-thumb {
-    background: #2b3139;
+    background: #cdd1d6;
     border-radius: 3px;
   }
+  html.dark ::-webkit-scrollbar-thumb {
+    background: #2b3139;
+  }
   ::-webkit-scrollbar-thumb:hover {
+    background: #929aa5;
+  }
+  html.dark ::-webkit-scrollbar-thumb:hover {
     background: #474d57;
   }
 }
@@ -59,10 +85,14 @@
 }
 
 .binance-glow-card {
+  box-shadow: 0 4px 16px -2px rgba(0, 0, 0, 0.05), 0 0 0 1px rgba(0, 0, 0, 0.05);
+}
+
+html.dark .binance-glow-card {
   box-shadow: 0 4px 20px -2px rgba(0, 0, 0, 0.5), 0 0 1px 1px rgba(255, 255, 255, 0.05);
 }
 
-.binance-glow-card:hover {
+html.dark .binance-glow-card:hover {
   box-shadow: 0 8px 30px -4px rgba(0, 0, 0, 0.7), 0 0 0 1px rgba(252, 213, 53, 0.3);
 }
 

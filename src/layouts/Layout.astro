@@ -17,13 +17,25 @@ const {
 ---
 
 <!doctype html>
-<html lang="en" class="dark">
+<html lang="en">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <meta name="generator" content={Astro.generator} />
     
+    <!-- Theme initialization script before first paint to avoid FOUC -->
+    <script is:inline>
+      (function() {
+        const storedTheme = localStorage.getItem('theme');
+        if (storedTheme === 'dark' || (!storedTheme && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
+          document.documentElement.classList.add('dark');
+        } else {
+          document.documentElement.classList.remove('dark');
+        }
+      })();
+    </script>
+
     <!-- SEO & Metadata -->
     <title>{title}</title>
     <meta name="title" content={title} />
@@ -45,7 +57,7 @@ const {
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600;700&family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
   </head>
-  <body class="bg-binance-canvas text-binance-text min-h-screen flex flex-col selection:bg-binance-yellow selection:text-binance-ink">
+  <body class="bg-white dark:bg-binance-canvas text-slate-900 dark:text-binance-text min-h-screen flex flex-col selection:bg-binance-yellow selection:text-binance-ink transition-colors duration-150">
     <Navbar />
     <main class="flex-grow">
       <slot />

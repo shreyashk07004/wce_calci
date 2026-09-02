@@ -24,24 +24,24 @@ const faqs = [
 ];
 ---
 
-<div class="bg-binance-card rounded-2xl border border-binance-border p-6 md:p-8">
+<div class="bg-white dark:bg-binance-card rounded-2xl border border-slate-200 dark:border-binance-border p-6 md:p-8 transition-colors duration-150">
   <div class="mb-6">
     <div class="flex items-center gap-2 mb-1">
-      <span class="text-xs font-mono font-bold uppercase text-binance-yellow">Frequently Asked Questions</span>
+      <span class="text-xs font-mono font-bold uppercase text-amber-600 dark:text-binance-yellow">Frequently Asked Questions</span>
     </div>
-    <h3 class="text-xl md:text-2xl font-bold text-white">WCE Autonomous Grading & Equivalency</h3>
+    <h3 class="text-xl md:text-2xl font-bold text-slate-900 dark:text-white">WCE Autonomous Grading & Equivalency</h3>
   </div>
 
   <div class="space-y-3">
-    {faqs.map((faq, idx) => (
-      <details class="group bg-binance-canvas rounded-xl border border-binance-border overflow-hidden transition-all [&_summary::-webkit-details-marker]:hidden">
-        <summary class="flex items-center justify-between p-4 cursor-pointer select-none font-medium text-white group-hover:text-binance-yellow transition-colors">
+    {faqs.map((faq) => (
+      <details class="group bg-slate-50 dark:bg-binance-canvas rounded-xl border border-slate-200 dark:border-binance-border overflow-hidden transition-all [&_summary::-webkit-details-marker]:hidden">
+        <summary class="flex items-center justify-between p-4 cursor-pointer select-none font-medium text-slate-900 dark:text-white group-hover:text-amber-600 dark:group-hover:text-binance-yellow transition-colors">
           <span class="text-sm font-semibold pr-4">{faq.q}</span>
-          <svg class="w-4 h-4 shrink-0 text-binance-muted group-hover:text-binance-yellow transition-transform group-open:rotate-180" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <svg class="w-4 h-4 shrink-0 text-slate-400 dark:text-binance-muted group-hover:text-amber-600 dark:group-hover:text-binance-yellow transition-transform group-open:rotate-180" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
             <polyline points="6 9 12 15 18 9"></polyline>
           </svg>
         </summary>
-        <div class="px-4 pb-4 pt-1 text-xs text-binance-muted leading-relaxed border-t border-binance-border/40 font-mono">
+        <div class="px-4 pb-4 pt-1 text-xs text-slate-600 dark:text-binance-muted leading-relaxed border-t border-slate-200 dark:border-binance-border/40 font-mono">
           {faq.a}
         </div>
       </details>
