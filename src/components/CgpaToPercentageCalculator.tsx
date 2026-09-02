@@ -306,30 +306,33 @@ export const CgpaToPercentageCalculator: React.FC<Props> = ({ onHistoryUpdate })
                 WCE
               </div>
               <div className="flex flex-col justify-center">
+                <div className="text-[11px] font-sans font-medium text-rose-900 tracking-wide">
+                  DOCUMENT REF: WCE-RR-2023-24 // SECTION 16
+                </div>
                 <h1 className="text-xl font-serif font-bold text-slate-900 tracking-tight leading-snug">
-                  WCE CGPA to Percentage Converter
+                  Official Grade Conversion Report
                 </h1>
                 <p className="text-xs text-slate-500 font-sans mt-0.5 leading-normal">
-                  Official Grade Conversion Report • Walchand College of Engineering, Sangli
+                  Walchand College of Engineering, Sangli
                 </p>
               </div>
             </div>
             <div className="flex items-center justify-center shrink-0">
-              <span className="inline-flex items-center justify-center px-2.5 py-1 bg-rose-50/60 text-rose-900 text-xs font-sans font-semibold rounded-sm border border-rose-300/80 leading-none">
-                Official RR 2023-24
+              <span className="text-xs font-sans text-rose-900 font-semibold border-b border-rose-300 pb-0.5">
+                Regulation 2023-24
               </span>
             </div>
           </div>
 
           {/* 2. Core Result Section */}
-          <div className="bg-slate-50 rounded-lg p-6 border border-slate-200 text-center space-y-4 font-sans">
-            <span className="text-xs font-bold uppercase tracking-wide text-slate-500 block">
+          <div className="bg-slate-50 rounded-sm p-6 border border-slate-200 text-center space-y-4 font-sans">
+            <span className="text-xs font-bold text-slate-600 block">
               Grade Conversion Summary
             </span>
             <div className="flex items-center justify-center gap-4 py-1">
               {/* CGPA Box */}
-              <div className="flex flex-col items-center justify-center border border-slate-300 rounded-lg p-4 bg-white min-w-[200px] min-h-[96px] text-center">
-                <span className="text-xs font-semibold text-slate-500 uppercase block mb-1">
+              <div className="flex flex-col items-center justify-center border border-slate-300 rounded-sm p-4 bg-white min-w-[200px] min-h-[96px] text-center">
+                <span className="text-xs font-medium text-slate-500 block mb-1">
                   Cumulative CGPA
                 </span>
                 <span className="text-3xl font-mono font-bold text-slate-900 leading-none">
@@ -343,8 +346,8 @@ export const CgpaToPercentageCalculator: React.FC<Props> = ({ onHistoryUpdate })
               </div>
 
               {/* Percentage Box */}
-              <div className="flex flex-col items-center justify-center border border-rose-300 rounded-lg p-4 bg-rose-50/60 min-w-[200px] min-h-[96px] text-center">
-                <span className="text-xs font-semibold text-rose-900 uppercase block mb-1">
+              <div className="flex flex-col items-center justify-center border border-rose-300 rounded-sm p-4 bg-rose-50/60 min-w-[200px] min-h-[96px] text-center">
+                <span className="text-xs font-medium text-rose-900 block mb-1">
                   Calculated Percentage
                 </span>
                 <span className="text-3xl font-mono font-bold text-rose-900 leading-none">
@@ -355,18 +358,18 @@ export const CgpaToPercentageCalculator: React.FC<Props> = ({ onHistoryUpdate })
           </div>
 
           {/* 3. Formula Breakdown Section */}
-          <div className="bg-white rounded-lg p-6 border border-slate-200 space-y-3 font-sans">
-            <span className="text-xs font-bold uppercase tracking-wide text-slate-500 block">
+          <div className="bg-white rounded-sm p-6 border border-slate-200 space-y-3 font-sans">
+            <span className="text-xs font-bold text-slate-700 block">
               Official Formula & Substitution Breakdown:
             </span>
-            <div className="font-mono text-base font-bold text-slate-900 bg-slate-50 p-4 rounded border border-slate-200 text-center">
+            <div className="font-mono text-base font-bold text-slate-900 bg-slate-50 p-4 rounded-sm border border-slate-200 text-center">
               {calculationResult.formula}
             </div>
           </div>
 
           {/* 4. Citation Line */}
-          <div className="bg-slate-50 rounded-lg p-6 border border-slate-200 text-xs text-slate-700 space-y-1 font-sans">
-            <span className="font-bold text-slate-900 block text-xs uppercase">
+          <div className="bg-slate-50 rounded-sm p-5 border border-slate-200 text-xs text-slate-700 space-y-1 font-sans">
+            <span className="font-bold text-slate-900 block text-xs">
               Official Regulation Citation:
             </span>
             <p className="text-slate-600 leading-relaxed text-xs">
@@ -380,7 +383,7 @@ export const CgpaToPercentageCalculator: React.FC<Props> = ({ onHistoryUpdate })
               <span>Report Generated: {new Date().toLocaleString(undefined, { dateStyle: 'medium', timeStyle: 'short' })}</span>
               <span className="font-semibold text-rose-900">wce-cgpa-to-percentage.vercel.app</span>
             </div>
-            <p className="text-xs leading-relaxed text-slate-400 bg-slate-50 p-4 rounded border border-slate-200">
+            <p className="text-xs leading-relaxed text-slate-400 bg-slate-50 p-3.5 rounded-sm border border-slate-200">
               <b>Disclaimer:</b> This is an unofficial, independently built student tool. Not affiliated with or endorsed by Walchand College of Engineering, Sangli. Always verify official results and transcripts with the WCE Examination Section.
             </p>
           </div>
