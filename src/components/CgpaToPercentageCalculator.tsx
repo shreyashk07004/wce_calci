@@ -321,7 +321,7 @@ export const CgpaToPercentageCalculator: React.FC<Props> = ({ onHistoryUpdate })
           {/* 1. Header Section */}
           <div className="flex items-center justify-between border-b-2 border-rose-900 pb-5">
             <div className="flex items-center gap-3.5">
-              <div className="w-12 h-12 rounded-lg bg-rose-900 text-white flex items-center justify-center text-center font-serif font-bold text-lg leading-none shrink-0 select-none">
+              <div className="w-fit min-w-[56px] h-12 px-3.5 py-2 rounded-lg bg-rose-900 text-white flex items-center justify-center text-center font-serif font-bold text-lg leading-none shrink-0 select-none">
                 WCE
               </div>
               <div className="flex flex-col justify-center">
