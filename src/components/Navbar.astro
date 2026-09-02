@@ -1,0 +1,126 @@
+---
+const pathname = new URL(Astro.request.url).pathname;
+
+const navLinks = [
+  { name: 'Calculator', href: '/' },
+  { name: 'Semester SGPA', href: '/semester-calculator' },
+  { name: 'Grading Scale', href: '/how-it-works#grading-scale' },
+  { name: 'Formula & Rules', href: '/how-it-works' },
+  { name: 'About', href: '/about' },
+];
+---
+
+<header class="sticky top-0 z-50 bg-binance-canvas/90 backdrop-blur-md border-b border-binance-border">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="flex items-center justify-between h-16">
+      
+      <!-- Brand / Logo -->
+      <div class="flex items-center gap-3">
+        <a href="/" class="flex items-center gap-3 group">
+          <div class="w-9 h-9 rounded-lg bg-binance-yellow flex items-center justify-center font-bold text-binance-ink shadow-sm group-hover:scale-105 transition-transform duration-200">
+            <svg class="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+              <rect x="4" y="2" width="16" height="20" rx="2" />
+              <line x1="8" y1="6" x2="16" y2="6" />
+              <line x1="16" y1="14" x2="16" y2="18" />
+              <path d="M16 10h.01" />
+              <path d="M12 10h.01" />
+              <path d="M8 10h.01" />
+              <path d="M12 14h.01" />
+              <path d="M8 14h.01" />
+              <path d="M12 18h.01" />
+              <path d="M8 18h.01" />
+            </svg>
+          </div>
+          <div>
+            <div class="flex items-center gap-2">
+              <span class="font-bold text-lg text-white tracking-tight group-hover:text-binance-yellow transition-colors">WCE CALC</span>
+              <span class="text-[10px] uppercase font-bold tracking-wider px-1.5 py-0.5 rounded bg-binance-yellow/10 text-binance-yellow border border-binance-yellow/20">Official</span>
+            </div>
+            <p class="text-[11px] text-binance-muted leading-none hidden sm:block">Walchand College of Engineering</p>
+          </div>
+        </a>
+      </div>
+
+      <!-- Desktop Nav Items -->
+      <nav class="hidden md:flex items-center gap-1">
+        {navLinks.map(link => {
+          const isActive = pathname === link.href || (link.href !== '/' && pathname.startsWith(link.href));
+          return (
+            <a
+              href={link.href}
+              class={`px-3.5 py-1.5 rounded-md text-sm font-medium transition-colors duration-150 ${
+                isActive
+                  ? 'text-binance-yellow bg-binance-card'
+                  : 'text-binance-muted hover:text-white hover:bg-binance-card/60'
+              }`}
+            >
+              {link.name}
+            </a>
+          );
+        })}
+      </nav>
+
+      <!-- Right Action CTAs -->
+      <div class="hidden sm:flex items-center gap-3">
+        <a
+          href="/how-it-works"
+          class="inline-flex items-center gap-1.5 text-xs font-semibold text-binance-muted hover:text-binance-yellow px-3 py-1.5 rounded bg-binance-card border border-binance-border transition-colors"
+        >
+          <span class="w-2 h-2 rounded-full bg-binance-up animate-ping"></span>
+          <span>RR 2023-24</span>
+        </a>
+        <a
+          href="/#calculator"
+          class="inline-flex items-center justify-center text-xs font-semibold px-4 py-2 rounded-md bg-binance-yellow text-binance-ink hover:bg-binance-yellow-hover active:scale-95 transition-all shadow-sm"
+        >
+          Convert Now
+        </a>
+      </div>
+
+      <!-- Mobile Menu Toggle Button -->
+      <div class="md:hidden flex items-center">
+        <button
+          id="mobile-menu-btn"
+          type="button"
+          class="p-2 rounded-md text-binance-muted hover:text-white hover:bg-binance-card focus:outline-none"
+          aria-label="Toggle navigation menu"
+        >
+          <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
+          </svg>
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Mobile Dropdown Navigation -->
+  <div id="mobile-menu" class="hidden md:hidden border-b border-binance-border bg-binance-card/95 px-4 pt-2 pb-4 space-y-1">
+    {navLinks.map(link => (
+      <a
+        href={link.href}
+        class="block px-3 py-2 rounded-md text-base font-medium text-binance-text hover:text-binance-yellow hover:bg-binance-elevated transition-colors"
+      >
+        {link.name}
+      </a>
+    ))}
+    <div class="pt-3 border-t border-binance-border/60 flex flex-col gap-2">
+      <a
+        href="/#calculator"
+        class="w-full text-center py-2.5 rounded-md bg-binance-yellow text-binance-ink font-semibold text-sm hover:bg-binance-yellow-hover"
+      >
+        Convert CGPA to %
+      </a>
+    </div>
+  </div>
+</header>
+
+<script>
+  const menuBtn = document.getElementById('mobile-menu-btn');
+  const mobileMenu = document.getElementById('mobile-menu');
+
+  if (menuBtn && mobileMenu) {
+    menuBtn.addEventListener('click', () => {
+      mobileMenu.classList.toggle('hidden');
+    });
+  }
+</script>

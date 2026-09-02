@@ -1,0 +1,224 @@
+---
+// Semester-wise SGPA and Credit Weighted CGPA Calculator
+---
+
+<div class="bg-binance-card rounded-2xl border border-binance-border binance-glow-card overflow-hidden">
+  <div class="px-6 py-4 bg-binance-elevated/80 border-b border-binance-border flex flex-wrap items-center justify-between gap-3">
+    <div class="flex items-center gap-2">
+      <div class="w-7 h-7 rounded-lg bg-binance-yellow/10 border border-binance-yellow/20 flex items-center justify-center text-binance-yellow">
+        <svg class="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <line x1="18" y1="20" x2="18" y2="10"></line>
+          <line x1="12" y1="20" x2="12" y2="4"></line>
+          <line x1="6" y1="20" x2="6" y2="14"></line>
+        </svg>
+      </div>
+      <div>
+        <h3 class="text-sm font-bold text-white uppercase tracking-wider">Multi-Semester SGPA Aggregator</h3>
+        <p class="text-[11px] text-binance-muted">Calculate Weighted CGPA across Semesters 1 to 8</p>
+      </div>
+    </div>
+    <div class="flex items-center gap-2">
+      <button
+        type="button"
+        id="reset-semesters-btn"
+        class="text-xs px-2.5 py-1 rounded bg-binance-canvas hover:bg-binance-elevated border border-binance-border text-binance-muted hover:text-white transition-colors"
+      >
+        Reset All
+      </button>
+      <button
+        type="button"
+        id="add-semester-btn"
+        class="text-xs px-3 py-1 rounded bg-binance-yellow text-binance-ink font-bold hover:bg-binance-yellow-hover transition-colors flex items-center gap-1"
+      >
+        <svg class="w-3.5 h-3.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="12" y1="5" x2="12" y2="19"></line><line x1="5" y1="12" x2="19" y2="12"></line></svg>
+        Add Semester
+      </button>
+    </div>
+  </div>
+
+  <div class="p-6 space-y-6">
+    <!-- Semester Rows Container -->
+    <div class="overflow-x-auto">
+      <table class="w-full text-left text-xs font-mono">
+        <thead>
+          <tr class="text-binance-muted uppercase text-[11px] border-b border-binance-border pb-2">
+            <th class="pb-3 px-2">Semester</th>
+            <th class="pb-3 px-2">SGPA (0.00 - 10.00)</th>
+            <th class="pb-3 px-2">Credits</th>
+            <th class="pb-3 px-2 text-right">Earned Points</th>
+            <th class="pb-3 px-2 text-center w-10"></th>
+          </tr>
+        </thead>
+        <tbody id="semesters-tbody" class="divide-y divide-binance-border/40">
+          <!-- Populated via script -->
+        </tbody>
+      </table>
+    </div>
+
+    <!-- Summary Box -->
+    <div class="bg-binance-canvas rounded-xl p-5 border border-binance-border grid grid-cols-1 sm:grid-cols-3 gap-4 text-center font-mono">
+      <div class="p-3 rounded-lg bg-binance-card border border-binance-border">
+        <span class="text-[11px] text-binance-muted block">Total Credits</span>
+        <span id="total-credits" class="text-xl font-bold text-white">40</span>
+      </div>
+      <div class="p-3 rounded-lg bg-binance-card border border-binance-border">
+        <span class="text-[11px] text-binance-muted block">Calculated CGPA</span>
+        <span id="calculated-cgpa" class="text-xl font-bold text-binance-yellow">8.40</span>
+      </div>
+      <div class="p-3 rounded-lg bg-binance-card border border-binance-border">
+        <span class="text-[11px] text-binance-muted block">Equated Percentage</span>
+        <span id="calculated-percentage" class="text-xl font-bold text-binance-up">76.50%</span>
+      </div>
+    </div>
+
+    <div class="flex justify-end">
+      <button
+        type="button"
+        id="send-to-main-calc"
+        class="px-4 py-2 rounded-lg bg-binance-yellow text-binance-ink font-bold text-xs hover:bg-binance-yellow-hover transition-all flex items-center gap-1.5 shadow-sm"
+      >
+        <span>Apply CGPA to Main Converter</span>
+        <svg class="w-3.5 h-3.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="9 18 15 12 9 6"></polyline></svg>
+      </button>
+    </div>
+  </div>
+</div>
+
+<script>
+  interface SemesterData {
+    name: string;
+    sgpa: number;
+    credits: number;
+  }
+
+  let semesters: SemesterData[] = [
+    { name: 'Semester 1', sgpa: 8.20, credits: 20 },
+    { name: 'Semester 2', sgpa: 8.60, credits: 20 },
+  ];
+
+  const tbody = document.getElementById('semesters-tbody');
+  const totalCreditsEl = document.getElementById('total-credits');
+  const calculatedCgpaEl = document.getElementById('calculated-cgpa');
+  const calculatedPercentageEl = document.getElementById('calculated-percentage');
+  const addBtn = document.getElementById('add-semester-btn');
+  const resetBtn = document.getElementById('reset-semesters-btn');
+  const sendToMainBtn = document.getElementById('send-to-main-calc');
+
+  function renderRows() {
+    if (!tbody) return;
+    tbody.innerHTML = '';
+
+    semesters.forEach((sem, idx) => {
+      const earned = (sem.sgpa * sem.credits).toFixed(2);
+      const tr = document.createElement('tr');
+      tr.className = 'hover:bg-binance-elevated/30 transition-colors';
+      tr.innerHTML = `
+        <td class="py-2.5 px-2 font-semibold text-white">
+          <input type="text" value="${sem.name}" data-idx="${idx}" data-field="name" class="sem-input bg-transparent text-white font-medium focus:text-binance-yellow outline-none w-28 text-xs"/>
+        </td>
+        <td class="py-2.5 px-2">
+          <input type="number" step="0.01" min="0" max="10" value="${sem.sgpa.toFixed(2)}" data-idx="${idx}" data-field="sgpa" class="sem-input w-24 bg-binance-canvas border border-binance-border focus:border-binance-yellow rounded px-2 py-1 text-white font-mono text-xs outline-none"/>
+        </td>
+        <td class="py-2.5 px-2">
+          <input type="number" step="0.5" min="1" max="40" value="${sem.credits}" data-idx="${idx}" data-field="credits" class="sem-input w-20 bg-binance-canvas border border-binance-border focus:border-binance-yellow rounded px-2 py-1 text-white font-mono text-xs outline-none"/>
+        </td>
+        <td class="py-2.5 px-2 text-right font-bold text-binance-yellow">
+          ${earned}
+        </td>
+        <td class="py-2.5 px-2 text-center">
+          ${semesters.length > 1 ? `
+            <button type="button" data-idx="${idx}" class="del-sem-btn p-1 text-binance-muted hover:text-binance-down transition-colors">
+              <svg class="w-3.5 h-3.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>
+            </button>
+          ` : ''}
+        </td>
+      `;
+      tbody.appendChild(tr);
+    });
+
+    attachListeners();
+    calculateTotals();
+  }
+
+  function attachListeners() {
+    if (!tbody) return;
+    tbody.querySelectorAll('.sem-input').forEach(input => {
+      input.addEventListener('input', (e) => {
+        const target = e.target as HTMLInputElement;
+        const idx = parseInt(target.dataset.idx || '0');
+        const field = target.dataset.field;
+
+        if (field === 'name') {
+          semesters[idx].name = target.value;
+        } else if (field === 'sgpa') {
+          semesters[idx].sgpa = parseFloat(target.value) || 0;
+        } else if (field === 'credits') {
+          semesters[idx].credits = parseFloat(target.value) || 0;
+        }
+        calculateTotals();
+      });
+    });
+
+    tbody.querySelectorAll('.del-sem-btn').forEach(btn => {
+      btn.addEventListener('click', (e) => {
+        const target = (e.currentTarget as HTMLButtonElement);
+        const idx = parseInt(target.dataset.idx || '0');
+        semesters.splice(idx, 1);
+        renderRows();
+      });
+    });
+  }
+
+  function calculateTotals() {
+    let totalCredits = 0;
+    let totalPoints = 0;
+
+    semesters.forEach(s => {
+      totalCredits += s.credits;
+      totalPoints += (s.sgpa * s.credits);
+    });
+
+    const cgpa = totalCredits > 0 ? (totalPoints / totalCredits) : 0;
+    const roundedCgpa = Math.round((cgpa + Number.EPSILON) * 100) / 100;
+    const rawPct = (10.00 * roundedCgpa) - 7.50;
+    const pct = Math.max(0, Math.round((rawPct + Number.EPSILON) * 100) / 100);
+
+    if (totalCreditsEl) totalCreditsEl.textContent = totalCredits.toFixed(1);
+    if (calculatedCgpaEl) calculatedCgpaEl.textContent = roundedCgpa.toFixed(2);
+    if (calculatedPercentageEl) calculatedPercentageEl.textContent = `${pct.toFixed(2)}%`;
+  }
+
+  addBtn?.addEventListener('click', () => {
+    if (semesters.length >= 8) {
+      alert('Maximum 8 semesters supported for standard B.Tech degree.');
+      return;
+    }
+    semesters.push({
+      name: `Semester ${semesters.length + 1}`,
+      sgpa: 8.00,
+      credits: 20
+    });
+    renderRows();
+  });
+
+  resetBtn?.addEventListener('click', () => {
+    semesters = [
+      { name: 'Semester 1', sgpa: 8.00, credits: 20 },
+      { name: 'Semester 2', sgpa: 8.00, credits: 20 },
+    ];
+    renderRows();
+  });
+
+  sendToMainBtn?.addEventListener('click', () => {
+    const cgpaVal = calculatedCgpaEl?.textContent || '8.00';
+    const mainInput = document.getElementById('cgpa-input') as HTMLInputElement | null;
+    if (mainInput) {
+      mainInput.value = cgpaVal;
+      mainInput.dispatchEvent(new Event('input', { bubbles: true }));
+      document.getElementById('calculator')?.scrollIntoView({ behavior: 'smooth' });
+    }
+  });
+
+  // Initial render
+  renderRows();
+</script>

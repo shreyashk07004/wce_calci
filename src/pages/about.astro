@@ -1,0 +1,91 @@
+---
+import Layout from '../layouts/Layout.astro';
+---
+
+<Layout
+  title="About Us | WCE CGPA to Percentage Calculator"
+  description="Learn about the WCE CGPA to Percentage Calculator initiative, created for Walchand College of Engineering (WCE) Sangli students."
+>
+  <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-12 space-y-10">
+    
+    <!-- Title & Intro -->
+    <div class="space-y-3">
+      <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-binance-card border border-binance-yellow/30 text-xs font-mono text-binance-yellow">
+        <span>About The Initiative</span>
+      </div>
+      <h1 class="text-3xl sm:text-4xl font-extrabold text-white">
+        Built for the <span class="text-binance-yellow">WCE Sangli</span> Community
+      </h1>
+      <p class="text-base text-binance-muted leading-relaxed">
+        An autonomous, open-source utility designed to eliminate ambiguity during placements, higher education applications, and credential evaluations.
+      </p>
+    </div>
+
+    <!-- Cards Grid -->
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+      
+      <div class="bg-binance-card rounded-2xl border border-binance-border p-6 space-y-3">
+        <div class="w-10 h-10 rounded-xl bg-binance-yellow/10 border border-binance-yellow/20 flex items-center justify-center text-binance-yellow font-bold">
+          <svg class="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"></path>
+          </svg>
+        </div>
+        <h3 class="text-lg font-bold text-white">About WCE Sangli</h3>
+        <p class="text-xs text-binance-muted leading-relaxed font-sans">
+          Walchand College of Engineering (WCE), Sangli, established in 1947, is one of Maharashtra's oldest and premier autonomous engineering institutions. It received academic autonomy in 2007 and follows continuous assessment under autonomous academic regulations.
+        </p>
+      </div>
+
+      <div class="bg-binance-card rounded-2xl border border-binance-border p-6 space-y-3">
+        <div class="w-10 h-10 rounded-xl bg-binance-up/10 border border-binance-up/20 flex items-center justify-center text-binance-up font-bold">
+          <svg class="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <polyline points="22 12 18 12 15 21 9 3 6 12 2 12"></polyline>
+          </svg>
+        </div>
+        <h3 class="text-lg font-bold text-white">Accuracy & Autonomy Standards</h3>
+        <p class="text-xs text-binance-muted leading-relaxed font-sans">
+          Unlike generic university formulas (e.g. SPPU's or Mumbai University's), WCE uses a distinct linear mapping formula <span class="text-binance-yellow font-mono">(10.00 × CGPA) − 7.50</span> codified in Section 16 of the Academic and Examination Rules.
+        </p>
+      </div>
+
+    </div>
+
+    <!-- Core Pillars -->
+    <div class="bg-binance-card rounded-2xl border border-binance-border p-6 md:p-8 space-y-6">
+      <h3 class="text-lg font-bold text-white uppercase tracking-wider">Key Objectives</h3>
+      
+      <div class="space-y-4 text-xs font-mono text-binance-text">
+        <div class="flex items-start gap-3">
+          <span class="w-5 h-5 rounded-full bg-binance-yellow text-binance-ink font-bold flex items-center justify-center shrink-0 text-[10px]">1</span>
+          <div>
+            <strong class="text-white">Zero Estimation Errors:</strong> Provide direct arithmetic conversion compliant with official exam cell transcripts for placement forms (TCS, Infosys, Tech Mahindra, L&T, etc.).
+          </div>
+        </div>
+        <div class="flex items-start gap-3">
+          <span class="w-5 h-5 rounded-full bg-binance-yellow text-binance-ink font-bold flex items-center justify-center shrink-0 text-[10px]">2</span>
+          <div>
+            <strong class="text-white">Client-Side Privacy:</strong> All CGPA inputs, calculations, and saved logs run entirely inside your browser's local memory. No student data is collected or sent to remote servers.
+          </div>
+        </div>
+        <div class="flex items-start gap-3">
+          <span class="w-5 h-5 rounded-full bg-binance-yellow text-binance-ink font-bold flex items-center justify-center shrink-0 text-[10px]">3</span>
+          <div>
+            <strong class="text-white">Continuous Maintenance:</strong> Synchronized with all updates released in WCE Academic Council revisions.
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- CTA -->
+    <div class="text-center pt-4">
+      <a
+        href="/"
+        class="inline-flex items-center gap-2 px-6 py-3 rounded-xl bg-binance-yellow text-binance-ink font-bold text-sm hover:bg-binance-yellow-hover transition-transform hover:scale-105"
+      >
+        <span>Launch CGPA Converter</span>
+        <svg class="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="9 18 15 12 9 6"></polyline></svg>
+      </a>
+    </div>
+
+  </div>
+</Layout>

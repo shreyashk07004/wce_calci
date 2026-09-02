@@ -1,0 +1,77 @@
+@import "tailwindcss";
+
+@theme {
+  --color-binance-yellow: #fcd535;
+  --color-binance-yellow-hover: #f0b90b;
+  --color-binance-yellow-disabled: #3a3a1f;
+  --color-binance-canvas: #0b0e11;
+  --color-binance-card: #1e2329;
+  --color-binance-elevated: #2b3139;
+  --color-binance-border: #2b3139;
+  --color-binance-border-subtle: #20262d;
+  --color-binance-text: #eaecef;
+  --color-binance-muted: #848e9c;
+  --color-binance-muted-strong: #929aa5;
+  --color-binance-up: #0ecb81;
+  --color-binance-down: #f6465d;
+  --color-binance-turquoise: #2dbdb6;
+  --color-binance-ink: #181a20;
+
+  --font-binance: "BinanceNova", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+  --font-mono: "BinancePlex", ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", monospace;
+}
+
+@layer base {
+  :root {
+    color-scheme: dark;
+  }
+
+  body {
+    background-color: var(--color-binance-canvas);
+    color: var(--color-binance-text);
+    font-family: var(--font-binance);
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    min-height: 100vh;
+    overflow-x: hidden;
+  }
+
+  /* Custom scrollbar matching Binance Dark */
+  ::-webkit-scrollbar {
+    width: 6px;
+    height: 6px;
+  }
+  ::-webkit-scrollbar-track {
+    background: #0b0e11;
+  }
+  ::-webkit-scrollbar-thumb {
+    background: #2b3139;
+    border-radius: 3px;
+  }
+  ::-webkit-scrollbar-thumb:hover {
+    background: #474d57;
+  }
+}
+
+/* Glassmorphism & Custom glow */
+.binance-glow {
+  box-shadow: 0 0 25px -5px rgba(252, 213, 53, 0.15);
+}
+
+.binance-glow-card {
+  box-shadow: 0 4px 20px -2px rgba(0, 0, 0, 0.5), 0 0 1px 1px rgba(255, 255, 255, 0.05);
+}
+
+.binance-glow-card:hover {
+  box-shadow: 0 8px 30px -4px rgba(0, 0, 0, 0.7), 0 0 0 1px rgba(252, 213, 53, 0.3);
+}
+
+/* Number ticker & badge pulses */
+@keyframes subtle-pulse {
+  0%, 100% { opacity: 1; transform: scale(1); }
+  50% { opacity: 0.92; transform: scale(1.02); }
+}
+
+.animate-subtle-pulse {
+  animation: subtle-pulse 2.5s infinite ease-in-out;
+}

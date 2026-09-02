@@ -1,12 +1,6 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" fill="none">
-  <rect width="100" height="100" rx="24" fill="#0f172a"/>
-  <rect x="5" y="5" width="90" height="90" rx="20" fill="url(#grad)" />
-  <path d="M25 35H75M25 50H75M25 65H55" stroke="white" stroke-width="8" stroke-linecap="round"/>
-  <circle cx="70" cy="65" r="8" fill="#38bdf8"/>
-  <defs>
-    <linearGradient id="grad" x1="0" y1="0" x2="100" y2="100" gradientUnits="userSpaceOnUse">
-      <stop stop-color="#1e40af"/>
-      <stop offset="1" stop-color="#0f172a"/>
-    </linearGradient>
-  </defs>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32" width="32" height="32">
+  <rect width="32" height="32" rx="8" fill="#0B0E11"/>
+  <rect x="2" y="2" width="28" height="28" rx="6" fill="#1E2329" stroke="#2B3139" stroke-width="1"/>
+  <polygon points="16,6 25,16 16,26 7,16" fill="#FCD535"/>
+  <polygon points="16,11 21,16 16,21 11,16" fill="#0B0E11"/>
 </svg>

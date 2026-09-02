@@ -1,0 +1,135 @@
+---
+// Quick reference conversion lookup table
+const cgpaList = [
+  { cgpa: '10.00', pct: '92.50%', grade: 'AA', class: 'First Class with Distinction', highlight: true },
+  { cgpa: '9.75', pct: '90.00%', grade: 'AA', class: 'First Class with Distinction', highlight: false },
+  { cgpa: '9.50', pct: '87.50%', grade: 'AA', class: 'First Class with Distinction', highlight: false },
+  { cgpa: '9.25', pct: '85.00%', grade: 'AA', class: 'First Class with Distinction', highlight: false },
+  { cgpa: '9.00', pct: '82.50%', grade: 'AA', class: 'First Class with Distinction', highlight: true },
+  { cgpa: '8.75', pct: '80.00%', grade: 'AB', class: 'First Class with Distinction', highlight: false },
+  { cgpa: '8.50', pct: '77.50%', grade: 'AB', class: 'First Class with Distinction', highlight: false },
+  { cgpa: '8.25', pct: '75.00%', grade: 'AB', class: 'First Class with Distinction', highlight: true },
+  { cgpa: '8.00', pct: '72.50%', grade: 'BB', class: 'First Class', highlight: false },
+  { cgpa: '7.75', pct: '70.00%', grade: 'BB', class: 'First Class', highlight: false },
+  { cgpa: '7.50', pct: '67.50%', grade: 'BB', class: 'First Class', highlight: true },
+  { cgpa: '7.25', pct: '65.00%', grade: 'BC', class: 'First Class', highlight: false },
+  { cgpa: '7.00', pct: '62.50%', grade: 'BC', class: 'First Class', highlight: false },
+  { cgpa: '6.75', pct: '60.00%', grade: 'BC', class: 'First Class', highlight: true },
+  { cgpa: '6.50', pct: '57.50%', grade: 'CC', class: 'Higher Second Class', highlight: false },
+  { cgpa: '6.25', pct: '55.00%', grade: 'CC', class: 'Higher Second Class', highlight: true },
+  { cgpa: '6.00', pct: '52.50%', grade: 'CC', class: 'Second Class', highlight: false },
+  { cgpa: '5.75', pct: '50.00%', grade: 'CD', class: 'Second Class', highlight: true },
+  { cgpa: '5.50', pct: '47.50%', grade: 'CD', class: 'Pass Class', highlight: false },
+  { cgpa: '5.00', pct: '42.50%', grade: 'DD', class: 'Pass Class', highlight: true },
+];
+---
+
+<div class="bg-binance-card rounded-2xl border border-binance-border overflow-hidden">
+  <div class="px-6 py-4 bg-binance-elevated/60 border-b border-binance-border flex flex-wrap items-center justify-between gap-4">
+    <div>
+      <h3 class="text-base font-bold text-white flex items-center gap-2">
+        <svg class="w-4 h-4 text-binance-yellow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <path d="M3 3v18h18"/>
+          <path d="M18 17V9"/>
+          <path d="M13 17V5"/>
+          <path d="M8 17v-3"/>
+        </svg>
+        WCE Standard Conversion Market Table
+      </h3>
+      <p class="text-xs text-binance-muted">Reference conversion points based on Section 16</p>
+    </div>
+
+    <!-- Live Search input -->
+    <div class="relative w-full sm:w-64">
+      <input
+        type="text"
+        id="table-search"
+        placeholder="Filter CGPA (e.g. 8.5)..."
+        class="w-full bg-binance-canvas border border-binance-border focus:border-binance-yellow text-white text-xs px-3 py-2 pl-8 rounded-lg outline-none font-mono"
+      />
+      <svg class="w-3.5 h-3.5 text-binance-muted absolute left-2.5 top-2.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <circle cx="11" cy="11" r="8"></circle>
+        <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+      </svg>
+    </div>
+  </div>
+
+  <div class="overflow-x-auto max-h-[460px] scrollbar-thin">
+    <table class="w-full text-left border-collapse text-xs font-mono" id="conversion-data-table">
+      <thead>
+        <tr class="bg-binance-canvas/90 text-binance-muted uppercase text-[11px] tracking-wider sticky top-0 border-b border-binance-border z-10 backdrop-blur-sm">
+          <th class="py-3 px-6">CGPA</th>
+          <th class="py-3 px-6">Calculated %</th>
+          <th class="py-3 px-6">Letter Grade</th>
+          <th class="py-3 px-6">Degree Classification</th>
+          <th class="py-3 px-6 text-right">Action</th>
+        </tr>
+      </thead>
+      <tbody class="divide-y divide-binance-border/60">
+        {cgpaList.map((row) => (
+          <tr class={`hover:bg-binance-elevated/50 transition-colors group ${row.highlight ? 'bg-binance-yellow/[0.02]' : ''}`}>
+            <td class="py-3 px-6 font-bold text-white group-hover:text-binance-yellow transition-colors flex items-center gap-2">
+              {row.highlight && <span class="w-1.5 h-1.5 rounded-full bg-binance-yellow"></span>}
+              {row.cgpa}
+            </td>
+            <td class="py-3 px-6 text-binance-up font-bold text-sm">
+              {row.pct}
+            </td>
+            <td class="py-3 px-6">
+              <span class="px-2 py-0.5 rounded bg-binance-canvas border border-binance-border text-white font-medium">
+                {row.grade}
+              </span>
+            </td>
+            <td class="py-3 px-6 text-binance-text">
+              <span class={row.class.includes('Distinction') ? 'text-binance-yellow font-medium' : ''}>
+                {row.class}
+              </span>
+            </td>
+            <td class="py-3 px-6 text-right">
+              <button
+                type="button"
+                data-cgpa={row.cgpa}
+                class="apply-table-cgpa text-[11px] px-2.5 py-1 rounded bg-binance-canvas hover:bg-binance-yellow hover:text-binance-ink border border-binance-border text-binance-muted hover:border-binance-yellow font-medium transition-all"
+              >
+                Load
+              </button>
+            </td>
+          </tr>
+        ))}
+      </tbody>
+    </table>
+  </div>
+</div>
+
+<script>
+  const searchInput = document.getElementById('table-search') as HTMLInputElement | null;
+  const table = document.getElementById('conversion-data-table');
+
+  if (searchInput && table) {
+    searchInput.addEventListener('input', () => {
+      const query = searchInput.value.trim().toLowerCase();
+      const rows = table.querySelectorAll('tbody tr');
+      
+      rows.forEach(row => {
+        const text = row.textContent?.toLowerCase() || '';
+        if (text.includes(query)) {
+          (row as HTMLElement).style.display = '';
+        } else {
+          (row as HTMLElement).style.display = 'none';
+        }
+      });
+    });
+  }
+
+  document.querySelectorAll('.apply-table-cgpa').forEach(btn => {
+    btn.addEventListener('click', (e) => {
+      const cgpa = (e.currentTarget as HTMLButtonElement).dataset.cgpa;
+      const mainInput = document.getElementById('cgpa-input') as HTMLInputElement | null;
+      if (mainInput && cgpa) {
+        mainInput.value = cgpa;
+        mainInput.dispatchEvent(new Event('input', { bubbles: true }));
+        document.getElementById('calculator')?.scrollIntoView({ behavior: 'smooth' });
+      }
+    });
+  });
+</script>

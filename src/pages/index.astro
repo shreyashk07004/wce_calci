@@ -1,0 +1,121 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Calculator from '../components/Calculator.astro';
+import ConversionTable from '../components/ConversionTable.astro';
+import HistoryPanel from '../components/HistoryPanel.astro';
+import FaqSection from '../components/FaqSection.astro';
+---
+
+<Layout
+  title="WCE CGPA to Percentage Calculator | Official Formula (10 × CGPA − 7.5)"
+  description="Instant, officially compliant CGPA to percentage converter for Walchand College of Engineering (WCE) Sangli students under Academic Regulations 2023-24."
+>
+  <!-- Hero Section with Binance Banner & Tickers -->
+  <section class="relative pt-10 pb-8 md:pt-16 md:pb-12 border-b border-binance-border/80 overflow-hidden">
+    <!-- Ambient glowing backdrop -->
+    <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[350px] bg-binance-yellow/[0.04] rounded-full blur-3xl pointer-events-none"></div>
+
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 text-center">
+      
+      <!-- Top Pill Badge -->
+      <div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-binance-card border border-binance-yellow/30 text-xs font-mono text-binance-yellow mb-6 shadow-sm">
+        <span class="w-2 h-2 rounded-full bg-binance-yellow animate-ping"></span>
+        <span>Official Autonomous Formula: Section 16 Verified</span>
+      </div>
+
+      <!-- Hero Headline -->
+      <h1 class="text-3xl sm:text-5xl lg:text-6xl font-extrabold text-white tracking-tight leading-tight max-w-4xl mx-auto">
+        Convert WCE CGPA to <span class="text-binance-yellow">Percentage</span> with High Precision
+      </h1>
+
+      <!-- Hero Subtitle -->
+      <p class="mt-4 text-sm sm:text-base text-binance-muted max-w-2xl mx-auto leading-relaxed">
+        The authoritative, instant conversion terminal calibrated according to Walchand College of Engineering (WCE), Sangli Autonomous Academic Rules & Regulations.
+      </p>
+
+      <!-- Key Metrics / Ticker Strip -->
+      <div class="mt-8 grid grid-cols-2 sm:grid-cols-4 gap-3 max-w-3xl mx-auto font-mono text-left">
+        <div class="p-3 rounded-xl bg-binance-card border border-binance-border">
+          <span class="text-[10px] text-binance-muted block uppercase">Formula Constant</span>
+          <span class="text-base font-bold text-binance-yellow">− 7.50</span>
+        </div>
+        <div class="p-3 rounded-xl bg-binance-card border border-binance-border">
+          <span class="text-[10px] text-binance-muted block uppercase">Multiplier</span>
+          <span class="text-base font-bold text-white">10.00 × CGPA</span>
+        </div>
+        <div class="p-3 rounded-xl bg-binance-card border border-binance-border">
+          <span class="text-[10px] text-binance-muted block uppercase">Distinction Cutoff</span>
+          <span class="text-base font-bold text-binance-up">≥ 75.00%</span>
+        </div>
+        <div class="p-3 rounded-xl bg-binance-card border border-binance-border">
+          <span class="text-[10px] text-binance-muted block uppercase">Scale</span>
+          <span class="text-base font-bold text-white">10.00 Points</span>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- Main Calculator Container -->
+  <section class="py-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
+      
+      <!-- Primary Conversion Terminal (Full / Left on desktop) -->
+      <div class="lg:col-span-8 space-y-8">
+        <Calculator />
+        <ConversionTable />
+      </div>
+
+      <!-- Right Sidebar: History & Quick Tools -->
+      <div class="lg:col-span-4 space-y-6">
+        <HistoryPanel />
+
+        <!-- Quick Info Card -->
+        <div class="bg-binance-card rounded-2xl border border-binance-border p-6 space-y-4">
+          <div class="flex items-center gap-2">
+            <span class="w-2.5 h-2.5 rounded-full bg-binance-yellow"></span>
+            <h4 class="text-sm font-bold text-white uppercase tracking-wider">How WCE Formula Works</h4>
+          </div>
+          <p class="text-xs text-binance-muted leading-relaxed font-mono">
+            Under autonomous ordinance Section 16, Walchand College of Engineering applies a linear transformation:
+          </p>
+          <div class="p-3 rounded-lg bg-binance-canvas border border-binance-border font-mono text-xs text-binance-yellow font-bold text-center">
+            Percentage = (10.00 × CGPA) − 7.50
+          </div>
+          <p class="text-xs text-binance-muted leading-relaxed">
+            Need to calculate your aggregate CGPA from individual semester SGPA scores? Use our multi-semester calculator.
+          </p>
+          <a
+            href="/semester-calculator"
+            class="block w-full text-center py-2 px-3 rounded-lg bg-binance-elevated hover:bg-binance-border border border-binance-border text-white text-xs font-semibold transition-colors"
+          >
+            Launch Semester SGPA Calc →
+          </a>
+        </div>
+
+        <!-- Grade Point Mapping Quick Badge -->
+        <div class="bg-binance-card rounded-2xl border border-binance-border p-5 font-mono text-xs space-y-2">
+          <h4 class="text-white font-bold text-xs uppercase tracking-wider mb-2">Grade Points (Table 16.1)</h4>
+          <div class="grid grid-cols-3 gap-1.5 text-center">
+            <div class="p-1.5 rounded bg-binance-canvas border border-binance-border"><span class="text-binance-yellow font-bold">AA:</span> 10</div>
+            <div class="p-1.5 rounded bg-binance-canvas border border-binance-border"><span class="text-binance-yellow font-bold">AB:</span> 9</div>
+            <div class="p-1.5 rounded bg-binance-canvas border border-binance-border"><span class="text-binance-yellow font-bold">BB:</span> 8</div>
+            <div class="p-1.5 rounded bg-binance-canvas border border-binance-border"><span class="text-binance-yellow font-bold">BC:</span> 7</div>
+            <div class="p-1.5 rounded bg-binance-canvas border border-binance-border"><span class="text-binance-yellow font-bold">CC:</span> 6</div>
+            <div class="p-1.5 rounded bg-binance-canvas border border-binance-border"><span class="text-binance-yellow font-bold">CD:</span> 5</div>
+            <div class="p-1.5 rounded bg-binance-canvas border border-binance-border"><span class="text-binance-yellow font-bold">DD:</span> 4</div>
+            <div class="p-1.5 rounded bg-binance-canvas border border-binance-border text-binance-down"><span class="font-bold">FF:</span> 0</div>
+            <div class="p-1.5 rounded bg-binance-canvas border border-binance-border text-binance-down"><span class="font-bold">XX:</span> 0</div>
+          </div>
+        </div>
+
+      </div>
+
+    </div>
+
+    <!-- FAQ Section -->
+    <div class="mt-12">
+      <FaqSection />
+    </div>
+  </section>
+</Layout>

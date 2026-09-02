@@ -1,0 +1,53 @@
+---
+import Layout from '../layouts/Layout.astro';
+import SemesterCalculator from '../components/SemesterCalculator.astro';
+---
+
+<Layout
+  title="WCE Semester SGPA to CGPA Calculator | Multi-Semester Aggregator"
+  description="Calculate your overall cumulative CGPA and percentage across all semesters (1 through 8) with credit weightings for Walchand College of Engineering (WCE) Sangli."
+>
+  <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 py-10 space-y-8">
+    
+    <!-- Header -->
+    <div class="text-center space-y-3">
+      <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-binance-card border border-binance-yellow/30 text-xs font-mono text-binance-yellow">
+        <span>Semester Weighted Credit Aggregator</span>
+      </div>
+      <h1 class="text-3xl sm:text-4xl font-extrabold text-white">
+        Multi-Semester <span class="text-binance-yellow">SGPA & CGPA</span> Calculator
+      </h1>
+      <p class="text-sm text-binance-muted max-w-2xl mx-auto leading-relaxed">
+        Input your SGPA (Semester Grade Point Average) and course credits for each completed semester to calculate your official cumulative CGPA and equivalent percentage.
+      </p>
+    </div>
+
+    <!-- Component -->
+    <SemesterCalculator />
+
+    <!-- Explanatory Guide Box -->
+    <div class="bg-binance-card rounded-2xl border border-binance-border p-6 md:p-8 space-y-4">
+      <h3 class="text-base font-bold text-white uppercase tracking-wider flex items-center gap-2">
+        <svg class="w-4 h-4 text-binance-yellow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <circle cx="12" cy="12" r="10"></circle>
+          <line x1="12" y1="16" x2="12" y2="12"></line>
+          <line x1="12" y1="8" x2="12.01" y2="8"></line>
+        </svg>
+        Understanding SGPA vs CGPA at WCE
+      </h3>
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-4 text-xs font-mono text-binance-muted leading-relaxed">
+        <div class="p-4 rounded-xl bg-binance-canvas border border-binance-border space-y-2">
+          <span class="text-white font-bold block text-sm">SGPA Formula</span>
+          <p>SGPA = Σ(Course Credits × Grade Points Earned) / Σ(Course Credits in Semester)</p>
+          <p class="text-binance-muted/70">Calculated at the end of each semester examination cycle.</p>
+        </div>
+        <div class="p-4 rounded-xl bg-binance-canvas border border-binance-border space-y-2">
+          <span class="text-white font-bold block text-sm">CGPA Formula</span>
+          <p>CGPA = Σ(Semester Credits × Semester SGPA) / Σ(Total Cumulative Credits)</p>
+          <p class="text-binance-muted/70">Cumulative index reflecting academic performance across your degree.</p>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</Layout>
