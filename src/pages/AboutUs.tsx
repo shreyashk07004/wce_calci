@@ -4,20 +4,22 @@ import { Info, GraduationCap, Calculator, ShieldCheck } from 'lucide-react';
 export const AboutUs: React.FC = () => {
   return (
     <div className="space-y-6 max-w-4xl mx-auto px-1 sm:px-0 font-sans">
-      {/* Header Banner */}
-      <div className="bg-slate-900 dark:bg-[#151921] rounded-xl p-5 sm:p-7 text-white border-l-4 border-rose-800 shadow-sm space-y-2">
-        <div className="inline-flex items-center gap-1.5 px-2.5 py-1 rounded text-xs font-sans text-rose-200 bg-rose-950/70 border border-rose-800/80 mb-1">
-          <Info className="w-3.5 h-3.5 shrink-0 text-rose-400" />
+      {/* Editorial Page Header */}
+      <div className="pb-5 border-b border-slate-200 dark:border-slate-800 space-y-2">
+        <div className="inline-flex items-center gap-1.5 px-2 py-0.5 rounded-sm text-xs text-slate-700 dark:text-slate-300 border border-slate-300 dark:border-slate-700 bg-transparent">
+          <Info className="w-3.5 h-3.5 text-rose-800 dark:text-rose-400 shrink-0" />
           <span>About This Tool</span>
         </div>
-        <h1 className="text-2xl sm:text-3xl font-serif font-bold tracking-tight text-white">About WCE CGPA to Percentage Converter</h1>
-        <p className="text-slate-300 text-xs sm:text-sm max-w-2xl leading-relaxed">
+        <h1 className="text-2xl sm:text-3xl font-serif font-bold tracking-tight text-slate-900 dark:text-slate-100">
+          About WCE CGPA to Percentage Converter
+        </h1>
+        <p className="text-slate-600 dark:text-slate-400 text-xs sm:text-sm max-w-2xl leading-relaxed">
           An independent academic tool designed to help Walchand College of Engineering, Sangli students convert CGPA to percentage quickly and accurately.
         </p>
       </div>
 
       {/* Main Content */}
-      <div className="bg-white dark:bg-[#151921] rounded-xl p-5 sm:p-8 border border-slate-200 dark:border-slate-800 space-y-6 text-slate-700 dark:text-slate-300 text-xs sm:text-sm leading-relaxed">
+      <div className="bg-white dark:bg-[#151921] rounded-md p-5 sm:p-7 border border-slate-200 dark:border-slate-800 space-y-6 text-slate-700 dark:text-slate-300 text-xs sm:text-sm leading-relaxed">
         
         {/* Section 1: Purpose & Mission */}
         <section className="space-y-3">
@@ -39,7 +41,7 @@ export const AboutUs: React.FC = () => {
             <Calculator className="w-5 h-5 text-rose-900 dark:text-rose-400 shrink-0" />
             What This Tool Provides
           </h2>
-          <div className="p-4 rounded-lg bg-slate-50 dark:bg-slate-800/40 border border-slate-200 dark:border-slate-700 space-y-1 text-xs">
+          <div className="p-4 rounded-md bg-slate-50 dark:bg-slate-800/40 border border-slate-200 dark:border-slate-700 space-y-1 text-xs">
             <span className="font-serif font-bold text-slate-900 dark:text-white block text-sm">CGPA to Percentage Converter</span>
             <p className="text-slate-600 dark:text-slate-300 text-xs leading-relaxed">
               Instant percentage calculation using WCE's official formula: <code className="font-mono text-rose-900 dark:text-rose-300 font-bold">(10.00 × CGPA) − 7.50</code>. Valid officially for CGPA ≥ 5.00.
@@ -56,13 +58,13 @@ export const AboutUs: React.FC = () => {
           <p>
             All mathematical formulas, grade point values (AA=10, AB=9, BB=8, etc.), and academic rules referenced in this application are directly derived from Section 12 and Section 16 of the official document:
           </p>
-          <div className="p-3 rounded-lg bg-rose-50 dark:bg-slate-800 border border-rose-200 dark:border-slate-700 font-semibold text-rose-900 dark:text-rose-200 text-xs break-words">
+          <div className="p-3 rounded-md bg-rose-50/60 dark:bg-slate-800 border border-rose-200 dark:border-slate-700 font-semibold text-rose-900 dark:text-rose-200 text-xs break-words">
             Walchand College of Engineering, Sangli — "Academic and Examination Rules and Regulations 2023-24"
           </div>
         </section>
 
         {/* Section 4: Independent Status */}
-        <section className="p-4 rounded-lg bg-amber-50 dark:bg-amber-950/40 border border-amber-300 dark:border-amber-900/60 text-xs text-amber-900 dark:text-amber-200 space-y-1">
+        <section className="p-4 rounded-md bg-amber-50 dark:bg-amber-950/40 border border-amber-300 dark:border-amber-900/60 text-xs text-amber-900 dark:text-amber-200 space-y-1">
           <span className="font-bold text-amber-800 dark:text-amber-300 block">Independent Unofficial Notice:</span>
           <p className="leading-relaxed">
             This website is an independent, student-built utility. It is not affiliated with, authorized by, endorsed by, or an official product of Walchand College of Engineering (WCE), Sangli.

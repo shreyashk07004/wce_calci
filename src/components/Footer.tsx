@@ -23,7 +23,7 @@ export const Footer: React.FC = () => {
           {/* Brand Column */}
           <div className="md:col-span-5 space-y-3">
             <div className="flex items-center space-x-3">
-              <div className="w-fit min-w-[42px] h-8 sm:h-9 px-2.5 py-1 rounded-md bg-rose-900 text-white flex items-center justify-center font-serif font-bold text-xs sm:text-sm tracking-normal shrink-0 select-none shadow-sm">
+              <div className="w-fit min-w-[42px] h-8 sm:h-9 px-2.5 py-1 rounded-sm bg-rose-900 text-white flex items-center justify-center font-serif font-bold text-xs sm:text-sm tracking-normal shrink-0 select-none">
                 WCE
               </div>
               <span className="font-serif font-bold text-white text-base">
@@ -33,7 +33,7 @@ export const Footer: React.FC = () => {
             <p className="text-xs text-slate-400 leading-relaxed max-w-sm">
               Free CGPA to percentage converter tool for Walchand College of Engineering, Sangli.
             </p>
-            <div className="inline-flex items-center gap-1.5 px-2.5 py-1 rounded text-xs text-slate-300 bg-slate-800 border border-slate-700">
+            <div className="inline-flex items-center gap-1.5 px-2 py-0.5 rounded-sm text-xs text-slate-300 bg-slate-800/80 border border-slate-700">
               <ShieldCheck className="w-3.5 h-3.5 text-emerald-400 shrink-0" />
               <span>100% Client-Side • Zero Backend • No Tracking</span>
             </div>

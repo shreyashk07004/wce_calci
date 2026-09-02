@@ -7,24 +7,28 @@ export const PrivacyPolicy: React.FC = () => {
 
   return (
     <div className="space-y-6 max-w-4xl mx-auto px-1 sm:px-0 font-sans">
-      {/* Header Banner */}
-      <div className="bg-slate-900 dark:bg-[#151921] rounded-xl p-5 sm:p-7 text-white border-l-4 border-rose-800 shadow-sm space-y-2">
-        <div className="inline-flex items-center gap-1.5 px-2.5 py-1 rounded text-xs font-sans text-rose-200 bg-rose-950/70 border border-rose-800/80 mb-1">
-          <ShieldCheck className="w-3.5 h-3.5 shrink-0 text-rose-400" />
-          <span>Transparency & Security</span>
+      {/* Editorial Page Header */}
+      <div className="pb-5 border-b border-slate-200 dark:border-slate-800 space-y-2">
+        <div className="flex flex-wrap items-center justify-between gap-3">
+          <div className="inline-flex items-center gap-1.5 px-2 py-0.5 rounded-sm text-xs text-slate-700 dark:text-slate-300 border border-slate-300 dark:border-slate-700 bg-transparent">
+            <ShieldCheck className="w-3.5 h-3.5 text-rose-800 dark:text-rose-400 shrink-0" />
+            <span>Transparency & Security</span>
+          </div>
+          <div className="inline-flex items-center gap-1.5 text-xs text-slate-500 dark:text-slate-400 font-sans">
+            <Calendar className="w-3.5 h-3.5 text-slate-400 shrink-0" />
+            <span>Last updated: {lastUpdatedDate}</span>
+          </div>
         </div>
-        <h1 className="text-2xl sm:text-3xl font-serif font-bold tracking-tight text-white">Privacy Policy</h1>
-        <p className="text-slate-300 text-xs sm:text-sm max-w-2xl leading-relaxed">
+        <h1 className="text-2xl sm:text-3xl font-serif font-bold tracking-tight text-slate-900 dark:text-slate-100">
+          Privacy Policy
+        </h1>
+        <p className="text-slate-600 dark:text-slate-400 text-xs sm:text-sm max-w-2xl leading-relaxed">
           How WCE CGPA to Percentage Converter handles user privacy and browser data storage.
         </p>
-        <div className="mt-2 inline-flex items-center gap-1.5 text-xs text-slate-400 font-sans">
-          <Calendar className="w-3.5 h-3.5 text-rose-400 shrink-0" />
-          <span>Last updated: {lastUpdatedDate}</span>
-        </div>
       </div>
 
       {/* Main Content Sections */}
-      <div className="bg-white dark:bg-[#151921] rounded-xl p-5 sm:p-8 border border-slate-200 dark:border-slate-800 space-y-6 text-slate-700 dark:text-slate-300 text-xs sm:text-sm leading-relaxed">
+      <div className="bg-white dark:bg-[#151921] rounded-md p-5 sm:p-7 border border-slate-200 dark:border-slate-800 space-y-6 text-slate-700 dark:text-slate-300 text-xs sm:text-sm leading-relaxed">
         
         {/* Section 1: Zero Backend & Client-Side Execution */}
         <section className="space-y-2">

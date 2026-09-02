@@ -23,7 +23,7 @@ export const Navbar: React.FC<NavbarProps> = ({ historyCount }) => {
         <div className="flex items-center justify-between h-16 gap-2">
           {/* Brand Header */}
           <Link to="/" className="flex items-center space-x-2.5 sm:space-x-3 group min-w-0">
-            <div className="w-fit min-w-[48px] h-10 sm:h-11 px-3 py-1.5 rounded-lg bg-rose-900 dark:bg-rose-800 flex items-center justify-center text-white font-serif font-bold text-base sm:text-lg tracking-normal shrink-0 select-none shadow-sm">
+            <div className="w-fit min-w-[48px] h-10 sm:h-11 px-3 py-1.5 rounded-sm bg-rose-900 dark:bg-rose-800 flex items-center justify-center text-white font-serif font-bold text-base sm:text-lg tracking-normal shrink-0 select-none">
               WCE
             </div>
             <div className="min-w-0">
@@ -31,7 +31,7 @@ export const Navbar: React.FC<NavbarProps> = ({ historyCount }) => {
                 <span className="font-serif font-bold text-slate-900 dark:text-slate-100 text-sm sm:text-base leading-tight truncate">
                   WCE CGPA Converter
                 </span>
-                <span className="hidden sm:inline-flex items-center gap-1 px-2 py-0.5 rounded text-xs text-rose-900 bg-rose-50 border border-rose-200 dark:bg-rose-950/80 dark:text-rose-200 dark:border-rose-900 shrink-0 font-sans">
+                <span className="hidden sm:inline-flex items-center gap-1 px-2 py-0.5 rounded-sm text-xs text-rose-900 border border-rose-300/80 bg-rose-50/60 dark:bg-rose-950/40 dark:text-rose-200 dark:border-rose-900 shrink-0 font-sans">
                   <ShieldCheck className="w-3.5 h-3.5 text-rose-800 dark:text-rose-300" />
                   Official RR 2023-24
                 </span>
