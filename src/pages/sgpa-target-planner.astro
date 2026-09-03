@@ -1,0 +1,65 @@
+---
+// sgpa-target-planner.astro - Dedicated Target CGPA / SGPA Needed Planner Page
+import Layout from '../layouts/Layout.astro';
+import TargetPlanner from '../components/TargetPlanner.astro';
+
+const seoTitle = "WCE Target SGPA Planner | Required SGPA for Desired CGPA";
+const seoDescription = "Calculate the exact SGPA needed in your upcoming semester to reach your target CGPA at Walchand College of Engineering, Sangli. Derived using official Section 16 credit formula.";
+---
+
+<Layout title={seoTitle} description={seoDescription}>
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8 sm:py-12 space-y-8 sm:space-y-12">
+    <!-- Page Header & Introduction -->
+    <div class="text-center max-w-3xl mx-auto space-y-4">
+      <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full text-xs font-semibold bg-amber-500/10 text-amber-600 dark:text-binance-yellow border border-amber-500/20 dark:border-binance-yellow/20">
+        <svg class="w-3.5 h-3.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <circle cx="12" cy="12" r="10"></circle>
+          <path d="m9 12 2 2 4-4"></path>
+        </svg>
+        <span>WCE Academic Regulations 2023-24 • Section 16</span>
+      </div>
+      
+      <h1 class="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-slate-900 dark:text-white tracking-tight">
+        Target CGPA / SGPA Planner
+      </h1>
+      
+      <p class="text-sm sm:text-base text-slate-600 dark:text-binance-muted leading-relaxed">
+        Find out exactly what SGPA you need in your upcoming semester to reach your target cumulative CGPA. Derived using the official credit-weighted CGPA formula from WCE Rules and Regulations Section 16.
+      </p>
+    </div>
+
+    <!-- Main Interactive Planner Component -->
+    <TargetPlanner />
+
+    <!-- Educational & Explanatory Section -->
+    <div class="max-w-4xl mx-auto bg-slate-50 dark:bg-binance-canvas rounded-2xl border border-slate-200 dark:border-binance-border p-6 sm:p-8 space-y-6 text-slate-700 dark:text-binance-text text-xs sm:text-sm">
+      <h2 class="text-lg sm:text-xl font-bold text-slate-900 dark:text-white">
+        Understanding the Section 16 Derivation
+      </h2>
+      
+      <div class="space-y-3 leading-relaxed text-slate-600 dark:text-binance-muted">
+        <p>
+          According to the Walchand College of Engineering Examination Regulations, CGPA is the cumulative credit-weighted grade point average calculated across all semesters registered:
+        </p>
+        <div class="p-3 rounded-lg bg-white dark:bg-binance-card border border-slate-200 dark:border-binance-border font-mono text-xs sm:text-sm text-slate-900 dark:text-white overflow-x-auto">
+          CGPA = ∑(Ci × Gi) / ∑(Ci)
+        </div>
+        <p>
+          For an upcoming semester with <code class="font-mono text-amber-600 dark:text-binance-yellow">C_next</code> credits, the new cumulative CGPA is the weighted sum of existing earned grade points and future grade points divided by total credits. Solving for the unknown semester average yields:
+        </p>
+        <div class="p-3 rounded-lg bg-white dark:bg-binance-card border border-slate-200 dark:border-binance-border font-mono text-xs sm:text-sm text-amber-600 dark:text-binance-yellow overflow-x-auto font-bold">
+          SGPA_needed = [ Target_CGPA × (C_so_far + C_next) − Current_CGPA × C_so_far ] / C_next
+        </div>
+      </div>
+
+      <div class="pt-4 border-t border-slate-200 dark:border-binance-border space-y-2">
+        <h3 class="font-bold text-slate-900 dark:text-white">
+          Why All 4 Inputs are Mandatory
+        </h3>
+        <p class="text-slate-600 dark:text-binance-muted leading-relaxed">
+          Because CGPA is strictly credit-weighted, estimating your required SGPA without exact credit tallies is mathematically inaccurate. As you progress into higher semesters (e.g., Final Year with 120+ credits earned), moving your cumulative CGPA requires significantly higher grade points than in your second or third semester.
+        </p>
+      </div>
+    </div>
+  </div>
+</Layout>

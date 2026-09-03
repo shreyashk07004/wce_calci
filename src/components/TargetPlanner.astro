@@ -1,0 +1,361 @@
+---
+// TargetPlanner.astro - Interactive Planner Component
+---
+
+<div class="w-full max-w-4xl mx-auto space-y-8">
+  <!-- Input Form Card -->
+  <div class="bg-white dark:bg-binance-card rounded-2xl border border-slate-200 dark:border-binance-border shadow-sm p-6 sm:p-8 transition-colors duration-150">
+    <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-4 pb-6 border-b border-slate-200 dark:border-binance-border">
+      <div>
+        <div class="inline-flex items-center gap-2 px-2.5 py-1 rounded-md text-xs font-semibold bg-amber-500/10 text-amber-600 dark:text-binance-yellow border border-amber-500/20 dark:border-binance-yellow/20 mb-2">
+          <span>Formula: Section 16 Derived</span>
+        </div>
+        <h2 class="text-xl sm:text-2xl font-bold text-slate-900 dark:text-white">
+          Semester SGPA Requirement Calculator
+        </h2>
+        <p class="text-xs sm:text-sm text-slate-500 dark:text-binance-muted mt-1">
+          Enter all four parameters to compute the exact SGPA needed in your next semester.
+        </p>
+      </div>
+      <button
+        id="reset-btn"
+        type="button"
+        class="self-start sm:self-auto px-3.5 py-1.5 rounded-lg text-xs font-medium text-slate-600 dark:text-binance-muted hover:text-slate-900 dark:hover:text-white bg-slate-100 hover:bg-slate-200 dark:bg-binance-elevated dark:hover:bg-binance-border border border-slate-200 dark:border-binance-border transition-colors cursor-pointer"
+      >
+        Reset Fields
+      </button>
+    </div>
+
+    <!-- 4 Mandatory Inputs Grid -->
+    <div class="grid grid-cols-1 sm:grid-cols-2 gap-5 sm:gap-6 pt-6">
+      <!-- 1. Current CGPA -->
+      <div class="space-y-2">
+        <label for="current-cgpa" class="flex items-center justify-between text-xs font-bold uppercase tracking-wider text-slate-700 dark:text-binance-text">
+          <span>1. Current CGPA</span>
+          <span class="text-slate-400 font-normal lowercase">(0.00 – 10.00)</span>
+        </label>
+        <div class="relative">
+          <input
+            type="number"
+            id="current-cgpa"
+            step="0.01"
+            min="0"
+            max="10"
+            placeholder="e.g. 7.20"
+            class="w-full px-4 py-3 rounded-xl bg-slate-50 dark:bg-binance-canvas border border-slate-200 dark:border-binance-border text-slate-900 dark:text-white text-base sm:text-lg font-mono placeholder:text-slate-400 dark:placeholder:text-binance-muted/50 focus:outline-none focus:ring-2 focus:ring-amber-500/50 dark:focus:ring-binance-yellow/50 transition-all"
+          />
+        </div>
+        <p class="text-[11px] text-slate-500 dark:text-binance-muted">Your cumulative grade point average so far.</p>
+      </div>
+
+      <!-- 2. Credits So Far -->
+      <div class="space-y-2">
+        <label for="credits-so-far" class="flex items-center justify-between text-xs font-bold uppercase tracking-wider text-slate-700 dark:text-binance-text">
+          <span>2. Total Credits Earned</span>
+          <span class="text-slate-400 font-normal lowercase">(completed sems)</span>
+        </label>
+        <div class="relative">
+          <input
+            type="number"
+            id="credits-so-far"
+            step="0.5"
+            min="1"
+            placeholder="e.g. 120"
+            class="w-full px-4 py-3 rounded-xl bg-slate-50 dark:bg-binance-canvas border border-slate-200 dark:border-binance-border text-slate-900 dark:text-white text-base sm:text-lg font-mono placeholder:text-slate-400 dark:placeholder:text-binance-muted/50 focus:outline-none focus:ring-2 focus:ring-amber-500/50 dark:focus:ring-binance-yellow/50 transition-all"
+          />
+        </div>
+        <p class="text-[11px] text-slate-500 dark:text-binance-muted">Sum of credits across all past completed semesters.</p>
+      </div>
+
+      <!-- 3. Upcoming Credits -->
+      <div class="space-y-2">
+        <label for="credits-next-sem" class="flex items-center justify-between text-xs font-bold uppercase tracking-wider text-slate-700 dark:text-binance-text">
+          <span>3. Upcoming Sem Credits</span>
+          <span class="text-slate-400 font-normal lowercase">(registered)</span>
+        </label>
+        <div class="relative">
+          <input
+            type="number"
+            id="credits-next-sem"
+            step="0.5"
+            min="1"
+            placeholder="e.g. 24"
+            class="w-full px-4 py-3 rounded-xl bg-slate-50 dark:bg-binance-canvas border border-slate-200 dark:border-binance-border text-slate-900 dark:text-white text-base sm:text-lg font-mono placeholder:text-slate-400 dark:placeholder:text-binance-muted/50 focus:outline-none focus:ring-2 focus:ring-amber-500/50 dark:focus:ring-binance-yellow/50 transition-all"
+          />
+        </div>
+        <p class="text-[11px] text-slate-500 dark:text-binance-muted">Total credits registered for the upcoming semester.</p>
+      </div>
+
+      <!-- 4. Target CGPA -->
+      <div class="space-y-2">
+        <label for="target-cgpa" class="flex items-center justify-between text-xs font-bold uppercase tracking-wider text-slate-700 dark:text-binance-text">
+          <span>4. Desired Target CGPA</span>
+          <span class="text-slate-400 font-normal lowercase">(0.00 – 10.00)</span>
+        </label>
+        <div class="relative">
+          <input
+            type="number"
+            id="target-cgpa"
+            step="0.01"
+            min="0"
+            max="10"
+            placeholder="e.g. 7.50"
+            class="w-full px-4 py-3 rounded-xl bg-slate-50 dark:bg-binance-canvas border border-slate-200 dark:border-binance-border text-slate-900 dark:text-white text-base sm:text-lg font-mono placeholder:text-slate-400 dark:placeholder:text-binance-muted/50 focus:outline-none focus:ring-2 focus:ring-amber-500/50 dark:focus:ring-binance-yellow/50 transition-all"
+          />
+        </div>
+        <p class="text-[11px] text-slate-500 dark:text-binance-muted">The cumulative CGPA you wish to reach after this semester.</p>
+      </div>
+    </div>
+
+    <!-- Error Alert Box -->
+    <div id="error-box" class="hidden mt-6 p-4 rounded-xl bg-rose-500/10 border border-rose-500/20 text-rose-600 dark:text-rose-400 text-xs sm:text-sm font-medium flex items-center gap-3">
+      <svg class="w-5 h-5 shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <circle cx="12" cy="12" r="10"></circle>
+        <line x1="12" y1="8" x2="12" y2="12"></line>
+        <line x1="12" y1="16" x2="12.01" y2="16"></line>
+      </svg>
+      <span id="error-message">Please fill in all four inputs properly.</span>
+    </div>
+  </div>
+
+  <!-- Results Section (Dynamic) -->
+  <div id="results-container" class="hidden space-y-6">
+    <!-- Primary Result Banner -->
+    <div id="result-card" class="bg-white dark:bg-binance-card rounded-2xl border border-slate-200 dark:border-binance-border shadow-sm p-6 sm:p-8 transition-all">
+      <div class="flex flex-col md:flex-row md:items-center justify-between gap-6">
+        <div class="space-y-2">
+          <div id="status-badge" class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-bold uppercase tracking-wider">
+            <!-- Dynamic Status Badge -->
+          </div>
+          <h3 id="result-heading" class="text-2xl sm:text-3xl font-extrabold text-slate-900 dark:text-white">
+            <!-- Dynamic Main Output -->
+          </h3>
+          <p id="result-subtext" class="text-xs sm:text-sm text-slate-600 dark:text-binance-muted max-w-xl leading-relaxed">
+            <!-- Dynamic Descriptive Text -->
+          </p>
+        </div>
+
+        <div id="highlight-metric-box" class="p-4 sm:p-6 rounded-xl bg-slate-50 dark:bg-binance-canvas border border-slate-200 dark:border-binance-border text-center shrink-0 min-w-[200px]">
+          <span class="text-xs uppercase tracking-wider text-slate-500 dark:text-binance-muted font-bold block mb-1">
+            Required Next SGPA
+          </span>
+          <div id="metric-value" class="text-3xl sm:text-4xl font-black font-mono text-amber-600 dark:text-binance-yellow">
+            --
+          </div>
+          <span id="metric-sub" class="text-[11px] text-slate-400 dark:text-binance-muted block mt-1">
+            out of 10.00
+          </span>
+        </div>
+      </div>
+    </div>
+
+    <!-- Step-by-Step Mathematical Derivation Breakdown -->
+    <div class="bg-white dark:bg-binance-card rounded-2xl border border-slate-200 dark:border-binance-border shadow-sm p-6 sm:p-8 space-y-6">
+      <div class="flex items-center gap-2 pb-4 border-b border-slate-200 dark:border-binance-border">
+        <svg class="w-5 h-5 text-amber-600 dark:text-binance-yellow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path>
+          <path d="M8 10h8"></path>
+          <path d="M8 14h4"></path>
+        </svg>
+        <h3 class="text-base sm:text-lg font-bold text-slate-900 dark:text-white">
+          Step-by-Step Calculation Breakdown
+        </h3>
+      </div>
+
+      <div class="space-y-4 text-xs sm:text-sm text-slate-700 dark:text-binance-text">
+        <!-- Step 1 -->
+        <div class="p-4 rounded-xl bg-slate-50 dark:bg-binance-canvas border border-slate-200 dark:border-binance-border space-y-2">
+          <div class="font-bold text-slate-900 dark:text-white flex items-center gap-2">
+            <span class="w-5 h-5 rounded-full bg-slate-200 dark:bg-binance-elevated flex items-center justify-center text-xs font-mono">1</span>
+            <span>Official Section 16 Cumulative Weighting Formula:</span>
+          </div>
+          <p class="text-slate-600 dark:text-binance-muted font-mono text-xs sm:text-sm bg-white dark:bg-binance-card p-2.5 rounded-lg border border-slate-200 dark:border-binance-border overflow-x-auto">
+            Target_CGPA = (Current_CGPA × Credits_so_far + SGPA_needed × Credits_next_sem) / Total_Cumulative_Credits
+          </p>
+        </div>
+
+        <!-- Step 2 -->
+        <div class="p-4 rounded-xl bg-slate-50 dark:bg-binance-canvas border border-slate-200 dark:border-binance-border space-y-2">
+          <div class="font-bold text-slate-900 dark:text-white flex items-center gap-2">
+            <span class="w-5 h-5 rounded-full bg-slate-200 dark:bg-binance-elevated flex items-center justify-center text-xs font-mono">2</span>
+            <span>Algebraic Derivation for Required SGPA:</span>
+          </div>
+          <p class="text-slate-600 dark:text-binance-muted font-mono text-xs sm:text-sm bg-white dark:bg-binance-card p-2.5 rounded-lg border border-slate-200 dark:border-binance-border overflow-x-auto">
+            SGPA_needed = [ (Target_CGPA × Total_Cumulative_Credits) − (Current_CGPA × Credits_so_far) ] / Credits_next_sem
+          </p>
+        </div>
+
+        <!-- Step 3: Substituted Values -->
+        <div class="p-4 rounded-xl bg-slate-50 dark:bg-binance-canvas border border-slate-200 dark:border-binance-border space-y-3">
+          <div class="font-bold text-slate-900 dark:text-white flex items-center gap-2">
+            <span class="w-5 h-5 rounded-full bg-slate-200 dark:bg-binance-elevated flex items-center justify-center text-xs font-mono">3</span>
+            <span>Substitution with Your Exact Numbers:</span>
+          </div>
+          <div class="grid grid-cols-1 sm:grid-cols-2 gap-3 text-xs">
+            <div class="p-3 bg-white dark:bg-binance-card rounded-lg border border-slate-200 dark:border-binance-border">
+              <span class="text-slate-500 dark:text-binance-muted block">Current Total Grade Points:</span>
+              <span id="sub-current-gp" class="font-mono font-bold text-slate-900 dark:text-white text-sm">--</span>
+            </div>
+            <div class="p-3 bg-white dark:bg-binance-card rounded-lg border border-slate-200 dark:border-binance-border">
+              <span class="text-slate-500 dark:text-binance-muted block">Target Total Grade Points:</span>
+              <span id="sub-target-gp" class="font-mono font-bold text-slate-900 dark:text-white text-sm">--</span>
+            </div>
+            <div class="p-3 bg-white dark:bg-binance-card rounded-lg border border-slate-200 dark:border-binance-border">
+              <span class="text-slate-500 dark:text-binance-muted block">Grade Points to Earn Next Sem:</span>
+              <span id="sub-delta-gp" class="font-mono font-bold text-slate-900 dark:text-white text-sm">--</span>
+            </div>
+            <div class="p-3 bg-white dark:bg-binance-card rounded-lg border border-slate-200 dark:border-binance-border">
+              <span class="text-slate-500 dark:text-binance-muted block">Total Cumulative Credits After Sem:</span>
+              <span id="sub-total-credits" class="font-mono font-bold text-slate-900 dark:text-white text-sm">--</span>
+            </div>
+          </div>
+          <p id="sub-final-equation" class="font-mono text-xs sm:text-sm bg-white dark:bg-binance-card p-3 rounded-lg border border-slate-200 dark:border-binance-border text-amber-600 dark:text-binance-yellow overflow-x-auto font-bold">
+            --
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Mandatory Relative Grading Disclaimer Card -->
+  <div class="p-5 sm:p-6 rounded-2xl bg-amber-500/5 dark:bg-binance-card border border-amber-500/20 dark:border-binance-border space-y-3 text-xs leading-relaxed text-slate-600 dark:text-binance-muted">
+    <div class="flex items-center gap-2 font-bold text-slate-900 dark:text-white text-sm">
+      <svg class="w-4 h-4 text-amber-600 dark:text-binance-yellow shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path>
+      </svg>
+      <span>Important Disclaimer on Relative Grading & Target Estimation</span>
+    </div>
+    <p>
+      This figure represents the exact <strong>required average SGPA</strong> across all registered courses in your upcoming semester, mathematically derived using the official Section 16 credit-weighting formula from the WCE Academic and Examination Rules and Regulations (RR 2023-24).
+    </p>
+    <p>
+      Under WCE Academic Regulations (Section 12.02), individual course letter grades are assigned through <strong>relative grading</strong> against your specific branch cohort for each course. Because cutoffs depend on cohort performance, this tool cannot predict which specific course letter grades (e.g., AA, AB, BB) will achieve this average. It calculates the definitive target average you must aim to secure.
+    </p>
+  </div>
+</div>
+
+<script>
+  import { calculateTargetSgpa } from '../utils/targetPlanner';
+
+  const currentCgpaInput = document.getElementById('current-cgpa') as HTMLInputElement | null;
+  const creditsSoFarInput = document.getElementById('credits-so-far') as HTMLInputElement | null;
+  const creditsNextSemInput = document.getElementById('credits-next-sem') as HTMLInputElement | null;
+  const targetCgpaInput = document.getElementById('target-cgpa') as HTMLInputElement | null;
+  const resetBtn = document.getElementById('reset-btn');
+
+  const errorBox = document.getElementById('error-box');
+  const errorMessage = document.getElementById('error-message');
+  const resultsContainer = document.getElementById('results-container');
+
+  const statusBadge = document.getElementById('status-badge');
+  const resultHeading = document.getElementById('result-heading');
+  const resultSubtext = document.getElementById('result-subtext');
+  const metricValue = document.getElementById('metric-value');
+  const metricSub = document.getElementById('metric-sub');
+
+  const subCurrentGp = document.getElementById('sub-current-gp');
+  const subTargetGp = document.getElementById('sub-target-gp');
+  const subDeltaGp = document.getElementById('sub-delta-gp');
+  const subTotalCredits = document.getElementById('sub-total-credits');
+  const subFinalEquation = document.getElementById('sub-final-equation');
+
+  function updatePlanner() {
+    if (!currentCgpaInput || !creditsSoFarInput || !creditsNextSemInput || !targetCgpaInput) return;
+
+    const val1 = currentCgpaInput.value.trim();
+    const val2 = creditsSoFarInput.value.trim();
+    const val3 = creditsNextSemInput.value.trim();
+    const val4 = targetCgpaInput.value.trim();
+
+    // If any input is empty, hide results and error quietly
+    if (val1 === '' || val2 === '' || val3 === '' || val4 === '') {
+      errorBox?.classList.add('hidden');
+      resultsContainer?.classList.add('hidden');
+      return;
+    }
+
+    const currentCgpa = parseFloat(val1);
+    const creditsSoFar = parseFloat(val2);
+    const creditsNextSem = parseFloat(val3);
+    const targetCgpa = parseFloat(val4);
+
+    const result = calculateTargetSgpa({
+      currentCgpa,
+      creditsSoFar,
+      creditsNextSem,
+      targetCgpa,
+    });
+
+    if (result.status === 'INVALID_INPUT') {
+      if (errorBox && errorMessage) {
+        errorMessage.textContent = result.errorMessage || 'Invalid input values. Please review your entries.';
+        errorBox.classList.remove('hidden');
+      }
+      resultsContainer?.classList.add('hidden');
+      return;
+    }
+
+    errorBox?.classList.add('hidden');
+    resultsContainer?.classList.remove('hidden');
+
+    // Populate Substituted Values Breakdown
+    if (subCurrentGp) subCurrentGp.textContent = `${result.currentCgpa.toFixed(2)} × ${result.creditsSoFar} = ${result.currentGradePoints.toFixed(2)} GP`;
+    if (subTargetGp) subTargetGp.textContent = `${result.targetCgpa.toFixed(2)} × ${result.totalCumulativeCredits} = ${result.totalGradePointsNeeded.toFixed(2)} GP`;
+    if (subDeltaGp) subDeltaGp.textContent = `${result.totalGradePointsNeeded.toFixed(2)} − ${result.currentGradePoints.toFixed(2)} = ${result.deltaGradePointsNeeded.toFixed(2)} GP`;
+    if (subTotalCredits) subTotalCredits.textContent = `${result.creditsSoFar} + ${result.creditsNextSem} = ${result.totalCumulativeCredits} credits`;
+    if (subFinalEquation) {
+      subFinalEquation.textContent = `SGPA_needed = (${result.totalGradePointsNeeded.toFixed(2)} − ${result.currentGradePoints.toFixed(2)}) / ${result.creditsNextSem} = ${result.sgpaNeeded !== null ? result.sgpaNeeded.toFixed(4) : '--'} (≈ ${result.sgpaNeeded !== null ? result.sgpaNeeded.toFixed(2) : '--'})`;
+    }
+
+    // Configure Badge and Headings based on Edge Cases
+    if (!statusBadge || !resultHeading || !resultSubtext || !metricValue || !metricSub) return;
+
+    if (result.status === 'NOT_ACHIEVABLE_THIS_SEM') {
+      statusBadge.className = 'inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-bold uppercase tracking-wider bg-rose-500/10 text-rose-600 dark:text-rose-400 border border-rose-500/20';
+      statusBadge.textContent = 'Not Achievable in 1 Semester';
+      resultHeading.textContent = `Requires ${result.sgpaNeeded?.toFixed(2)} SGPA`;
+      resultSubtext.textContent = `Even with a perfect 10.00 SGPA next semester, the maximum cumulative CGPA you can reach is ${result.maxPossibleCgpa?.toFixed(2)}. Reaching ${result.targetCgpa.toFixed(2)} will require maintaining a high SGPA across multiple future semesters.`;
+      metricValue.textContent = '10.00+';
+      metricValue.className = 'text-3xl sm:text-4xl font-black font-mono text-rose-600 dark:text-rose-400';
+      metricSub.textContent = `Max possible: ${result.maxPossibleCgpa?.toFixed(2)}`;
+    } else if (result.status === 'TARGET_ALREADY_MET') {
+      statusBadge.className = 'inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-bold uppercase tracking-wider bg-emerald-500/10 text-emerald-600 dark:text-emerald-400 border border-emerald-500/20';
+      statusBadge.textContent = 'Target Already Secured';
+      resultHeading.textContent = 'Target CGPA Already Met!';
+      resultSubtext.textContent = `Your current CGPA (${result.currentCgpa.toFixed(2)}) meets or exceeds your target (${result.targetCgpa.toFixed(2)}). You do not require a higher SGPA to maintain this standard.`;
+      metricValue.textContent = '0.00';
+      metricValue.className = 'text-3xl sm:text-4xl font-black font-mono text-emerald-600 dark:text-emerald-400';
+      metricSub.textContent = 'Target already met';
+    } else if (result.status === 'EASILY_SECURED_BELOW_PASSING') {
+      statusBadge.className = 'inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-bold uppercase tracking-wider bg-sky-500/10 text-sky-600 dark:text-sky-400 border border-sky-500/20';
+      statusBadge.textContent = 'Easily Achievable';
+      resultHeading.textContent = `Minimum Pass (4.00) Clears Target`;
+      resultSubtext.textContent = `The mathematical requirement is only ${result.sgpaNeeded?.toFixed(2)} SGPA. Since the minimum passing grade point at WCE is DD = 4.00, simply clearing all registered courses will comfortably exceed your target CGPA of ${result.targetCgpa.toFixed(2)}.`;
+      metricValue.textContent = result.sgpaNeeded ? result.sgpaNeeded.toFixed(2) : '0.00';
+      metricValue.className = 'text-3xl sm:text-4xl font-black font-mono text-sky-600 dark:text-sky-400';
+      metricSub.textContent = 'Min grade point DD=4 clears target';
+    } else {
+      // Standard Achievable Case
+      statusBadge.className = 'inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-bold uppercase tracking-wider bg-amber-500/10 text-amber-600 dark:text-binance-yellow border border-amber-500/20 dark:border-binance-yellow/20';
+      statusBadge.textContent = 'Achievable Target';
+      resultHeading.textContent = `Target SGPA: ${result.sgpaNeeded?.toFixed(2)}`;
+      resultSubtext.textContent = `To elevate your CGPA from ${result.currentCgpa.toFixed(2)} to ${result.targetCgpa.toFixed(2)}, you must achieve an average SGPA of ${result.sgpaNeeded?.toFixed(2)} across all ${result.creditsNextSem} credits in the upcoming semester.`;
+      metricValue.textContent = result.sgpaNeeded ? result.sgpaNeeded.toFixed(2) : '--';
+      metricValue.className = 'text-3xl sm:text-4xl font-black font-mono text-amber-600 dark:text-binance-yellow';
+      metricSub.textContent = 'out of 10.00';
+    }
+  }
+
+  [currentCgpaInput, creditsSoFarInput, creditsNextSemInput, targetCgpaInput].forEach((input) => {
+    input?.addEventListener('input', updatePlanner);
+  });
+
+  resetBtn?.addEventListener('click', () => {
+    if (currentCgpaInput) currentCgpaInput.value = '';
+    if (creditsSoFarInput) creditsSoFarInput.value = '';
+    if (creditsNextSemInput) creditsNextSemInput.value = '';
+    if (targetCgpaInput) targetCgpaInput.value = '';
+    errorBox?.classList.add('hidden');
+    resultsContainer?.classList.add('hidden');
+  });
+</script>
