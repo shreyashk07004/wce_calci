@@ -7,12 +7,14 @@ interface Props {
   title?: string;
   description?: string;
   keywords?: string;
+  robots?: string;
 }
 
 const {
   title = "WCE CGPA to Percentage Calculator | Official Walchand College Formula",
   description = "Convert Walchand College of Engineering (WCE) Sangli CGPA to accurate percentage based on official 2023-24 Academic Rules. Fast, free, and precise.",
-  keywords = "WCE Sangli, CGPA to percentage, WCE calculator, Walchand College of Engineering, SGPA calculator, engineering percentage conversion"
+  keywords = "WCE Sangli, CGPA to percentage, WCE calculator, Walchand College of Engineering, SGPA calculator, engineering percentage conversion",
+  robots
 } = Astro.props;
 ---
 
@@ -41,6 +43,7 @@ const {
     <meta name="title" content={title} />
     <meta name="description" content={description} />
     <meta name="keywords" content={keywords} />
+    {robots && <meta name="robots" content={robots} />}
     
     <!-- Open Graph / Facebook -->
     <meta property="og:type" content="website" />
