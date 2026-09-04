@@ -81,14 +81,33 @@ const contactEmail = 'kshreyash004@gmail.com';
         </p>
       </section>
 
-      <!-- Section 4: Privacy Contact -->
+      <!-- Section 4: Anonymous Visitor Counter -->
+      <section class="space-y-2 pt-4 border-t border-binance-border">
+        <h2 class="text-base sm:text-lg font-bold text-white flex items-center gap-2">
+          <svg class="w-4 h-4 text-binance-yellow shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"></path>
+            <circle cx="9" cy="7" r="4"></circle>
+            <path d="M22 21v-2a4 4 0 0 0-3-3.87"></path>
+            <path d="M16 3.13a4 4 0 0 1 0 7.75"></path>
+          </svg>
+          <span>4. Anonymous Visitor Counter</span>
+        </h2>
+        <p class="text-binance-muted leading-relaxed">
+          The site includes a live visitor counter that makes an anonymous API call to an internal Vercel serverless function backed by an Upstash Redis database, solely to maintain an aggregated total visitor count.
+        </p>
+        <p class="text-binance-muted leading-relaxed">
+          <strong class="text-white">Strict Privacy Guarantee:</strong> No IP addresses, no cookies, and no personally identifiable information (PII) are collected, logged, or stored. The system only stores an anonymous <code class="font-mono bg-binance-canvas px-1.5 py-0.5 rounded border border-binance-border text-binance-yellow">wce_visitor_counted</code> boolean flag in your browser's <code class="font-mono bg-binance-canvas px-1.5 py-0.5 rounded border border-binance-border text-binance-yellow">localStorage</code> to prevent duplicate counts, alongside a single aggregate integer counter on the server.
+        </p>
+      </section>
+
+      <!-- Section 5: Privacy Contact -->
       <section class="space-y-2 pt-4 border-t border-binance-border">
         <h2 class="text-base sm:text-lg font-bold text-white flex items-center gap-2">
           <svg class="w-4 h-4 text-binance-yellow shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
             <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path>
             <polyline points="22,6 12,13 2,6"></polyline>
           </svg>
-          <span>4. Contact Information</span>
+          <span>5. Contact Information</span>
         </h2>
         <p class="text-binance-muted leading-relaxed">
           If you have any questions or concerns regarding this Privacy Policy, please contact us via email at:{' '}

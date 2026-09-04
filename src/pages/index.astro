@@ -4,12 +4,14 @@ import Calculator from '../components/Calculator.astro';
 import ConversionTable from '../components/ConversionTable.astro';
 import HistoryPanel from '../components/HistoryPanel.astro';
 import FaqSection from '../components/FaqSection.astro';
+import VisitorCounter from '../components/VisitorCounter.astro';
 ---
 
 <Layout
   title="WCE CGPA to Percentage Calculator | Official Formula (10 × CGPA − 7.5)"
   description="Instant, officially compliant CGPA to percentage converter for Walchand College of Engineering (WCE) Sangli students under Academic Regulations 2023-24."
 >
+  <VisitorCounter />
   <!-- Hero Section with Binance Banner & Tickers -->
   <section class="relative pt-10 pb-8 md:pt-16 md:pb-12 border-b border-slate-200 dark:border-binance-border/80 overflow-hidden transition-colors duration-150">
     <!-- Ambient glowing backdrop in dark mode -->

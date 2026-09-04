@@ -1,0 +1,135 @@
+---
+// VisitorCounter.astro: Slim top live visitor ticker component
+---
+
+<div
+  id="visitor-counter-bar"
+  class="hidden w-full border-b border-slate-200 bg-slate-50/90 py-1.5 px-4 text-xs font-mono backdrop-blur-xs transition-colors duration-150 dark:border-binance-border/80 dark:bg-binance-card/70"
+>
+  <div class="max-w-7xl mx-auto flex items-center justify-center gap-2.5 sm:gap-3 text-center">
+    <!-- Pulsing Live Indicator Dot -->
+    <span class="relative flex h-2 w-2 items-center justify-center shrink-0">
+      <span class="absolute inline-flex h-full w-full animate-ping rounded-full bg-emerald-400 opacity-75 dark:bg-binance-up"></span>
+      <span class="relative inline-flex h-1.5 w-1.5 rounded-full bg-emerald-500 dark:bg-binance-up"></span>
+    </span>
+
+    <div class="flex items-center gap-1.5 flex-wrap justify-center">
+      <span class="text-slate-600 dark:text-binance-muted">Live Counter:</span>
+      <span
+        id="visitor-count-display"
+        class="inline-block font-bold text-amber-700 dark:text-binance-yellow transition-all duration-300 font-mono tracking-tight text-xs sm:text-sm"
+      >
+        --
+      </span>
+      <span class="text-slate-700 dark:text-binance-text font-sans text-[11px] sm:text-xs">
+        students & visitors have used this tool
+      </span>
+    </div>
+  </div>
+</div>
+
+<script>
+  (() => {
+    const STORAGE_KEY = 'wce_visitor_counted';
+    const POLL_INTERVAL_MS = 20000; // 20 seconds
+    const counterBar = document.getElementById('visitor-counter-bar');
+    const displayElem = document.getElementById('visitor-count-display');
+
+    if (!counterBar || !displayElem) return;
+
+    let currentCount: number | null = null;
+
+    function animateNumber(from: number, to: number) {
+      if (!displayElem) return;
+      if (isNaN(from) || from === to) {
+        displayElem.textContent = to.toLocaleString('en-IN');
+        return;
+      }
+
+      const diff = to - from;
+      const duration = 600; // ms
+      const startTime = performance.now();
+
+      function update(currentTime: number) {
+        if (!displayElem) return;
+        const elapsed = currentTime - startTime;
+        const progress = Math.min(elapsed / duration, 1);
+        // Ease out quad
+        const ease = 1 - (1 - progress) * (1 - progress);
+        const currentVal = Math.round(from + diff * ease);
+
+        displayElem.textContent = currentVal.toLocaleString('en-IN');
+
+        if (progress < 1) {
+          requestAnimationFrame(update);
+        } else {
+          displayElem.textContent = to.toLocaleString('en-IN');
+        }
+      }
+
+      requestAnimationFrame(update);
+    }
+
+    async function fetchCount(isFirstVisit: boolean) {
+      try {
+        const method = isFirstVisit ? 'POST' : 'GET';
+        const res = await fetch('/api/visitor-count', {
+          method,
+          headers: { 'Accept': 'application/json' }
+        });
+
+        if (!res.ok) return;
+
+        const data = await res.json();
+        if (typeof data.count === 'number' && data.count > 0) {
+          const newCount = data.count;
+
+          // If first successful POST, record in localStorage
+          if (isFirstVisit) {
+            try {
+              localStorage.setItem(STORAGE_KEY, '1');
+            } catch {
+              // Ignore localStorage write errors (e.g. strict incognito mode)
+            }
+          }
+
+          // Unhide bar gracefully
+          counterBar?.classList.remove('hidden');
+
+          if (currentCount === null) {
+            displayElem.textContent = newCount.toLocaleString('en-IN');
+          } else if (newCount !== currentCount) {
+            animateNumber(currentCount, newCount);
+          }
+
+          currentCount = newCount;
+        }
+      } catch {
+        // Silently keep hidden if fetch fails or backend is unreachable
+      }
+    }
+
+    function initCounter() {
+      let isFirstVisit = true;
+      try {
+        isFirstVisit = !localStorage.getItem(STORAGE_KEY);
+      } catch {
+        isFirstVisit = false;
+      }
+
+      // Initial count retrieval (POST on first visit, GET otherwise)
+      fetchCount(isFirstVisit);
+
+      // Periodic polling every 20s to reflect other live visitors
+      setInterval(() => {
+        fetchCount(false);
+      }, POLL_INTERVAL_MS);
+    }
+
+    if (document.readyState === 'loading') {
+      document.addEventListener('DOMContentLoaded', initCounter);
+    } else {
+      initCounter();
+    }
+  })();
+</script>
