@@ -17,7 +17,7 @@ Built on the official formulas in WCE's *Academic and Examination Rules and Regu
 
 <br />
 
-<img src="./docs/screenshots/home.png" alt="WCE CGPA to Percentage Converter – home page" width="900" />
+<img src="./docs/screenshots/desktop-home.png" alt="WCE CGPA to Percentage Converter home page with CGPA 8.25 converted to 75.00% and the recent conversion log" width="900" />
 
 </div>
 
@@ -26,36 +26,51 @@ Built on the official formulas in WCE's *Academic and Examination Rules and Regu
 ## 📑 Table of Contents
 
 1. [Overview](#-overview)
-2. [Live Website](#-live-website)
-3. [Screenshots](#-screenshots)
-4. [Features](#-features)
-5. [User Guide](#-user-guide)
-6. [The Official Formulas](#-the-official-formulas)
-7. [Site Map](#-site-map)
-8. [Tech Stack](#️-tech-stack)
-9. [Architecture](#-architecture)
-10. [Project Structure](#-project-structure)
-11. [Quality & Testing](#-quality--testing)
-12. [Privacy & Security](#-privacy--security)
-13. [SEO & Performance](#-seo--performance)
-14. [Ownership & Usage Rights](#-ownership--usage-rights)
-15. [Disclaimer](#️-disclaimer)
-16. [Contact](#-contact)
+2. [Key Highlights](#-key-highlights)
+3. [Live Website](#-live-website)
+4. [Screenshots](#-screenshots)
+5. [Features](#-features)
+6. [User Guide](#-user-guide)
+7. [The Official Formulas](#-the-official-formulas)
+8. [Site Map](#-site-map)
+9. [Tech Stack](#️-tech-stack)
+10. [Architecture](#-architecture)
+11. [Project Structure](#-project-structure)
+12. [Quality & Testing](#-quality--testing)
+13. [Privacy & Security](#-privacy--security)
+14. [SEO, Performance & Accessibility](#-seo-performance--accessibility)
+15. [Browser Support](#-browser-support)
+16. [Ownership & Usage Rights](#-ownership--usage-rights)
+17. [Disclaimer](#️-disclaimer)
+18. [Contact](#-contact)
 
 ---
 
 ## 🔍 Overview
 
-WCE grade cards report performance as a **CGPA on a 10-point scale**, but employers, higher-studies applications and government forms often ask for a **percentage**. WCE's regulations define an official conversion, but students are often unsure which formula applies, and they make arithmetic slips.
+WCE grade cards report performance as a **CGPA on a 10-point scale**, but employers, higher-studies applications, scholarships and government forms often ask for a **percentage**. WCE's regulations define an official conversion, but students are often unsure which formula applies and make arithmetic slips.
 
-This website fixes that. It gives you:
+This website solves that for every WCE student. It provides:
 
 - **An instant CGPA → percentage converter** that uses the exact WCE formula and shows each calculation step.
 - **A target planner** that tells you the SGPA you need next semester to reach a goal CGPA.
 - **A plain-language guide** to the WCE grading scale and conversion rules.
 - **Downloadable reports** (PNG / PDF) of your converted result.
 
-All grade calculations run **entirely in your browser**. You don't need to sign up or log in, and your academic data is never collected.
+**Who it's for:** current WCE Sangli students and alumni who need to quote a percentage on a form, application or résumé, or who want to plan their next semester.
+
+---
+
+## 🌟 Key Highlights
+
+| | |
+| :--- | :--- |
+| 📐 **Official formula** | Uses Section 16 of the WCE regulations exactly: `(10.00 × CGPA) − 7.50` |
+| ⚡ **Instant results** | The percentage and a step-by-step breakdown update as you type |
+| 🎯 **Semester planning** | Works out the SGPA you need next semester to reach a target CGPA |
+| 🔒 **Private by design** | Every calculation runs in your browser, with no sign-up and no personal data collected |
+| 📄 **Shareable reports** | Export your result as a PNG image or PDF document |
+| 🌗 **Dark & light themes** | Follows your system setting, remembers your choice, and works on any screen size |
 
 ---
 
@@ -63,31 +78,81 @@ All grade calculations run **entirely in your browser**. You don't need to sign 
 
 > 🔗 **https://wce-cgpa-to-percentage.vercel.app/**
 
-The site is deployed and maintained by the owner on Vercel. You can use it in any modern desktop or mobile browser without installing anything.
+The owner deploys and maintains the site on Vercel. It works in any modern desktop or mobile browser, with nothing to install.
 
 ---
 
 ## 📸 Screenshots
 
-### CGPA to Percentage Converter
-Enter a CGPA and the result, formula breakdown and range status update instantly.
+### 🖥️ Desktop
 
-<img src="./docs/screenshots/home-full.png" alt="Converter with CGPA 8.25 showing 75.00%, reference table and FAQ" width="900" />
+#### CGPA to Percentage Converter
+Enter a CGPA to see the equated percentage, the official range status and a step-by-step breakdown. Copy, save, or export the result as PNG or PDF.
 
-### Target CGPA / SGPA Planner
-Find out exactly what SGPA you need next semester to reach your target CGPA.
+<img src="./docs/screenshots/desktop-converter-result.png" alt="Converter card showing CGPA 8.25 converted to 75.00% with the step-by-step formula breakdown, verification presets and export buttons" width="760" />
 
-<img src="./docs/screenshots/sgpa-target-planner.png" alt="Target SGPA planner page" width="900" />
+#### Standard Conversion Reference Table
+Precomputed conversions from CGPA 5.00 to 10.00, with a live filter and a **Load** button on each row.
 
-### How It's Calculated
-The official Section 16 formula, worked examples and the complete Table 16.1 grade-point scale.
+<img src="./docs/screenshots/desktop-reference-table.png" alt="WCE standard conversion reference table with CGPA, applied formula, equated percentage, source and Load buttons" width="760" />
 
-<img src="./docs/screenshots/how-its-calculated.png" alt="How it's calculated page with the official formula and grade table" width="900" />
+#### Target CGPA / SGPA Planner
+Enter your current CGPA, credits so far, upcoming credits and target CGPA to get the SGPA you need, along with the full derivation.
 
-### Conversion History
-Saved conversions stay in your own browser and can be cleared with one click.
+<img src="./docs/screenshots/desktop-target-planner.png" alt="Target planner with CGPA 7.20, 120 credits, 24 upcoming credits and target 7.50, showing an achievable target SGPA of 9.00 and the step-by-step breakdown" width="900" />
 
-<img src="./docs/screenshots/history.png" alt="Conversion history page" width="900" />
+#### How It's Calculated
+The official Section 16 formula, worked examples, and the complete Section 12 / Table 16.1 grade-point scale.
+
+<img src="./docs/screenshots/desktop-how-its-calculated.png" alt="How it's calculated page with the official percentage formula, worked example and grade-point table from AA to XX" width="900" />
+
+#### Conversion History
+Conversions you save stay in your own browser and can be deleted one at a time or all at once.
+
+<img src="./docs/screenshots/desktop-history.png" alt="Conversion history page listing four saved conversions with timestamps and delete buttons" width="900" />
+
+### 🌗 Light Theme
+
+<table>
+  <tr>
+    <td align="center"><img src="./docs/screenshots/light-home.png" alt="Home page and converter in light theme" width="440" /><br /><sub><b>Converter</b></sub></td>
+    <td align="center"><img src="./docs/screenshots/light-target-planner.png" alt="Target planner in light theme showing an achievable target SGPA of 9.00" width="440" /><br /><sub><b>Target Planner</b></sub></td>
+  </tr>
+</table>
+
+### 📱 Mobile
+
+<table>
+  <tr>
+    <td align="center"><img src="./docs/screenshots/mobile-home.png" alt="Home page on a phone-width screen" width="250" /><br /><sub><b>Home</b></sub></td>
+    <td align="center"><img src="./docs/screenshots/mobile-converter.png" alt="Converter with CGPA 8.25 on a phone-width screen" width="250" /><br /><sub><b>Converter</b></sub></td>
+    <td align="center"><img src="./docs/screenshots/mobile-planner.png" alt="Target planner result on a phone-width screen" width="250" /><br /><sub><b>Target Planner</b></sub></td>
+  </tr>
+</table>
+
+### 📄 Other Pages
+
+<details>
+<summary><b>About, Contact, Privacy Policy and Terms of Use</b> (click to expand)</summary>
+<br />
+
+**About Us**
+
+<img src="./docs/screenshots/desktop-about.png" alt="About page explaining why the tool was built and its official source citation" width="900" />
+
+**Contact Us**
+
+<img src="./docs/screenshots/desktop-contact.png" alt="Contact page with an email contact button" width="900" />
+
+**Privacy Policy**
+
+<img src="./docs/screenshots/desktop-privacy-policy.png" alt="Privacy policy page describing client-side execution and local storage use" width="900" />
+
+**Terms of Use**
+
+<img src="./docs/screenshots/desktop-terms.png" alt="Terms of use and disclaimer page" width="900" />
+
+</details>
 
 ---
 
@@ -99,17 +164,18 @@ Saved conversions stay in your own browser and can be cleared with one click.
 | Official formula | `Percentage = (10.00 × CGPA) − 7.50`, per Section 16 |
 | Dual input | Type a value **or** drag the slider (0.00 – 10.00) |
 | Live validation | Out-of-range or invalid input shows an inline error |
-| Step-by-step breakdown | Shows the formula with your own value substituted, step by step |
+| Step-by-step breakdown | Shows the formula with your own value substituted |
 | Range status badge | Marks whether the result is in the official range (CGPA ≥ 5.00) |
 | Below-threshold notice | Shows an official note when CGPA < 5.00 |
 | Verification presets | One-click values from WCE's verification table: 6.25, 6.75, 7.25, 7.75, 8.25, 7.80 (worked example), 4.50, 10.00 |
 | Result actions | **Copy Result**, **Save Log**, **Export PNG**, **Export PDF** |
+| Shareable links | Open a result directly, e.g. `/?cgpa=8.25` |
 
 ### 📊 Standard Conversion Reference Table
 - Precomputed conversions from CGPA **5.00 to 10.00**.
 - Highlights official verification-table values and the worked example from the regulations.
-- **Live filter** box to find a CGPA quickly.
-- **Load** button that sends any row straight to the calculator, and works from other pages too.
+- A **live filter** box finds a CGPA quickly.
+- A **Load** button sends any row straight to the calculator, even from other pages.
 
 ### 🎯 Target SGPA Planner (`/sgpa-target-planner`)
 Takes four inputs: **current CGPA**, **credits earned so far**, **credits in the upcoming semester**, and **target CGPA**. It then reports one of these outcomes:
@@ -121,7 +187,7 @@ Takes four inputs: **current CGPA**, **credits earned so far**, **credits in the
 | 🏁 **Already met** | Your current CGPA already meets or beats the target. |
 | ⛔ **Not achievable this semester** | You would need an SGPA above 10.00. The tool shows the **maximum CGPA** you can still reach. |
 
-It also shows how it works: total grade points needed, grade points already earned, and the difference.
+A step-by-step breakdown shows the total grade points needed, the grade points already earned, and the difference.
 
 ### 📖 Formula & Rules Guide (`/how-its-calculated`)
 - Explains Section 16, including the worked example (CGPA 7.80 → 70.50%).
@@ -129,16 +195,16 @@ It also shows how it works: total grade points needed, grade points already earn
 - Includes the searchable reference table.
 
 ### 💾 Local History (`/history`)
-- Stores up to **50** saved conversions with timestamps.
-- Keeps everything in the browser's `localStorage`, and never sends it to a server.
-- **Clear All** removes the history instantly.
+- Keeps your **15** most recent saved conversions, with timestamps.
+- Everything stays in the browser's `localStorage` and is never sent to a server.
+- Delete a single entry, or use **Clear All** to remove the history instantly.
 - Falls back safely in private or restricted browser modes.
 
 ### 🎨 Interface
-- **Dark and light themes.** The site follows your system preference at first, and remembers your choice after you toggle it.
-- **Responsive layout** for phones, tablets and desktops.
-- **Live visitor counter** that shows how many students have used the tool.
-- **FAQ accordion** answering common WCE grading questions.
+- **Dark and light themes.** The site follows your system preference at first, then remembers your choice once you toggle it.
+- **Responsive layout** for phones, tablets and desktops, with a collapsible mobile menu.
+- **Live visitor counter** shows how many students have used the tool.
+- **FAQ accordion** answers common WCE grading questions.
 - Dedicated **About**, **Contact**, **Privacy Policy** and **Terms of Use** pages.
 
 ---
@@ -149,7 +215,7 @@ It also shows how it works: total grade points needed, grade points already earn
 1. Open the [**home page**](https://wce-cgpa-to-percentage.vercel.app/).
 2. Type your CGPA into **"Enter Cumulative GPA (CGPA)"**, or drag the slider.
 3. The **Equated Percentage** appears immediately, and the **Step-by-Step Formula Breakdown** shows the math.
-4. If you like, use the actions under the result:
+4. Optionally, use the actions under the result:
    - **Copy Result**: copies the result to your clipboard.
    - **Save Log**: saves the conversion to your local history.
    - **Export PNG / Export PDF**: downloads a report card of the result.
@@ -166,7 +232,10 @@ It also shows how it works: total grade points needed, grade points already earn
 > ⚠️ WCE uses **relative grading**, so letter-grade cut-offs depend on how your cohort performs. The planner tells you the **average SGPA** to aim for, not which letter grades you'll get in each course.
 
 ### Review saved conversions
-Open [**History**](https://wce-cgpa-to-percentage.vercel.app/history) to see your saved conversions, or click **Clear All** to delete them.
+Open [**History**](https://wce-cgpa-to-percentage.vercel.app/history) to see your saved conversions. Delete any entry, or click **Clear All** to remove them all.
+
+### Switch theme
+Click the ☀️ / 🌙 button in the navigation bar. Your choice is remembered on this device.
 
 ---
 
@@ -199,6 +268,8 @@ CGPA is a credit-weighted average, $\text{CGPA} = \dfrac{\sum C_i G_i}{\sum C_i}
 
 $$\text{SGPA}_{\text{needed}} = \frac{\text{Target} \times (C_{\text{so far}} + C_{\text{next}}) - \text{Current} \times C_{\text{so far}}}{C_{\text{next}}}$$
 
+**Example:** CGPA 7.20 after 120 credits, 24 credits next semester, target 7.50 → (7.50 × 144 − 7.20 × 120) ÷ 24 = **9.00 SGPA**.
+
 ---
 
 ## 🗺 Site Map
@@ -209,7 +280,7 @@ $$\text{SGPA}_{\text{needed}} = \frac{\text{Target} \times (C_{\text{so far}} + 
 | [`/sgpa-target-planner`](https://wce-cgpa-to-percentage.vercel.app/sgpa-target-planner) | Target Planner | Finds the SGPA needed to reach a target CGPA |
 | [`/how-its-calculated`](https://wce-cgpa-to-percentage.vercel.app/how-its-calculated) | How It's Calculated | Official formula and grade-point guide |
 | [`/history`](https://wce-cgpa-to-percentage.vercel.app/history) | History | Locally saved conversions |
-| [`/about`](https://wce-cgpa-to-percentage.vercel.app/about) | About Us | Project background |
+| [`/about`](https://wce-cgpa-to-percentage.vercel.app/about) | About Us | Project background and source citation |
 | [`/contact`](https://wce-cgpa-to-percentage.vercel.app/contact) | Contact Us | Contact details and feedback |
 | [`/privacy-policy`](https://wce-cgpa-to-percentage.vercel.app/privacy-policy) | Privacy Policy | Data-handling policy |
 | [`/terms`](https://wce-cgpa-to-percentage.vercel.app/terms) | Terms of Use | Terms and disclaimer |
@@ -227,7 +298,7 @@ $$\text{SGPA}_{\text{needed}} = \frac{\text{Target} \times (C_{\text{so far}} + 
 | Storage | **Web `localStorage`** | Private, on-device conversion history and theme preference |
 | Serverless | **Vercel Functions** + **Upstash Redis** | Anonymous visitor counter (`/api/visitor-count`) |
 | Testing | **[Vitest](https://vitest.dev/)** | Unit tests for formulas and route metadata |
-| Hosting | **[Vercel](https://vercel.com/)** | Global CDN, automatic HTTPS |
+| Hosting | **[Vercel](https://vercel.com/)** | Global CDN, automatic HTTPS, security headers |
 
 ---
 
@@ -239,7 +310,7 @@ $$\text{SGPA}_{\text{needed}} = \frac{\text{Target} \times (C_{\text{so far}} + 
  Static HTML ───▶│  Astro pages ──▶ Components ──▶ utils/gradeCalculations.ts         │
  (Vercel CDN)    │                                  utils/targetPlanner.ts            │
                  │                                  utils/pdfExport.ts  ──▶ PNG / PDF │
-                 │                                  utils/storage.ts    ──▶ localStorage
+                 │                                  localStorage (history, theme)     │
                  │                                                                    │
                  └──────────────────────────────┬─────────────────────────────────────┘
                                                 │ anonymous count only (no personal data)
@@ -249,7 +320,7 @@ $$\text{SGPA}_{\text{needed}} = \frac{\text{Target} \times (C_{\text{so far}} + 
 
 - **The calculation engine is plain functions.** The formulas live in `src/utils` as pure TypeScript functions with no side effects, and unit tests check them against the regulation values.
 - **Pages are pre-rendered.** Astro builds every page as static HTML, and only the interactive widgets load JavaScript.
-- **The single serverless function holds no data about users.** The visitor counter only increments or reads one integer. If Redis is unavailable, the counter badge is hidden and the rest of the site keeps working.
+- **The single serverless function holds no user data.** The visitor counter only increments or reads one integer. If Redis is unavailable, the counter badge is hidden and the rest of the site keeps working.
 
 ---
 
@@ -260,7 +331,7 @@ $$\text{SGPA}_{\text{needed}} = \frac{\text{Target} \times (C_{\text{so far}} + 
 ├── api/
 │   └── visitor-count.js         # Vercel serverless function – anonymous visitor counter
 ├── docs/
-│   └── screenshots/             # Images used in this README
+│   └── screenshots/             # README screenshots (desktop, light theme, mobile)
 ├── public/
 │   ├── favicon.svg
 │   ├── robots.txt
@@ -290,8 +361,9 @@ $$\text{SGPA}_{\text{needed}} = \frac{\text{Target} \times (C_{\text{so far}} + 
 │       ├── routeMetadata.ts       # Per-page SEO metadata
 │       └── *.test.ts              # Vitest unit tests
 ├── astro.config.mjs
-├── vercel.json
-└── DESIGN.md                      # Design-system reference
+├── vercel.json                    # Clean URLs + security headers
+├── DESIGN.md                      # Design-system reference
+└── LICENSE                        # All rights reserved
 ```
 
 ---
@@ -300,7 +372,7 @@ $$\text{SGPA}_{\text{needed}} = \frac{\text{Target} \times (C_{\text{so far}} + 
 
 - **Unit tests** check the conversion engine against the official WCE verification table and the worked example (CGPA 7.80 → 70.50%). They also cover the below-5.00 warning, out-of-range input and rounding.
 - **Route metadata tests** make sure every page has its own title and description, and that unknown routes fall back to the homepage metadata.
-- **Rounding** is exact to two decimal places (with `Number.EPSILON` compensation) to avoid floating-point errors such as `70.49999…`.
+- **Rounding** is exact to two decimal places (with `Number.EPSILON` compensation), which avoids floating-point errors such as `70.49999…`.
 - **Input validation** is enforced in both the UI and the calculation layer.
 
 ---
@@ -310,22 +382,30 @@ $$\text{SGPA}_{\text{needed}} = \frac{\text{Target} \times (C_{\text{so far}} + 
 | Principle | How it's applied |
 | :--- | :--- |
 | **No personal data** | No accounts, logins, forms or cookies collect personal information. |
-| **Client-side math** | Every grade calculation runs in your browser, and your CGPA is never sent to a server. |
+| **Client-side math** | Every grade calculation runs in your browser, so your CGPA is never sent to a server. |
 | **Local-only history** | Saved conversions stay in your browser's `localStorage`, and you can clear them at any time. |
 | **Anonymous counter** | The visitor counter stores a single total and nothing that identifies a visitor. |
 | **Secrets kept server-side** | Redis credentials live only in Vercel environment variables, never in client code. |
+| **Security headers** | Every response sets `X-Content-Type-Options: nosniff`, `X-Frame-Options: DENY`, `X-XSS-Protection` and a strict `Referrer-Policy`. |
 | **HTTPS everywhere** | Vercel serves every page over TLS. |
 
 Read the full [Privacy Policy](https://wce-cgpa-to-percentage.vercel.app/privacy-policy).
 
 ---
 
-## 🚀 SEO & Performance
+## 🚀 SEO, Performance & Accessibility
 
 - Static pre-rendered pages load fast and need very little JavaScript.
 - Every route has its own title and meta description.
 - `sitemap.xml` and `robots.txt` are provided for search engines, and the site is verified with Google Search Console.
-- Semantic HTML and keyboard-accessible controls.
+- Clean URLs (no `.html` extensions).
+- Semantic HTML, keyboard-accessible controls, and readable contrast in both themes.
+
+---
+
+## 🌍 Browser Support
+
+Works in current versions of **Chrome, Edge, Firefox and Safari** on desktop, and in **Chrome and Safari** on Android and iOS. JavaScript is required for the interactive calculators.
 
 ---
 
