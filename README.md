@@ -13,6 +13,7 @@ Built on the official formulas in WCE's *Academic and Examination Rules and Regu
 [![Tailwind CSS](https://img.shields.io/badge/Tailwind_CSS-4-38B2AC?style=flat-square&logo=tailwindcss&logoColor=white)](https://tailwindcss.com/)
 [![Vitest](https://img.shields.io/badge/Tested_with-Vitest-6E9F18?style=flat-square&logo=vitest&logoColor=white)](https://vitest.dev/)
 [![Hosted on Vercel](https://img.shields.io/badge/Hosted_on-Vercel-000000?style=flat-square&logo=vercel&logoColor=white)](https://vercel.com/)
+[![License: All Rights Reserved](https://img.shields.io/badge/License-All_Rights_Reserved-red?style=flat-square)](./LICENSE)
 
 <br />
 
@@ -336,7 +337,7 @@ This project, including its source code, design and content, is **privately owne
 - **Only the owner may modify, redeploy or publish** this codebase. Pull requests and forks meant for redistribution are not accepted.
 - Copying, rehosting or rebranding this project without written permission is not allowed.
 
-© 2026 shreyashk07004. **All rights reserved.**
+© 2026 shreyashk07004. **All rights reserved.** See [LICENSE](./LICENSE) for the full terms.
 
 ---
 
